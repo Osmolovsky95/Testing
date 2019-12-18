@@ -25,13 +25,29 @@
         <url-pattern>/list</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>DeleteStudent</servlet-name>
-        <servlet-class>DeleteServlet</servlet-class>
-    </servlet>
+    <servlet-name>DeleteStudent</servlet-name>
+    <servlet-class>DeleteServlet</servlet-class>
+</servlet>
     <servlet-mapping>
         <servlet-name>DeleteStudent</servlet-name>
         <url-pattern>/delete</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>Administrator</servlet-name>
+        <servlet-class>AdministrarorServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Administrator</servlet-name>
+        <url-pattern>/administratorPage</url-pattern>
+    </servlet-mapping>
 
+    <servlet>
+        <servlet-name>CreateQuestion</servlet-name>
+        <servlet-class>QuestionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateQuestion</servlet-name>
+        <url-pattern>/createQuestion</url-pattern>
+    </servlet-mapping>
 
 </web-app>

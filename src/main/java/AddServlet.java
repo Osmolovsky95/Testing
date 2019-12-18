@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 
+
 import static java.sql.DriverManager.getConnection;
 
 
@@ -25,6 +26,7 @@ public class AddServlet extends HttpServlet {
 resp.setCharacterEncoding("UTF-8");
 resp.setContentType("text/html;charset=UTF-8");
             String name = req.getParameter("name");
+            String s=name;
             int id= Integer.parseInt(req.getParameter("pass"));
             String insertQuerry="insert into students (name) value ("+"\'"+name+"\'"+")";
             System.out.println(insertQuerry);

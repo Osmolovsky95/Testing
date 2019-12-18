@@ -11,5 +11,14 @@
     <title>Administrator</title>
 </head>
 <body>
+<form method="post">
+    <label>Имя:
+        <input type="text" name="name"><br />
+    </label>
+    <label>Пароль:
+        <input type="password" name="pass"><br />
+    </label>
+    <button type="submit">Войти</button>
+</form>
 </body>
 </html>

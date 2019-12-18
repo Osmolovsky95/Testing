@@ -8,14 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Delete student</title>
+    <title>Удалить студента</title>
 </head>
 <body>
 <form method="post">
-    <label>Name:
+    <label>Имя:
         <input type="text" name="name"><br />
     </label>
-    <button onclick="Location.href='/Testing_war/delete'">Delete student</button>
+    <button onclick="Location.href='/Testing_war/delete'">Удалить</button>
 </form>
 </body>
 </html>
