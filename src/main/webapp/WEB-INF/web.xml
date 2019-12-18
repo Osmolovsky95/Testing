@@ -50,4 +50,12 @@
         <url-pattern>/createQuestion</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>StudentSignIn</servlet-name>
+        <servlet-class>StudentSignInServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentSignIn</servlet-name>
+        <url-pattern>/studentPage</url-pattern>
+    </servlet-mapping>
 </web-app>

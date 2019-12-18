@@ -16,16 +16,16 @@
         <input type="text" name="question"><br />
     </label>
     <label>Вариант ответа 1:
-        <input type="text" name="answer"><br />
+        <input type="text" name="answer1"><br />
     </label>
     <label>Вариант ответа 2:
-        <input type="text" name="answer"><br />
+        <input type="text" name="answer2"><br />
     </label>
     <label>Вариант ответа 3:
-        <input type="text" name="answer"><br />
+        <input type="text" name="answer3"><br />
     </label>
     <label>Вариант ответа 4:
-    <input type="text" name="answer"><br />
+    <input type="text" name="answer4"><br />
 </label>
     <label>Номер правильного варианта ответа:
         <input type="text" name="trueNumber"><br />

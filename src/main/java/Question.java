@@ -1,10 +1,13 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Question {
-  private   String question;
-  private List <String> answers;
-  private   int trueAnswer;
-  double assessment;
+
+    public static int count=1;
+    private   String question;
+    private List <String> answers=new ArrayList<>();
+    private   int trueNumber;
+    private double assessment;
 
     public double getAssessment() {
         return assessment;
@@ -30,11 +33,22 @@ public class Question {
         this.answers = answers;
     }
 
-    public int getTrueAnswer() {
-        return trueAnswer;
+    public int getTrueNumber() {
+        return trueNumber;
     }
 
-    public void setTrueAnswer(int trueAnswer) {
-        this.trueAnswer = trueAnswer;
+    public void setTrueNumber(int trueNumber) {
+        this.trueNumber = trueNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "question='" + question + '\'' +
+                ", answers=" + answers +
+                ", trueNumber=" + trueNumber +
+                ", assessment=" + assessment +
+                '}';
+
     }
 }

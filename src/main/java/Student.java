@@ -1,16 +1,27 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Student {
     private String name;
     private int id;
+    private  List<Integer> assessments=new ArrayList<>();
+    private String password;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
-        return id == student.id &&
-                name.equals(student.name);
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<Integer> getAssessments() {
+        return assessments;
+    }
+
+    public void setAssessments(List<Integer> assessments) {
+        this.assessments = assessments;
     }
 
     public Student(String name, int id) {

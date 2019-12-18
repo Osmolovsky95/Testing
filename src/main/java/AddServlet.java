@@ -26,9 +26,9 @@ public class AddServlet extends HttpServlet {
 resp.setCharacterEncoding("UTF-8");
 resp.setContentType("text/html;charset=UTF-8");
             String name = req.getParameter("name");
-            String s=name;
+            String password= req.getParameter("pass");
             int id= Integer.parseInt(req.getParameter("pass"));
-            String insertQuerry="insert into students (name) value ("+"\'"+name+"\'"+")";
+            String insertQuerry= "insert into students (name,password) values"+"(\'"+name+"\', \'"+password+"\')";
             System.out.println(insertQuerry);
             ////////////////////////////////////////////
             //Insert to DataBase
@@ -46,9 +46,9 @@ resp.setContentType("text/html;charset=UTF-8");
                 System.out.println("no connection");
             }
            ///////////////////////////////////////////////
-            Student user = new Student(name, id);
+            Student student = new Student(name, id);
             Model model = Model.getInstance();
-            model.add(user);
+          //  model.add(user);
             req.setAttribute("userName", name);
             doGet(req, resp);
         }
