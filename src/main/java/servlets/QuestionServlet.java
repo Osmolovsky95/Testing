@@ -7,10 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 import Question.BankQuestions;
 import Question.Question;
 
@@ -33,25 +29,7 @@ public class QuestionServlet extends HttpServlet {
         double assessment = Double.parseDouble(req.getParameter("assessment"));
         int trueNumber = Integer.parseInt(req.getParameter("trueNumber"));
         int id = Integer.parseInt(req.getParameter("id"));
-        //  String querry1="insert into questions (question,answer1,answer2,answer3,answer4,assessment,trueNumber)";
-        //String querry2="values " +"(\'"+question+"\', \'"+answer1+"\', \'"+answer2+"\', \'"+answer3+"\', \'"+answer4+"\', \'"+assessment+"\', \'"+trueNumber+"\'"+")";
-        //String insertQuerry= querry1+querry2;
-        //System.out.println(insertQuerry);
-        ////////////////////////////////////////////
-        //Insert to DataBase
-        ////////////////////////////////////////////
-       /* try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/novacom?serverTimezone=UTC", "root", "root");
-            Statement statement = connection.createStatement();
-            statement.execute(insertQuerry);
-        } catch (SQLException e) {
-            System.out.println("No connection");
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            System.out.println("no connection");
-        }*/
+
         BankQuestions bankQuestions= BankQuestions.getInstance();
         Question question1=new Question();
         question1.getAnswers().add(req.getParameter("answer1"));
@@ -67,8 +45,6 @@ public class QuestionServlet extends HttpServlet {
         pw.println("<html>");
         pw.println("<h1>"+bankQuestions.getQuestions().get(0)+"<h1>");
         pw.println("</html>");
-
-
     }
 }
 

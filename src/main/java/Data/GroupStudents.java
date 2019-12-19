@@ -1,8 +1,5 @@
 package Data;
 
-import Data.Student;
-import Question.BankQuestions;
-
 import java.util.ArrayList;
 import java.util.List;
 

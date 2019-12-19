@@ -11,15 +11,12 @@ import java.io.IOException;
 import java.util.List;
 
 public class ListServlet extends HttpServlet {
-
-    // TODO: 19.12.2019
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         System.out.println(req.getParameter("student"));
 
     }
-
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         GroupStudents model = GroupStudents.getInstance();
         List<Student> names = model.getStudents();
@@ -27,7 +24,5 @@ public class ListServlet extends HttpServlet {
         req.setAttribute("userNames", names);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/list.jsp");
         requestDispatcher.forward(req, resp);
-
-
     }
 }

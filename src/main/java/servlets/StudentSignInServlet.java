@@ -36,8 +36,6 @@ public class StudentSignInServlet extends HttpServlet {
            if(Integer.parseInt(s[i])==trueNumber){
                System.out.println("Верно");
                countQuestion++;
-           //    updateJSP(req,resp,countQuestion);
-
            }
         }
     }

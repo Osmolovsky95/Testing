@@ -5,17 +5,10 @@ import Data.Student;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.*;
-
-
-import static java.sql.DriverManager.getConnection;
-
 
 public class AddServlet extends HttpServlet {
 
@@ -38,30 +31,6 @@ public class AddServlet extends HttpServlet {
             Student student=new Student(name,password);
             myGroup.getStudents().add(student);
             System.out.println("addServlet "+myGroup.getStudents().size());
-           //  String insertQuerry= "insert into students (name,password) values"+"(\'"+name+"\', \'"+password+"\')";
-           // System.out.println(insertQuerry);
-           /* ////////////////////////////////////////////
-            //Insert to DataBase
-            ////////////////////////////////////////////
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/novacom?serverTimezone=UTC", "root", "root");
-                Statement statement = connection.createStatement();
-                statement.execute(insertQuerry);
-            } catch (SQLException e) {
-                System.out.println("No connection");
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-                System.out.println("no connection");
-            }
-           ///////////////////////////////////////////////
-            Student student = new Student();
-            student.setName(name);
-            student.setPassword(password);
-*/
-
-
             req.setAttribute("userName", name);
             doGet(req, resp);
         }

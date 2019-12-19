@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DeleteServlet extends HttpServlet {
-
+// TODO: 19.12.2019 удалять из коллекции
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
