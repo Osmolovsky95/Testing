@@ -1,3 +1,5 @@
+package servlets;
+
 import Data.GroupStudents;
 import Data.Student;
 import servlets.AddServlet;
