@@ -1,3 +1,8 @@
+package servlets;
+
+import Data.GroupStudents;
+import Data.Student;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +19,8 @@ import static java.sql.DriverManager.getConnection;
 
 public class AddServlet extends HttpServlet {
 
+
+
         @Override
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/add.jsp");
@@ -23,14 +30,17 @@ public class AddServlet extends HttpServlet {
         @Override
 
         protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-resp.setCharacterEncoding("UTF-8");
-resp.setContentType("text/html;charset=UTF-8");
+            GroupStudents myGroup=GroupStudents.getInstance();
+            resp.setCharacterEncoding("UTF-8");
+            resp.setContentType("text/html;charset=UTF-8");
             String name = req.getParameter("name");
             String password= req.getParameter("pass");
-            int id= Integer.parseInt(req.getParameter("pass"));
-            String insertQuerry= "insert into students (name,password) values"+"(\'"+name+"\', \'"+password+"\')";
-            System.out.println(insertQuerry);
-            ////////////////////////////////////////////
+            Student student=new Student(name,password);
+            myGroup.getStudents().add(student);
+            System.out.println("addServlet "+myGroup.getStudents().size());
+           //  String insertQuerry= "insert into students (name,password) values"+"(\'"+name+"\', \'"+password+"\')";
+           // System.out.println(insertQuerry);
+           /* ////////////////////////////////////////////
             //Insert to DataBase
             ////////////////////////////////////////////
             try {
@@ -46,9 +56,12 @@ resp.setContentType("text/html;charset=UTF-8");
                 System.out.println("no connection");
             }
            ///////////////////////////////////////////////
-            Student student = new Student(name, id);
-            Model model = Model.getInstance();
-          //  model.add(user);
+            Student student = new Student();
+            student.setName(name);
+            student.setPassword(password);
+*/
+
+
             req.setAttribute("userName", name);
             doGet(req, resp);
         }

@@ -24,6 +24,7 @@ printWriter.println("<h1>Добро пожаловать "+ request.getParameter
         <button onclick="location.href='/Testing_war/add'">Добавить студента</button>
         <button onclick="location.href='/Testing_war/delete'">Удалить студента</button>
         <button onclick="location.href='/Testing_war/createQuestion'">Создать вопрос</button>
+        <button onclick="location.href='/Testing_war/listQuestions'">Список вопросов</button>
     </div>
 </div>
 </body>

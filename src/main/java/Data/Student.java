@@ -1,12 +1,20 @@
+package Data;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class Student {
     private String name;
-    private int id;
+    private static int id=1;
     private  List<Integer> assessments=new ArrayList<>();
     private String password;
+
+    public Student(String name,String password) {
+        this.name=name;
+        this.password=password;
+        this.id=id++;
+    }
 
     public String getPassword() {
         return password;

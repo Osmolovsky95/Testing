@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Student</title>
+    <title>Data.Student</title>
 </head>
 <body>
 <form method="post">
@@ -18,7 +18,7 @@
     <label>Пароль:
         <input type="password" name="pass"><br />
     </label>
-    <button type="submit">Войти</button>
+    <button onclick="Location.href='studentPage/Test'">Войти</button>
 </form>
 </body>
 </html>

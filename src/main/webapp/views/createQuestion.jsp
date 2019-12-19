@@ -15,6 +15,9 @@
     <label>Вопрос:
         <input type="text" name="question"><br />
     </label>
+    <label>id:
+        <input type="text" name="id"><br />
+    </label>
     <label>Вариант ответа 1:
         <input type="text" name="answer1"><br />
     </label>

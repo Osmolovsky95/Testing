@@ -7,7 +7,7 @@
 
     <servlet>
         <servlet-name>AddServlet</servlet-name>
-        <servlet-class>AddServlet</servlet-class>
+        <servlet-class>servlets.AddServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -26,7 +26,7 @@
     </servlet-mapping>
     <servlet>
     <servlet-name>DeleteStudent</servlet-name>
-    <servlet-class>DeleteServlet</servlet-class>
+    <servlet-class>servlets.DeleteServlet</servlet-class>
 </servlet>
     <servlet-mapping>
         <servlet-name>DeleteStudent</servlet-name>
@@ -34,7 +34,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>Administrator</servlet-name>
-        <servlet-class>AdministrarorServlet</servlet-class>
+        <servlet-class>servlets.AdministrarorServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Administrator</servlet-name>
@@ -43,7 +43,7 @@
 
     <servlet>
         <servlet-name>CreateQuestion</servlet-name>
-        <servlet-class>QuestionServlet</servlet-class>
+        <servlet-class>servlets.QuestionServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CreateQuestion</servlet-name>
@@ -52,10 +52,26 @@
 
     <servlet>
         <servlet-name>StudentSignIn</servlet-name>
-        <servlet-class>StudentSignInServlet</servlet-class>
+        <servlet-class>servlets.StudentSignInServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>StudentSignIn</servlet-name>
         <url-pattern>/studentPage</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Test</servlet-name>
+        <jsp-file>/Test.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Test</servlet-name>
+        <url-pattern>/studentPage/Test</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ListQuestions</servlet-name>
+        <servlet-class>servlets.ListQuestionsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListQuestions</servlet-name>
+        <url-pattern>/listQuestions</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -1,13 +1,12 @@
-<%@ page import="java.sql.Connection" %>
-<%@ page import="java.sql.DriverManager" %>
-<%@ page import="java.sql.Statement" %>
-<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="Data.Student" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
+
 <html>
 <head>
  <title>Users</title>
 </head>
-
 <body>
 <div>
  <h1>Super app!</h1>
@@ -18,17 +17,14 @@
   <div>
    <h2>Студенты</h2>
   </div>
-  <%Class.forName("com.mysql.cj.jdbc.Driver");
-   Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/novacom?serverTimezone=UTC", "root", "root");
-   Statement statement = connection.createStatement();
-   ResultSet resultSet=statement.executeQuery("select * from students");
-   out.println("<select name=\"student\">");
-   while (resultSet.next()){
-    String name=resultSet.getString("name");
-    out.println("<option>" + name + "</option>");
+  <%
+   ArrayList<Student> names= ( ArrayList<Student>)request.getAttribute("userNames");
+   PrintWriter pw=response.getWriter();
+   pw.println("<select>");
+   for (Student s:names){
+    pw.println( "<option>Student: " +s.getName() + "</option>");
    }
-   out.println("</select>");
-  %>
+   pw.println("</select>");%>
  </div>
 </div>
  <div>
