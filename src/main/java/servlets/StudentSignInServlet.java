@@ -6,38 +6,62 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Iterator;
+
+import Data.GroupStudents;
+import Data.Student;
 import Question.BankQuestions;
 import Question.Question;
 
 public class StudentSignInServlet extends HttpServlet {
-    int countQuestion=0;
+
+static{
+    Student student=new Student("sasha","1995");
+    GroupStudents.getInstance().getStudents().add(student);
+        BankQuestions bankQuestions= BankQuestions.getInstance();
+        for (int i=0;i<10;i++) {
+            Question question1 = new Question();
+            question1.getAnswers().add("answer1");
+            question1.getAnswers().add("answer2");
+            question1.getAnswers().add("answer3");
+            question1.getAnswers().add("answer4");
+            question1.setQuestion("question "+i);
+            question1.setTrueNumber(1);
+            question1.setAssessment(2);
+            question1.setId(Question.count);
+            bankQuestions.getQuestions().add(i,question1);
+        }
+
+}
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/studentPage.jsp");
         requestDispatcher.forward(req, resp);
-
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Question question=BankQuestions.getInstance().getQuestions().get(countQuestion);
-        req.setAttribute("question", question.getQuestion());
-        req.setAttribute("answer0",question.getAnswers().get(0));
-        req.setAttribute("answer1",question.getAnswers().get(1));
-        req.setAttribute("answer2",question.getAnswers().get(2));
-        req.setAttribute("answer3",question.getAnswers().get(3));
+        String name = req.getParameter("name");
+        String password = req.getParameter("pass");
+        GroupStudents groupStudents = GroupStudents.getInstance();
+        Iterator<Student> iterator = groupStudents.getStudents().iterator();
+        Student student;
+        PrintWriter pw = resp.getWriter();
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/Test.jsp");
-        requestDispatcher.forward(req, resp);
+        while (iterator.hasNext()) {
+            student = iterator.next();
+            if (student.getName().equals(name) & student.getPassword().equals(password)) {
+               resp.sendRedirect("TestServlet");
+            } else {
+                pw.println("Invalid input");
+            }
 
-       int trueNumber=BankQuestions.getInstance().getQuestions().get(countQuestion).getTrueNumber();
-        String[]  s=req.getParameterValues(""+trueNumber);
-        for (int i=0;i<s.length;i++){
-           if(Integer.parseInt(s[i])==trueNumber){
-               System.out.println("Верно");
-               countQuestion++;
-           }
+
+
+
+
         }
     }
-    }
+}
 

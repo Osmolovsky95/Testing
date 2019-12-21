@@ -60,11 +60,11 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>Test</servlet-name>
-        <jsp-file>/Test.jsp</jsp-file>
+        <servlet-class>servlets.TestServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Test</servlet-name>
-        <url-pattern>/studentPage/Test</url-pattern>
+        <url-pattern>/TestServlet</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>ListQuestions</servlet-name>

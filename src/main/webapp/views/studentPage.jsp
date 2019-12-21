@@ -18,7 +18,7 @@
     <label>Пароль:
         <input type="password" name="pass"><br />
     </label>
-    <button onclick="Location.href='studentPage/Test'">Войти</button>
+    <button onclick="Location.href='/Testing_war/views/Test.jsp'">Войти</button>
 </form>
 </body>
 </html>

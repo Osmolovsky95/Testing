@@ -1,6 +1,7 @@
 package servlets;
 
 import Question.BankQuestions;
+import Question.Question;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,8 +22,9 @@ public class ListQuestionsServlet extends HttpServlet {
         } else {
             pw.println("<html>");
             pw.println("<body>");
+
             for (int i = 0; i < sizeQuestions; i++) {
-                pw.println("<h5>" + bankQuestions.getQuestions().get(i).getQuestion() + "<h5>");
+                pw.println("<p>"+ bankQuestions.getQuestions().get(i).getQuestion() + "  id:  "+bankQuestions.getQuestions().get(i).getId()+"</p>");
             }
             pw.println("</body>");
             pw.println("</html>");
