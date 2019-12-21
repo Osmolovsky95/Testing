@@ -13,15 +13,19 @@ public class ListQuestionsServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-     PrintWriter pw=resp.getWriter();
-     BankQuestions bankQuestions=BankQuestions.getInstance();
-     int sizeQuestions=bankQuestions.getQuestions().size();
-     pw.println("<html>");
-        pw.println("<body>");
-        for(int i=0;i<sizeQuestions;i++){
-        pw.println("<h5>"+ bankQuestions.getQuestions().get(i).getQuestion()+"<h5>");
+        PrintWriter pw = resp.getWriter();
+        BankQuestions bankQuestions = BankQuestions.getInstance();
+        int sizeQuestions = bankQuestions.getQuestions().size();
+        if (bankQuestions.getQuestions().isEmpty()) {
+            pw.println("Not questions");
+        } else {
+            pw.println("<html>");
+            pw.println("<body>");
+            for (int i = 0; i < sizeQuestions; i++) {
+                pw.println("<h5>" + bankQuestions.getQuestions().get(i).getQuestion() + "<h5>");
+            }
+            pw.println("</body>");
+            pw.println("</html>");
         }
-        pw.println("</body>");
-        pw.println("</html>");
     }
 }

@@ -1,5 +1,8 @@
 package servlets;
 
+import Data.GroupStudents;
+import Data.Student;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +13,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class DeleteServlet extends HttpServlet {
 // TODO: 19.12.2019 удалять из коллекции
@@ -17,30 +23,27 @@ public class DeleteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String name=req.getParameter("name");
-        System.out.println(name);
-        String deleteQuerry=" delete from students where name='"+name+"\'";
-        System.out.println(deleteQuerry);
-        ////////////////////////////////////
-
-        /////////////////////////////////////
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/novacom?serverTimezone=UTC", "root", "root");
-            Statement statement = connection.createStatement();
-            System.out.println(  statement.executeUpdate(deleteQuerry));
-        } catch (SQLException e) {
-            System.out.println("No connection");
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            System.out.println("no connection");
+        String name = req.getParameter("name");
+        GroupStudents groupStudents = GroupStudents.getInstance();
+        String studentName;
+        List<Student> students=groupStudents.getStudents();
+        Iterator<Student> iterator=students.iterator();
+        while (iterator.hasNext()) {
+            Student student=iterator.next();
+            studentName = student.getName();
+            if (studentName.equals(name)) {
+                students.remove(student);
+                System.out.println("Student "+ name+ "removed");
+                break;
+            }
         }
+       req.setAttribute("name",name);
+        doGet(req,resp);
     }
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/delete.jsp");
         requestDispatcher.forward(req, resp);
     }
-}
+    }
+

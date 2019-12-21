@@ -21,15 +21,6 @@ public class QuestionServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String question = req.getParameter("question");
-        String answer1 = req.getParameter("answer1");
-        String answer2 = req.getParameter("answer2");
-        String answer3 = req.getParameter("answer3");
-        String answer4 = req.getParameter("answer4");
-        double assessment = Double.parseDouble(req.getParameter("assessment"));
-        int trueNumber = Integer.parseInt(req.getParameter("trueNumber"));
-        int id = Integer.parseInt(req.getParameter("id"));
-
         BankQuestions bankQuestions= BankQuestions.getInstance();
         Question question1=new Question();
         question1.getAnswers().add(req.getParameter("answer1"));
@@ -42,9 +33,7 @@ public class QuestionServlet extends HttpServlet {
         question1.setId(Question.count+1);
         bankQuestions.getQuestions().add(question1);
         PrintWriter pw=resp.getWriter();
-        pw.println("<html>");
-        pw.println("<h1>"+bankQuestions.getQuestions().get(0)+"<h1>");
-        pw.println("</html>");
+        pw.println("Question is added");
     }
 }
 

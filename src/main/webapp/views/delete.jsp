@@ -17,5 +17,12 @@
     </label>
     <button onclick="Location.href='/Testing_war/delete'">Удалить</button>
 </form>
+<div>
+    <%
+        if (request.getAttribute("name") != null) {
+            out.println("<p>User '" + request.getAttribute("name") + "' removed!</p>");
+        }
+    %>
+</div>
 </body>
 </html>
