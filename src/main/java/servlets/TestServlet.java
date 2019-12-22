@@ -21,6 +21,7 @@ public class TestServlet extends HttpServlet {
     // TODO: 21.12.2019  
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setCharacterEncoding("UTF-8");
         req.setAttribute("nameButton", "Ответить");
         HttpSession session=req.getSession();
         student=(Student) session.getAttribute("currentStudent");
@@ -41,12 +42,14 @@ public class TestServlet extends HttpServlet {
             if (Integer.parseInt(s[i]) == trueNumber) {
                 System.out.println("Верно");
                 currentAssesment=currentAssesment+question.getAssessment();
+                student.getAssessments().add(currentAssesment);
             }
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setCharacterEncoding("UTF-8");
             if(countQuestion<BankQuestions.getInstance().getQuestions().size()-1) {
                 req.setAttribute("nameButton", "Ответить");
                 countQuestion++;
@@ -73,6 +76,7 @@ public class TestServlet extends HttpServlet {
                 currentAssesment=currentAssesment+lastQuestion.getAssessment();
                 PrintWriter pw=resp.getWriter();
                 pw.println("Your assessment is  "+currentAssesment);
+                student.getAssessments().add(currentAssesment);
             }
     }
 }

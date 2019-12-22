@@ -14,6 +14,7 @@ import java.util.List;
 
 public class ListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setCharacterEncoding("UTF-8");
         GroupStudents model = GroupStudents.getInstance();
         List<Student> names = model.getStudents();
         req.setAttribute("userNames", names);

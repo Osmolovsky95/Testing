@@ -36,13 +36,15 @@ static{
 }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/studentPage.jsp");
+        resp.setCharacterEncoding("UTF-8");
+    RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/studentPage.jsp");
         requestDispatcher.forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name = req.getParameter("name");
+        resp.setCharacterEncoding("UTF-8");
+    String name = req.getParameter("name");
         String password = req.getParameter("pass");
         GroupStudents groupStudents = GroupStudents.getInstance();
         Iterator<Student> iterator = groupStudents.getStudents().iterator();

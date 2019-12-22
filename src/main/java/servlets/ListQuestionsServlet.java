@@ -14,6 +14,7 @@ public class ListQuestionsServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setCharacterEncoding("UTF-8");
         PrintWriter pw = resp.getWriter();
         BankQuestions bankQuestions = BankQuestions.getInstance();
         int sizeQuestions = bankQuestions.getQuestions().size();

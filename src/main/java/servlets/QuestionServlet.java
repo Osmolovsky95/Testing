@@ -15,12 +15,14 @@ public class QuestionServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setCharacterEncoding("UTF-8");
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/createQuestion.jsp");
         requestDispatcher.forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setCharacterEncoding("UTF-8");
         BankQuestions bankQuestions= BankQuestions.getInstance();
         Question question1=new Question();
         question1.getAnswers().add(req.getParameter("answer1"));
