@@ -5,7 +5,7 @@ import java.util.List;
 
 public class BankQuestions {
      private List<Question> questions=new ArrayList<>();
-    private static volatile BankQuestions instance;
+     private static volatile BankQuestions instance;
 
     public static BankQuestions getInstance() {
         BankQuestions localInstance = instance;

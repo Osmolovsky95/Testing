@@ -13,6 +13,7 @@
     <title>Тест</title>
 </head>
 <body>
+<p>Hello ${name}</p>
 <form method="post">
     <p><b>   ${question}</b></p>
     <p><input type= "checkbox" name="0" value="0">${answer0}<Br>

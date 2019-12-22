@@ -7,7 +7,7 @@ import java.util.Objects;
 public class Student {
     private String name;
     private static int id=1;
-    private  List<Integer> assessments=new ArrayList<>();
+    private  List<Double> assessments=new ArrayList<>();
     private String password;
 
     public Student(String name,String password) {
@@ -24,11 +24,11 @@ public class Student {
         this.password = password;
     }
 
-    public List<Integer> getAssessments() {
+    public List<Double> getAssessments() {
         return assessments;
     }
 
-    public void setAssessments(List<Integer> assessments) {
+    public void setAssessments(List<Double> assessments) {
         this.assessments = assessments;
     }
 

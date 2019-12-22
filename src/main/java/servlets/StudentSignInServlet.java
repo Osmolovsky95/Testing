@@ -5,10 +5,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Iterator;
-
 import Data.GroupStudents;
 import Data.Student;
 import Question.BankQuestions;
@@ -53,6 +53,8 @@ static{
             student = iterator.next();
             if (student.getName().equals(name) & student.getPassword().equals(password)) {
                resp.sendRedirect("TestServlet");
+                HttpSession session=req.getSession();
+                session.setAttribute("currentStudent",student);
             } else {
                 pw.println("Invalid input");
             }
