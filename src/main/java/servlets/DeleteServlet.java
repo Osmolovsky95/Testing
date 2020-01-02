@@ -2,7 +2,7 @@ package servlets;
 
 import Data.GroupStudents;
 import Data.Student;
-import Data.TestingDAO;
+import Data.StudentDAO;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,7 +23,7 @@ public class DeleteServlet extends HttpServlet {
         String name = req.getParameter("name");
         GroupStudents groupStudents = GroupStudents.getInstance();
         try {
-            TestingDAO.deleteStudent(name);
+            StudentDAO.deleteStudent(name);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

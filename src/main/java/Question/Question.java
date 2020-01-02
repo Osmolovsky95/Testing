@@ -6,23 +6,29 @@ import java.util.List;
 public class Question {
 
     public static int count=0;
+    private long id;
     private   String question;
     private List <String> answers=new ArrayList<>();
     private   int trueNumber;
     private double assessment;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
     }
+public Question(){}
 
-    private int id;
-    public Question(){
+    public Question(String question,long id){
     count++;
     }
+
+    public Question(String question) {
+        this.question = question;
+    }
+
     public double getAssessment() {
         return assessment;
     }

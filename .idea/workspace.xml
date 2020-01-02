@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Testing:war" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d9480030-0a04-4f6e-91f9-d2e30ded0fc0" name="Default Changelist" comment="Second commit">
+      <change afterPath="$PROJECT_DIR$/.idea/Testing.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/AnswerDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/QuestionDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Question/Answer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Data/TestingDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data/StudentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Question/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Question/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/servlets/AddServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlets/AddServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/servlets/DeleteServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlets/DeleteServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/servlets/QuestionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servlets/QuestionServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/createQuestion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/createQuestion.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Testing-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/Testing-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Testing-1.0-SNAPSHOT/WEB-INF/classes/AddServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Testing-1.0-SNAPSHOT/WEB-INF/classes/DeleteServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Testing-1.0-SNAPSHOT/WEB-INF/classes/ListServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Testing-1.0-SNAPSHOT/WEB-INF/classes/Model.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Testing-1.0-SNAPSHOT/WEB-INF/classes/Student.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Testing-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Testing-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Testing-1.0-SNAPSHOT/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/Testing-1.0-SNAPSHOT/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Testing-1.0-SNAPSHOT/views/add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Testing-1.0-SNAPSHOT/views/add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Testing-1.0-SNAPSHOT/views/delete.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Testing-1.0-SNAPSHOT/views/delete.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Testing-1.0-SNAPSHOT/views/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Testing-1.0-SNAPSHOT/views/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AddServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DeleteServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ListServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Model.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Student.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="PostgreSQL - Testing@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="PostgreSQL - Testing@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="PostgreSQL - Testing@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="Testing: database" type="162271b6:PgImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="PostgreSQL - Testing@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="Testing: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="PostgreSQL - Testing@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="Testing: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="PostgreSQL - Testing@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="Testing: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="PostgreSQL - Testing@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="Testing: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="students: table" type="69fad909:PgImplModel$LocalTable" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="PostgreSQL - Testing@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="Testing: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="trueanswers: table" type="69fad909:PgImplModel$LocalTable" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Testing" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jsp File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\Users\Alexander\IdeaProjects\Testing\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="1V0y9dHEciVZlKd04uhD9eFazlR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql&#10;postgresql" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/views" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Users\Alexander\IdeaProjects\Testing\src\main\web\views" />
+      <recent name="D:\Users\Alexander\IdeaProjects\Testing\src\main\webapp\WEB-INF" />
+      <recent name="D:\Users\Alexander\IdeaProjects\Testing\src\main\webapp\views" />
+      <recent name="D:\Users\Alexander\IdeaProjects\Testing\src\main\webapp" />
+      <recent name="D:\Users\Alexander\IdeaProjects\Testing" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Question" />
+      <recent name="servlets" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\Alexander\IdeaProjects\Testing\src\main\webapp\views" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.29">
+    <configuration name="ConnectionDB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ConnectionDB" />
+      <module name="Testing" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tomcat 9.0.29" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.29" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="Testing:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/Testing_war" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_Testing" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="50156" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Testing:war" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.ConnectionDB" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.29" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ConnectionDB" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <option name="contentProportion" value="0.17246713" />
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:PostgreSQL - Testing@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:PostgreSQL - Testing@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@62e3c6b" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d9480030-0a04-4f6e-91f9-d2e30ded0fc0" name="Default Changelist" comment="" />
+      <created>1576404157384</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1576404157384</updated>
+      <workItem from="1576406522050" duration="7462000" />
+      <workItem from="1576416063347" duration="2745000" />
+      <workItem from="1576424391094" duration="4004000" />
+      <workItem from="1576433158092" duration="4773000" />
+      <workItem from="1576679080161" duration="8940000" />
+      <workItem from="1576692081965" duration="1009000" />
+      <workItem from="1576693521463" duration="5551000" />
+      <workItem from="1576737518769" duration="10293000" />
+      <workItem from="1576755459170" duration="2138000" />
+      <workItem from="1576765426898" duration="8752000" />
+      <workItem from="1576782424191" duration="4895000" />
+      <workItem from="1576924076300" duration="16909000" />
+      <workItem from="1577008158014" duration="8237000" />
+      <workItem from="1577371012650" duration="2324000" />
+      <workItem from="1577791671258" duration="10387000" />
+      <workItem from="1577888552260" duration="3074000" />
+      <workItem from="1577976169832" duration="7383000" />
+      <workItem from="1577990705839" duration="4289000" />
+    </task>
+    <task id="LOCAL-00001" summary="First commit">
+      <created>1576679401165</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1576679401165</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Second commit">
+      <created>1576687953418</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1576687953418</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Second commit">
+      <created>1576688028252</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1576688028252</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Second commit">
+      <created>1576699001551</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1576699001551</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Удалил всю связь с бд(кроме админ.),добавил создание вопросов,станицу теста,проверку чекбокса">
+      <created>1576786296183</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1576786296183</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Удалил почти всю связь с БД(кроме админки.),добавил создание вопроса,страницу теста,проверку чекбоксов">
+      <created>1576786593153</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1576786593153</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Удалил почти всю связь с БД(кроме админки.),добавил создание вопроса,страницу теста,проверку чекбоксов">
+      <created>1576786744844</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1576786744844</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Удаление из коллецкии,добавление вопроса">
+      <created>1576926939317</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1576926939317</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Доделать проверку тест">
+      <created>1576941190309</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1576941190309</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Добавил проверку теста,осталось переделать админа из коллекции">
+      <created>1577012084152</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1577012084152</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Добавить генерацию отчетов, отображение оценок">
+      <created>1577017225606</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1577017225606</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Added Administrator">
+      <created>1577017514898</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1577017514898</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Добавил вставку/удаление БД-коллекция">
+      <created>1577983272399</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1577983272399</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Добавил вставку\удаление в бд-коллекцию">
+      <created>1577983360586</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1577983360586</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Добавить вопросы в бд">
+      <created>1577983753049</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1577983753049</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First commit" />
+    <MESSAGE value="Second commit" />
+    <MESSAGE value="Удалил всю связь с бд(кроме админ.),добавил создание вопросов,станицу теста,проверку чекбокса" />
+    <MESSAGE value="Удалил почти всю связь с БД(кроме админки.),добавил создание вопроса,страницу теста,проверку чекбоксов" />
+    <MESSAGE value="Удаление из коллецкии,добавление вопроса" />
+    <MESSAGE value="Доделать проверку тест" />
+    <MESSAGE value="Добавил проверку теста,осталось переделать админа из коллекции" />
+    <MESSAGE value="Добавить генерацию отчетов, отображение оценок" />
+    <MESSAGE value="Added Administrator" />
+    <MESSAGE value="Добавил вставку/удаление БД-коллекция" />
+    <MESSAGE value="Добавил вставку\удаление в бд-коллекцию" />
+    <MESSAGE value="Добавить вопросы в бд" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавить вопросы в бд" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="463" y="168" key="#BuildArtifactsBeforeRunChooser" timestamp="1576416492994">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="168" key="#BuildArtifactsBeforeRunChooser/0.0.1366.728@0.0.1366.728" timestamp="1576416492994" />
+    <state x="275" y="21" key="#Project_Structure" timestamp="1576434551939">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="21" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1576434551939" />
+    <state x="275" y="21" key="#SQL_Dialects" timestamp="1576425356832">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="21" key="#SQL_Dialects/0.0.1366.728@0.0.1366.728" timestamp="1576425356832" />
+    <state x="413" y="129" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1576435989652">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="129" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1576435989652" />
+    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577793553042">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1577793553042" />
+    <state x="488" y="72" key="#com.intellij.ide.util.MemberChooser" timestamp="1577994972292">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="72" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1577994972292" />
+    <state x="313" y="52" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1577371188481">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="313" y="52" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1366.728@0.0.1366.728" timestamp="1577371188481" />
+    <state x="480" y="233" width="407" height="292" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1577014622562">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="480" y="233" width="407" height="292" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728@0.0.1366.728" timestamp="1577014622562" />
+    <state x="413" y="121" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1576773373284">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="121" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1576773373284" />
+    <state x="309" y="0" key="CommitChangelistDialog2" timestamp="1577995013012">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="309" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1577995013012" />
+    <state x="463" y="100" key="FileChooserDialogImpl" timestamp="1576436632301">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="100" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1576436632301" />
+    <state width="1069" height="2" key="GridCell.Tab.0.bottom" timestamp="1577994436597">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1069" height="2" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1577994436597" />
+    <state width="1069" height="2" key="GridCell.Tab.0.center" timestamp="1577994436597">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1069" height="2" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1577994436597" />
+    <state width="1069" height="2" key="GridCell.Tab.0.left" timestamp="1577994436597">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1069" height="2" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1577994436597" />
+    <state width="1069" height="2" key="GridCell.Tab.0.right" timestamp="1577994436597">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1069" height="2" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1577994436597" />
+    <state width="1069" height="2" key="GridCell.Tab.1.bottom" timestamp="1577994137958">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1069" height="2" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1577994137958" />
+    <state width="1069" height="2" key="GridCell.Tab.1.center" timestamp="1577994137957">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1069" height="2" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1577994137957" />
+    <state width="1069" height="2" key="GridCell.Tab.1.left" timestamp="1577994137957">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1069" height="2" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1577994137957" />
+    <state width="1069" height="2" key="GridCell.Tab.1.right" timestamp="1577994137957">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1069" height="2" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1577994137957" />
+    <state width="1069" height="2" key="GridCell.Tab.2.bottom" timestamp="1577994137958">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1069" height="2" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1577994137958" />
+    <state width="1069" height="2" key="GridCell.Tab.2.center" timestamp="1577994137958">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1069" height="2" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1577994137958" />
+    <state width="1069" height="2" key="GridCell.Tab.2.left" timestamp="1577994137958">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1069" height="2" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1577994137958" />
+    <state width="1069" height="2" key="GridCell.Tab.2.right" timestamp="1577994137958">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1069" height="2" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1577994137958" />
+    <state width="1069" height="2" key="GridCell.Tab.3.bottom" timestamp="1577993177611">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1069" height="2" key="GridCell.Tab.3.bottom/0.0.1366.728@0.0.1366.728" timestamp="1577993177611" />
+    <state width="1069" height="2" key="GridCell.Tab.3.center" timestamp="1577993177611">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1069" height="2" key="GridCell.Tab.3.center/0.0.1366.728@0.0.1366.728" timestamp="1577993177611" />
+    <state width="1069" height="2" key="GridCell.Tab.3.left" timestamp="1577993177611">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1069" height="2" key="GridCell.Tab.3.left/0.0.1366.728@0.0.1366.728" timestamp="1577993177611" />
+    <state width="1069" height="2" key="GridCell.Tab.3.right" timestamp="1577993177611">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1069" height="2" key="GridCell.Tab.3.right/0.0.1366.728@0.0.1366.728" timestamp="1577993177611" />
+    <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1577792678104">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1366.728@0.0.1366.728" timestamp="1577792678104" />
+    <state x="231" y="13" key="Maven.ArtifactSearchDialog" timestamp="1577798485661">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="231" y="13" key="Maven.ArtifactSearchDialog/0.0.1366.728@0.0.1366.728" timestamp="1577798485661" />
+    <state x="163" y="0" key="SettingsEditor" timestamp="1576434770992">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1576434770992" />
+    <state x="275" y="107" key="Vcs.Push.Dialog.v2" timestamp="1577983763439">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="107" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1577983763439" />
+    <state x="572" y="253" width="326" height="238" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1577991222019">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="572" y="253" width="326" height="238" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.728@0.0.1366.728" timestamp="1577991222019" />
+    <state x="399" y="5" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1577991160483">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="399" y="5" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1577991160483" />
+    <state x="542" y="120" key="com.intellij.database.view.ui.DbObjectDialog" timestamp="1576436519132">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="542" y="120" key="com.intellij.database.view.ui.DbObjectDialog/0.0.1366.728@0.0.1366.728" timestamp="1576436519132" />
+    <state x="378" y="185" width="609" height="356" key="com.intellij.ide.util.TipDialog" timestamp="1577990717458">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="378" y="185" width="609" height="356" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1577990717458" />
+    <state x="413" y="143" key="extract.method.dialog" timestamp="1576940512344">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="143" key="extract.method.dialog/0.0.1366.728@0.0.1366.728" timestamp="1576940512344" />
+    <state x="380" y="0" width="606" height="728" key="find.popup" timestamp="1576413376276">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="380" y="0" width="606" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1576413376276" />
+    <state x="389" y="0" key="refactoring.ChangeSignatureDialog" timestamp="1577979729988">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="389" y="0" key="refactoring.ChangeSignatureDialog/0.0.1366.728@0.0.1366.728" timestamp="1577979729988" />
+    <state x="339" y="157" key="run.anything.popup" timestamp="1576939158694">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="157" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1576939158694" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
+        <watch expression="this.pathParameters" custom="javax.servlet.http.HttpServletRequest" />
+        <watch expression="this.facade" custom="javax.servlet.http.HttpServletResponse" />
+        <watch expression="request" />
+        <watch expression="((SimpleParameterList)((PgPreparedStatement)preparedStatement).preparedParameters).encoded" custom="org.postgresql.core.v3.SimpleParameterList,org.postgresql.jdbc.PgPreparedStatement" />
+        <watch expression="((PgPreparedStatement)preparedStatement).firstUnclosedResult" custom="org.postgresql.jdbc.PgPreparedStatement" />
+        <watch expression="((PgConnection)((PgResultSet)rs).connection).commitQuery" custom="org.postgresql.jdbc.PgResultSet,org.postgresql.jdbc.PgConnection" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

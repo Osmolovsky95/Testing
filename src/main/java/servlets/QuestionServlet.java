@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+
+import Data.QuestionDAO;
 import Question.BankQuestions;
 import Question.Question;
 
@@ -23,12 +26,21 @@ public class QuestionServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
+        req.setCharacterEncoding("UTF-8");
         BankQuestions bankQuestions= BankQuestions.getInstance();
         Question question1=new Question();
         question1.getAnswers().add(req.getParameter("answer1"));
         question1.getAnswers().add(req.getParameter("answer2"));
         question1.getAnswers().add(req.getParameter("answer3"));
         question1.getAnswers().add(req.getParameter("answer4"));
+        String qst=req.getParameter("question");
+        try {
+            QuestionDAO.addQuestion(qst);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         question1.setQuestion(req.getParameter("question"));
         question1.setTrueNumber(Integer.parseInt(req.getParameter("trueNumber")));
         question1.setAssessment(Double.parseDouble(req.getParameter("assessment")));

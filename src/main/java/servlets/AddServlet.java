@@ -1,7 +1,7 @@
 package servlets;
 
 import Data.GroupStudents;
-import Data.TestingDAO;
+import Data.StudentDAO;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -40,7 +40,7 @@ public class AddServlet extends HttpServlet {
              String bodyName=jsonObject.getString("name");
              String bodyPass=jsonObject.getString("pass");*/
             try {
-                TestingDAO.insertStudent(name,password);
+                StudentDAO.insertStudent(name,password);
             } catch (SQLException e) {
                 e.printStackTrace();
             } catch (ClassNotFoundException e) {

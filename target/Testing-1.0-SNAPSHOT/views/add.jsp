@@ -1,5 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%request.setCharacterEncoding("UTF-8");%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <html lang="ru">
 <html>
 <head>
@@ -8,13 +11,13 @@
 
 <body>
 <div>
-    <h1>Группа ....</h1>
+    <h1>Новичок</h1>
 </div>
 
 <div>
     <%
         if (request.getAttribute("userName") != null) {
-            out.println("<p>User '" + request.getAttribute("userName") + "' added!</p>");
+            out.println("<p>Студент '" + request.getAttribute("userName") + "' добавлен!</p>");
         }
     %>
     <div>
