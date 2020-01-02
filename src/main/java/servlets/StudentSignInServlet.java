@@ -17,7 +17,7 @@ import Question.Question;
 public class StudentSignInServlet extends HttpServlet {
 
 static{
-    Student student=new Student("sasha","1995");
+    Student student=new Student("sasha","1995",1000);
     GroupStudents.getInstance().getStudents().add(student);
         BankQuestions bankQuestions= BankQuestions.getInstance();
         for (int i=0;i<10;i++) {

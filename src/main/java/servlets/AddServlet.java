@@ -12,9 +12,6 @@ import java.sql.SQLException;
 
 
 public class AddServlet extends HttpServlet {
-
-
-
         @Override
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
             resp.setCharacterEncoding("UTF-8");
@@ -27,7 +24,6 @@ public class AddServlet extends HttpServlet {
 
         protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
             GroupStudents myGroup=GroupStudents.getInstance();
-           //    resp.setCharacterEncoding("UTF-8");
             resp.setContentType("text/html;charset=UTF-8");
             String name = req.getParameter("name");
             String password= req.getParameter("pass");
@@ -43,7 +39,6 @@ public class AddServlet extends HttpServlet {
              JSONObject jsonObject=new JSONObject(stringBuffer.toString());
              String bodyName=jsonObject.getString("name");
              String bodyPass=jsonObject.getString("pass");*/
-
             try {
                 TestingDAO.insertStudent(name,password);
             } catch (SQLException e) {

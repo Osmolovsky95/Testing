@@ -12,7 +12,7 @@ public class TestingDAO {
     // TODO: 02.01.2020 getgeneratedkey 
     public static void insertStudent(String name,String password) throws SQLException, ClassNotFoundException {
         String insertQuerry="INSERT INTO students (name, password) Values (?,?) RETURNING id";
-        PreparedStatement preparedStatement = TestingDAO.getPreparedStatement(insertQuerry,PreparedStatement.RETURN_GENERATED_KEYS);
+        PreparedStatement preparedStatement = TestingDAO.getPreparedStatement(insertQuerry);
         preparedStatement.setString(1, name);
         preparedStatement.setString(2, password);
         ResultSet rs= preparedStatement.executeQuery();
@@ -27,7 +27,7 @@ public class TestingDAO {
 
     public static void deleteStudent(String name) throws SQLException, ClassNotFoundException {
         String deleteQuerry="DELETE FROM students where name=?";
-        PreparedStatement preparedStatement = TestingDAO.getPreparedStatement(deleteQuerry, Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement preparedStatement = TestingDAO.getPreparedStatement(deleteQuerry);
         preparedStatement.setString(1, name);
         preparedStatement.executeUpdate();
         preparedStatement.getConnection().close();
@@ -45,7 +45,7 @@ public class TestingDAO {
         }
     }
 
-    public static PreparedStatement getPreparedStatement(String sql, int returnGeneratedKeys) throws ClassNotFoundException, SQLException {
+    public static PreparedStatement getPreparedStatement(String sql) throws ClassNotFoundException, SQLException {
         Class.forName("org.postgresql.Driver");
         Connection connection = DriverManager.getConnection(url,name,password);
         PreparedStatement preparedStatement=connection.prepareStatement(sql);
