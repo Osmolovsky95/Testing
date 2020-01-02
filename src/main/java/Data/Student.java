@@ -6,14 +6,14 @@ import java.util.Objects;
 
 public class Student {
     private String name;
-    private static int id=1;
+    private long id;
     private  List<Double> assessments=new ArrayList<>();
     private String password;
 
-    public Student(String name,String password) {
-        this.name=name;
-        this.password=password;
-        this.id=id++;
+    public Student(String name, String password, long id) {
+        this.name = name;
+        this.id = id;
+        this.password = password;
     }
 
     public String getPassword() {
@@ -32,10 +32,7 @@ public class Student {
         this.assessments = assessments;
     }
 
-    public Student(String name, int id) {
-        this.name = name;
-        this.id = id;
-    }
+
 
     @Override
     public int hashCode() {
@@ -50,7 +47,7 @@ public class Student {
         this.name = name;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
