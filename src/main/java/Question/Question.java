@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Question {
 
+
     public static int count=0;
     private long id;
     private   String question;
@@ -22,7 +23,6 @@ public class Question {
 public Question(){}
 
     public Question(String question,long id){
-    count++;
     }
 
     public Question(String question) {

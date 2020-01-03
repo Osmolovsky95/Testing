@@ -25,4 +25,22 @@ public class QuestionDAO implements DAO {
         return id;
     }
 
+    public static void addQuestionAnswers(long question_id,long answer_id) throws SQLException, ClassNotFoundException {
+        String insertQuestion="INSERT INTO question_answers  (question_id,answer_id) Values (?,?)";
+        PreparedStatement preparedStatement = new QuestionDAO().getPreparedStatement(insertQuestion);
+        preparedStatement.setLong(1,question_id );
+        preparedStatement.setDouble(2, answer_id);
+        preparedStatement.execute();
+        preparedStatement.getConnection().close();
+    }
+
+
+    public static ResultSet getQuestions() throws SQLException, ClassNotFoundException {
+        String insertQuestion="select * from questions";
+        PreparedStatement preparedStatement = new QuestionDAO().getPreparedStatement(insertQuestion);
+        ResultSet resultSet=preparedStatement.executeQuery();
+        return resultSet;
+    }
+
+
 }

@@ -1,5 +1,7 @@
 package servlets;
 
+import Data.AnswerDAO;
+import Data.QuestionDAO;
 import Data.Student;
 import Question.Question;
 
@@ -11,9 +13,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import Question.BankQuestions;
 public class TestServlet extends HttpServlet {
+
+
+
+
+
+
 
      int countQuestion = -1;
      private   Student student;
@@ -25,7 +35,6 @@ public class TestServlet extends HttpServlet {
         req.setAttribute("nameButton", "Ответить");
         HttpSession session=req.getSession();
         student=(Student) session.getAttribute("currentStudent");
-        System.out.println(student.getName());
         countQuestion++;
         Question question = BankQuestions.getInstance().getQuestions().get(countQuestion);
         req.setAttribute("question", question.getQuestion());
@@ -78,5 +87,31 @@ public class TestServlet extends HttpServlet {
                 pw.println("Your assessment is  "+currentAssesment);
                 student.getAssessments().add(currentAssesment);
             }
+
+
+        try {
+            ResultSet questions = QuestionDAO.getQuestions();
+            while (questions.next()){
+                String questionText=questions.getString("question");
+                long id=questions.getLong("id");
+                System.out.println(id+ "id from bd");
+                Question question=new Question(questionText,id);
+
+                ResultSet answers= AnswerDAO.getAnswers(id);
+                while (answers.next()){
+                    String s=answers.getString("answer");
+                    System.out.println(s+ "ответ из бд");
+                    question.getAnswers().add(s);
+                }
+                BankQuestions.getInstance().getQuestions().add(question);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(BankQuestions.getInstance().getQuestions().size()+ "  размер");
+
     }
 }

@@ -8,8 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Iterator;
+
+import Data.AnswerDAO;
 import Data.GroupStudents;
+import Data.QuestionDAO;
 import Data.Student;
 import Question.BankQuestions;
 import Question.Question;
@@ -19,7 +24,9 @@ public class StudentSignInServlet extends HttpServlet {
 static{
     Student student=new Student("sasha","1995",1000);
     GroupStudents.getInstance().getStudents().add(student);
-        BankQuestions bankQuestions= BankQuestions.getInstance();
+
+
+       BankQuestions bankQuestions= BankQuestions.getInstance();
         for (int i=0;i<10;i++) {
             Question question1 = new Question();
             question1.getAnswers().add("answer1");
