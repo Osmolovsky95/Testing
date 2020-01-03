@@ -1,16 +1,17 @@
 package Data;
 
 public class Administrator {
-    public static int count=0;
+    ;
     private String name;
     private String password;
-    private int id;
+    private long id;
 
-    public Administrator(String name, String password) {
+
+
+    public Administrator(String name, String password, long id) {
         this.name = name;
         this.password = password;
-        this.id=count;
-        count++;
+        this.id = id;
     }
 
     public String getName() {

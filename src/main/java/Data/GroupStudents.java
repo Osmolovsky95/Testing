@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GroupStudents {
-    private String groupName;
+
     private List<Student> students=new ArrayList<>();
     private  List <Administrator> administrators=new ArrayList<>();
 
@@ -29,14 +29,6 @@ public class GroupStudents {
             }
         }
         return localInstance;
-    }
-
-    public String getGroupName() {
-        return groupName;
-    }
-
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
     }
 
     public List<Student> getStudents() {
