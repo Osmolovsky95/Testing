@@ -25,14 +25,16 @@ public class AnswerDAO implements DAO {
         preparedStatement.setLong(2, question_id);
         ResultSet rs = preparedStatement.executeQuery();
         long id = 0;
-        while (rs.next()) {
+        int i=4;
+        while (rs.next()& i<4) {
             id = rs.getInt(1);
+            i++;
         }
         preparedStatement.getConnection().close();
     }
 
     public static ResultSet getAnswers(long id) throws SQLException, ClassNotFoundException {
-        String insertQuerry = "select answer from question_Answers join answers on answer_id=answers.id where question_id=?";
+        String insertQuerry = "select question_answers.id,answer from question_Answers left join answers on answer_id=answers.id where question_id=?";
         PreparedStatement preparedStatement =new AnswerDAO().getPreparedStatement(insertQuerry);
         preparedStatement.setLong(1,id);
         ResultSet resultSet=preparedStatement.executeQuery();

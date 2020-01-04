@@ -4,10 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class StudentDAO implements DAO {
-    /*select question,answer from trueAnswers inner join questions on
-     id_question=questions.id join answers on id_answer=answers.id*/
 
-    // TODO: 02.01.2020 getgeneratedkey 
     public static void insertStudent(String name,String password) throws SQLException, ClassNotFoundException {
         String insertQuerry="INSERT INTO students (name, password) Values (?,?) RETURNING id";
         PreparedStatement preparedStatement = new StudentDAO().getPreparedStatement(insertQuerry);
@@ -42,5 +39,4 @@ public class StudentDAO implements DAO {
             }
         }
     }
-
 }

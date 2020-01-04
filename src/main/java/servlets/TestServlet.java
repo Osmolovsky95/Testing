@@ -19,16 +19,10 @@ import java.sql.SQLException;
 import Question.BankQuestions;
 public class TestServlet extends HttpServlet {
 
-
-
-
-
-
-
      int countQuestion = -1;
      private   Student student;
      private double currentAssesment=0;
-    // TODO: 21.12.2019  
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
@@ -45,6 +39,8 @@ public class TestServlet extends HttpServlet {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/Test.jsp");
         requestDispatcher.forward(req, resp);
 
+        // TODO: 04.01.2020  проверка чекбоксов параметры "0","1","2" и т.д 
+        System.out.println();
         int trueNumber = BankQuestions.getInstance().getQuestions().get(countQuestion).getTrueNumber();
         String[] s = req.getParameterValues("" + trueNumber);
         for (int i = 0; i < s.length; i++) {
@@ -79,6 +75,7 @@ public class TestServlet extends HttpServlet {
                        currentAssesment=currentAssesment+question.getAssessment();
                     }
                 }
+
             }
             else{
                 Question lastQuestion=BankQuestions.getInstance().getQuestions().get(BankQuestions.getInstance().getQuestions().size()-1);
@@ -87,31 +84,5 @@ public class TestServlet extends HttpServlet {
                 pw.println("Your assessment is  "+currentAssesment);
                 student.getAssessments().add(currentAssesment);
             }
-
-
-        try {
-            ResultSet questions = QuestionDAO.getQuestions();
-            while (questions.next()){
-                String questionText=questions.getString("question");
-                long id=questions.getLong("id");
-                System.out.println(id+ "id from bd");
-                Question question=new Question(questionText,id);
-
-                ResultSet answers= AnswerDAO.getAnswers(id);
-                while (answers.next()){
-                    String s=answers.getString("answer");
-                    System.out.println(s+ "ответ из бд");
-                    question.getAnswers().add(s);
-                }
-                BankQuestions.getInstance().getQuestions().add(question);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println(BankQuestions.getInstance().getQuestions().size()+ "  размер");
-
     }
 }

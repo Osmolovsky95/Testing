@@ -20,13 +20,13 @@ public class Question {
     public void setId(int id) {
         this.id = id;
     }
-public Question(){}
 
-    public Question(String question,long id){
+    public Question(String question,long id) {
+        this.id = id;
+        this.question = question;
     }
 
-    public Question(String question) {
-        this.question = question;
+    public Question() {
     }
 
     public double getAssessment() {

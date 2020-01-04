@@ -8,8 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Iterator;
 
 import Data.AnswerDAO;
@@ -21,13 +20,46 @@ import Question.Question;
 
 public class StudentSignInServlet extends HttpServlet {
 
-static{
-    Student student=new Student("sasha","1995",1000);
+static {
+    Student student = new Student("1", "1", 1000);
     GroupStudents.getInstance().getStudents().add(student);
 
+    String url = "jdbc:postgresql://localhost:5432/Testing";
+    String name = "postgres";
+    String password = "postgres";
+    String sql = "select * from questions";
+    ResultSet resultSet = null;
 
-       BankQuestions bankQuestions= BankQuestions.getInstance();
-        for (int i=0;i<10;i++) {
+    try {
+        Class.forName("org.postgresql.Driver");
+        Connection connection = null;
+        connection = DriverManager.getConnection(url, name, password);
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()){
+            int count=0;
+           String questionText= resultSet.getString("question");
+           long id_question=resultSet.getLong("id");
+           double assessment=resultSet.getDouble("assessment");
+          //Ответы
+           ResultSet answers=AnswerDAO.getAnswers(id_question);
+           Question question=new Question(questionText,id_question);
+           question.setAssessment(assessment);
+           while (answers.next()){
+               String answer=answers.getString("answer");
+               question.getAnswers().add(answer);
+            }
+            BankQuestions.getInstance().getQuestions().add(count,question);
+            count++;
+        }
+
+
+    } catch (SQLException | ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+}
+        /*for (int i=0;i<10;i++) {
             Question question1 = new Question();
             question1.getAnswers().add("answer1");
             question1.getAnswers().add("answer2");
@@ -37,10 +69,10 @@ static{
             question1.setTrueNumber(1);
             question1.setAssessment(2);
             question1.setId(Question.count);
-            bankQuestions.getQuestions().add(i,question1);
-        }
+         //  BankQuestions.getQuestions().add(i,question1);
+        }*/
 
-}
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
@@ -51,7 +83,7 @@ static{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
-    String name = req.getParameter("name");
+        String name = req.getParameter("name");
         String password = req.getParameter("pass");
         GroupStudents groupStudents = GroupStudents.getInstance();
         Iterator<Student> iterator = groupStudents.getStudents().iterator();
@@ -67,11 +99,6 @@ static{
             } else {
                 pw.println("Invalid input");
             }
-
-
-
-
-
         }
     }
 }
