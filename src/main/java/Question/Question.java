@@ -12,6 +12,8 @@ public class Question {
     private List <String> answers=new ArrayList<>();
     private   int trueNumber;
     private double assessment;
+    private List <Answer> answers2=new ArrayList<>();
+
 
     public long getId() {
         return id;

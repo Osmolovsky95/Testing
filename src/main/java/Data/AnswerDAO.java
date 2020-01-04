@@ -26,9 +26,8 @@ public class AnswerDAO implements DAO {
         ResultSet rs = preparedStatement.executeQuery();
         long id = 0;
         int i=4;
-        while (rs.next()& i<4) {
+        while (rs.next()) {
             id = rs.getInt(1);
-            i++;
         }
         preparedStatement.getConnection().close();
     }

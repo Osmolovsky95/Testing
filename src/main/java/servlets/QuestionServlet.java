@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-
 import Data.AnswerDAO;
 import Data.QuestionDAO;
 import Question.BankQuestions;
@@ -48,6 +47,9 @@ public class QuestionServlet extends HttpServlet {
            long id_2_answer= AnswerDAO.addAnswer(answr2);
            long id_3_answer= AnswerDAO.addAnswer(answr3);
            long id_4_answer= AnswerDAO.addAnswer(answr4);
+
+
+
             QuestionDAO.addQuestionAnswers(id_question,id_1_answer);
             QuestionDAO.addQuestionAnswers(id_question,id_2_answer);
             QuestionDAO.addQuestionAnswers(id_question,id_3_answer);
@@ -67,8 +69,6 @@ public class QuestionServlet extends HttpServlet {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
-
 
         question1.setQuestion(req.getParameter("question"));
         question1.setTrueNumber(Integer.parseInt(req.getParameter("trueNumber")));

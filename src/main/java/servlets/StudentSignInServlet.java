@@ -10,10 +10,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 import java.util.Iterator;
-
 import Data.AnswerDAO;
 import Data.GroupStudents;
-import Data.QuestionDAO;
 import Data.Student;
 import Question.BankQuestions;
 import Question.Question;
@@ -50,29 +48,22 @@ static {
                String answer=answers.getString("answer");
                question.getAnswers().add(answer);
             }
+       //    String sqlTrueAnswer="select * from trueAnswer where id_question=?";
+          // PreparedStatement preparedStatement1=connection.prepareStatement(sqlTrueAnswer);
+         //  preparedStatement1.setLong(1,id_question);
+         //  ResultSet trueAnswer=preparedStatement1.executeQuery();
+        //   long trueAnswer_id=0;
+        //   while (trueAnswer.next()){
+       //        trueAnswer_id=trueAnswer.getLong("id_answer");
+        //   }
+         //   System.out.println(trueAnswer_id);
             BankQuestions.getInstance().getQuestions().add(count,question);
             count++;
         }
-
-
     } catch (SQLException | ClassNotFoundException e) {
         e.printStackTrace();
     }
 }
-        /*for (int i=0;i<10;i++) {
-            Question question1 = new Question();
-            question1.getAnswers().add("answer1");
-            question1.getAnswers().add("answer2");
-            question1.getAnswers().add("answer3");
-            question1.getAnswers().add("answer4");
-            question1.setQuestion("question "+i);
-            question1.setTrueNumber(1);
-            question1.setAssessment(2);
-            question1.setId(Question.count);
-         //  BankQuestions.getQuestions().add(i,question1);
-        }*/
-
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
@@ -100,6 +91,14 @@ static {
                 pw.println("Invalid input");
             }
         }
+
+
+
+
+
+
+
     }
+
 }
 

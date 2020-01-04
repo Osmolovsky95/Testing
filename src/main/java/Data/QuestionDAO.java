@@ -42,5 +42,9 @@ public class QuestionDAO implements DAO {
         return resultSet;
     }
 
+    public static  void createQuestion(){
+
+    }
+
 
 }

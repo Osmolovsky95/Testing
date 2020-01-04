@@ -19,7 +19,7 @@
 <p>Добро пожаловать ${name}</p>
 <form method="post">
     <p><b>   ${question}</b></p>
-    <p><input type= "checkbox" name="0" value="0">${answer0}<Br>
+    <p><input type= "checkbox" name="0" value="0" >${answer0}<Br>
         <input type="checkbox" name="1" value="1">${answer1}<Br>
         <input type="checkbox" name="2" value="2">${answer2}<Br>
         <input type="checkbox" name="3" value="3">${answer3}<Br>
