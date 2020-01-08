@@ -37,7 +37,6 @@ public class QuestionServlet extends HttpServlet {
         double asessment=(Double.parseDouble(req.getParameter("assessment")));
 
         try {
-            long idTrueAnswer;
             Question question = QuestionDAO.addQuestion(qst, asessment);
             question.getAnswers().add(answr1);
             question.getAnswers().add(answr2);
@@ -57,19 +56,19 @@ public class QuestionServlet extends HttpServlet {
 
             switch (Integer.parseInt(req.getParameter("trueNumber"))) {
                 case 1:
-                    idTrueAnswer = AnswerDAO.addTrueAnswer(id_1_answer, id_question);
+                    AnswerDAO.addTrueAnswer(id_1_answer, id_question);
                     question.setTrueNumber(id_1_answer);
                     break;
                 case 2:
-                    idTrueAnswer = AnswerDAO.addTrueAnswer(id_2_answer, id_question);
+                    AnswerDAO.addTrueAnswer(id_2_answer, id_question);
                     question.setTrueNumber(id_2_answer);
                     break;
                 case 3:
-                    idTrueAnswer = AnswerDAO.addTrueAnswer(id_3_answer, id_question);
+                     AnswerDAO.addTrueAnswer(id_3_answer, id_question);
                     question.setTrueNumber(id_3_answer);
                     break;
                 case 4:
-                    idTrueAnswer = AnswerDAO.addTrueAnswer(id_4_answer, id_question);
+                     AnswerDAO.addTrueAnswer(id_4_answer, id_question);
                     question.setTrueNumber(id_4_answer);
                     break;
             }
@@ -80,7 +79,6 @@ public class QuestionServlet extends HttpServlet {
             QuestionDAO.addQuestionAnswers(id_question, id_2_answer);
             QuestionDAO.addQuestionAnswers(id_question, id_3_answer);
             QuestionDAO.addQuestionAnswers(id_question, id_4_answer);
-
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -89,7 +87,6 @@ public class QuestionServlet extends HttpServlet {
 
         PrintWriter pw=resp.getWriter();
         pw.println("Question is added");
-
 
     }
 }

@@ -1,7 +1,4 @@
 package Data;
-import Question.Answer;
-import Question.Question;
-
 import java.sql.*;
 
 public class AnswerDAO implements DAO {
@@ -15,8 +12,6 @@ public class AnswerDAO implements DAO {
         while (rs.next()) {
             id = rs.getInt(1);
         }
-        Answer answer1=new Answer(id,answer);
-
         preparedStatement.getConnection().close();
         return id;
     }

@@ -12,7 +12,6 @@ public class LoaderDB {
     String name = "postgres";
     String password = "postgres";
 
-    // TODO: 08.01.2020 неправильно
     public void createQuestionsFromDB()  {
         try {
             String sql="select * from questions";
@@ -22,14 +21,24 @@ public class LoaderDB {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet questions = preparedStatement.executeQuery();
 
-          Question question=new Question();
+
           while (questions.next()) {
+              Question question=new Question();
               long id = Long.parseLong(questions.getString("id"));
               String questionText = questions.getString("question");
               double assessment = Double.parseDouble(questions.getString("assessment"));
               question.setAssessment(assessment);
               question.setQuestion(questionText);
               question.setId(id);
+
+              String sqlTrueAnswer="select id_answer from trueAnswers where id_question=?";
+              PreparedStatement preparedStatement3=connection.prepareStatement(sqlTrueAnswer);
+              preparedStatement3.setLong(1,question.getId());
+              ResultSet rs=preparedStatement3.executeQuery();
+              while (rs.next()){
+                  long idTrueAnswer= rs.getInt("id_answer");
+                  question.setTrueNumber(idTrueAnswer);
+              }
 
               String sqlAnswers = "select * from question_answers where question_id=?";
               PreparedStatement preparedStatement1 = connection.prepareStatement(sqlAnswers);
@@ -46,17 +55,7 @@ public class LoaderDB {
                   String answerContent= answerText.getString("answer");
                   question.getAnswers().add(answerContent);
                }
-               String sqlTrueAnswer="select id_answer from trueAnswers where id_question=?";
-               PreparedStatement preparedStatement3=connection.prepareStatement(sqlTrueAnswer);
-               preparedStatement3.setLong(1,question.getId());
-               ResultSet rs=preparedStatement3.executeQuery();
-               while (rs.next()){
-                long idTrueAnswer= rs.getInt("id_answer");
-                question.setTrueNumber(idTrueAnswer);
-               }
-
              }
-              System.out.println(question);
               BankQuestions.getInstance().getQuestions().add(question);
           }
           connection.close();
