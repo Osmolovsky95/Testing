@@ -2,6 +2,8 @@ package servlets;
 
 import Data.GroupStudents;
 import Data.StudentDAO;
+import org.json.JSONObject;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,9 +21,6 @@ public class AddServlet extends HttpServlet {
             requestDispatcher.forward(req, resp);
         }
 
-    // TODO: 31.12.2019 Навести порядлк 
-        @Override
-
         protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
             GroupStudents myGroup=GroupStudents.getInstance();
             resp.setContentType("text/html;charset=UTF-8");
@@ -29,19 +28,25 @@ public class AddServlet extends HttpServlet {
             String password= req.getParameter("pass");
 
 
+
             //Получаем json
-           /* InputStreamReader inputStreamReader=new InputStreamReader(req.getInputStream());
+          /* InputStreamReader inputStreamReader=new InputStreamReader(req.getInputStream());
             BufferedReader bufferedReader=new BufferedReader(inputStreamReader);
+
+        //Чтение ткста     BufferedReader bufferedReader = req.getReader();
+
             StringBuffer stringBuffer=new StringBuffer();
             String str;
             while ((str=bufferedReader.readLine())!=null){
                stringBuffer.append(str);
            }
              System.out.println(stringBuffer.toString());
-             JSONObject jsonObject=new JSONObject(stringBuffer.toString());
-             String bodyName=jsonObject.getString("name");
-             String bodyPass=jsonObject.getString("pass");*/
-            try {
+            // JSONObject jsonObject=new JSONObject(stringBuffer.toString());
+           //  String bodyName=jsonObject.getString("name");
+           //  String bodyPass=jsonObject.getString("pass");
+            System.out.println(resp.getStatus());*/
+
+           try {
                 StudentDAO.insertStudent(name,password);
             } catch (SQLException e) {
                 e.printStackTrace();

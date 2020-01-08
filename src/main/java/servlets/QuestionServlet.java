@@ -13,6 +13,7 @@ import Data.QuestionDAO;
 import Question.BankQuestions;
 import Question.Question;
 
+
 public class QuestionServlet extends HttpServlet {
 
 
@@ -28,55 +29,68 @@ public class QuestionServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         req.setCharacterEncoding("UTF-8");
         BankQuestions bankQuestions= BankQuestions.getInstance();
-
-        Question question1=new Question();
         String answr1=req.getParameter("answer1");
         String answr2=req.getParameter("answer2");
         String answr3=req.getParameter("answer3");
         String answr4=req.getParameter("answer4");
-        question1.getAnswers().add(req.getParameter(answr1));
-        question1.getAnswers().add(req.getParameter(answr2));
-        question1.getAnswers().add(req.getParameter(answr3));
-        question1.getAnswers().add(req.getParameter(answr4));
         String qst=req.getParameter("question");
         double asessment=(Double.parseDouble(req.getParameter("assessment")));
 
         try {
-           long id_question=QuestionDAO.addQuestion(qst,asessment);
-           long id_1_answer= AnswerDAO.addAnswer(answr1);
-           long id_2_answer= AnswerDAO.addAnswer(answr2);
-           long id_3_answer= AnswerDAO.addAnswer(answr3);
-           long id_4_answer= AnswerDAO.addAnswer(answr4);
+            long idTrueAnswer;
+            Question question = QuestionDAO.addQuestion(qst, asessment);
+            question.getAnswers().add(answr1);
+            question.getAnswers().add(answr2);
+            question.getAnswers().add(answr3);
+            question.getAnswers().add(answr4);
+            long id_question = question.getId();
+            long id_1_answer = AnswerDAO.addAnswer(answr1);
+            long id_2_answer = AnswerDAO.addAnswer(answr2);
+            long id_3_answer = AnswerDAO.addAnswer(answr3);
+            long id_4_answer = AnswerDAO.addAnswer(answr4);
 
+            question.getIdAnswers().add(id_1_answer);
+            question.getIdAnswers().add(id_2_answer);
+            question.getIdAnswers().add(id_3_answer);
+            question.getIdAnswers().add(id_4_answer);
+            System.out.println(question.getIdAnswers().size());
 
-
-            QuestionDAO.addQuestionAnswers(id_question,id_1_answer);
-            QuestionDAO.addQuestionAnswers(id_question,id_2_answer);
-            QuestionDAO.addQuestionAnswers(id_question,id_3_answer);
-            QuestionDAO.addQuestionAnswers(id_question,id_4_answer);
-            switch (Integer.parseInt(req.getParameter("trueNumber"))){
-                case 1:AnswerDAO.addTrueAnswer(id_1_answer,id_question);
+            switch (Integer.parseInt(req.getParameter("trueNumber"))) {
+                case 1:
+                    idTrueAnswer = AnswerDAO.addTrueAnswer(id_1_answer, id_question);
+                    question.setTrueNumber(id_1_answer);
                     break;
-                case 2:AnswerDAO.addTrueAnswer(id_2_answer,id_question);
+                case 2:
+                    idTrueAnswer = AnswerDAO.addTrueAnswer(id_2_answer, id_question);
+                    question.setTrueNumber(id_2_answer);
                     break;
-                case 3:AnswerDAO.addTrueAnswer(id_3_answer,id_question);
+                case 3:
+                    idTrueAnswer = AnswerDAO.addTrueAnswer(id_3_answer, id_question);
+                    question.setTrueNumber(id_3_answer);
                     break;
-                case 4:AnswerDAO.addTrueAnswer(id_4_answer,id_question);
+                case 4:
+                    idTrueAnswer = AnswerDAO.addTrueAnswer(id_4_answer, id_question);
+                    question.setTrueNumber(id_4_answer);
                     break;
             }
+            question.setQuestion(req.getParameter("question"));
+            question.setAssessment(asessment);
+            bankQuestions.getQuestions().add(question);
+            QuestionDAO.addQuestionAnswers(id_question, id_1_answer);
+            QuestionDAO.addQuestionAnswers(id_question, id_2_answer);
+            QuestionDAO.addQuestionAnswers(id_question, id_3_answer);
+            QuestionDAO.addQuestionAnswers(id_question, id_4_answer);
+
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
 
-        question1.setQuestion(req.getParameter("question"));
-        question1.setTrueNumber(Integer.parseInt(req.getParameter("trueNumber")));
-        System.out.println(req.getParameter("trueNumber"));
-        question1.setAssessment(Double.parseDouble(req.getParameter("assessment")));
-        bankQuestions.getQuestions().add(question1);
         PrintWriter pw=resp.getWriter();
         pw.println("Question is added");
+
+
     }
 }
 

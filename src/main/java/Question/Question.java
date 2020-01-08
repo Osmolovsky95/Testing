@@ -10,20 +10,23 @@ public class Question {
     private long id;
     private   String question;
     private List <String> answers=new ArrayList<>();
-    private   int trueNumber;
+    private long trueNumber;
     private double assessment;
-    private List <Answer> answers2=new ArrayList<>();
+    private List <Long> idAnswers=new ArrayList<>();
 
+    public List<Long> getIdAnswers() {
+        return idAnswers;
+    }
 
     public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public Question(String question,long id) {
+    public Question(String question, long id) {
         this.id = id;
         this.question = question;
     }
@@ -55,22 +58,23 @@ public class Question {
         this.answers = answers;
     }
 
-    public int getTrueNumber() {
+    public long getTrueNumber() {
         return trueNumber;
     }
 
-    public void setTrueNumber(int trueNumber) {
+    public void setTrueNumber(long trueNumber) {
         this.trueNumber = trueNumber;
     }
 
     @Override
     public String toString() {
         return "Question{" +
-                "question='" + question + '\'' +
+                "id=" + id +
+                ", question='" + question + '\'' +
                 ", answers=" + answers +
                 ", trueNumber=" + trueNumber +
                 ", assessment=" + assessment +
+                ", idAnswers=" + idAnswers.get(0)+"  " +idAnswers.get(1)+"  " +idAnswers.get(2)+"  " +idAnswers.get(3)+
                 '}';
-
     }
 }

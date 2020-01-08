@@ -19,10 +19,10 @@
 <p>Добро пожаловать ${name}</p>
 <form method="post">
     <p><b>   ${question}</b></p>
-    <p><input type= "checkbox" name="0" value="0" >${answer0}<Br>
-        <input type="checkbox" name="1" value="1">${answer1}<Br>
-        <input type="checkbox" name="2" value="2">${answer2}<Br>
-        <input type="checkbox" name="3" value="3">${answer3}<Br>
+    <p><input type= "checkbox" name="0" value=${answer_id_0} >${answer0} ${answer_id_0} <Br>
+        <input type="checkbox" name="0" value=${answer_id_1}>${answer1}    ${answer_id_1}<Br>
+        <input type="checkbox" name="0" value= ${answer_id_2}>${answer2}       ${answer_id_2}<Br>
+        <input type="checkbox" name="0" value=${answer_id_3}>${answer3}          ${answer_id_3}<Br>
     <p><input type="submit" value="${nameButton}"></p>
 </form>
 </body>

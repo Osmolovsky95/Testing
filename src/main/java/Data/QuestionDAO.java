@@ -6,7 +6,7 @@ import java.sql.*;
 
 public class QuestionDAO implements DAO {
 
-    public static long addQuestion(String question,double assessment) throws SQLException, ClassNotFoundException {
+    public static Question addQuestion(String question,double assessment) throws SQLException, ClassNotFoundException {
         String insertQuestion="INSERT INTO questions (question,assessment) Values (?,?) RETURNING id";
         PreparedStatement preparedStatement = new QuestionDAO().getPreparedStatement(insertQuestion);
         preparedStatement.setString(1, question);
@@ -21,8 +21,8 @@ public class QuestionDAO implements DAO {
         preparedStatement.getConnection().close();
         Question question1=new Question(question,id);
         question1.setAssessment(assessment);
-        BankQuestions.getInstance().getQuestions().add(question1);
-        return id;
+      //  BankQuestions.getInstance().getQuestions().add(question1);
+        return question1;
     }
 
     public static void addQuestionAnswers(long question_id,long answer_id) throws SQLException, ClassNotFoundException {
