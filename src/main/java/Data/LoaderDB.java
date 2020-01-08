@@ -1,11 +1,9 @@
 package Data;
 
 import Question.Question;
-import servlets.ListServlet;
 import Question.BankQuestions;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class LoaderDB {
     String url = "jdbc:postgresql://localhost:5432/Testing";
@@ -20,7 +18,6 @@ public class LoaderDB {
             connection = DriverManager.getConnection(url, name, password);
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet questions = preparedStatement.executeQuery();
-
 
           while (questions.next()) {
               Question question=new Question();
@@ -62,8 +59,5 @@ public class LoaderDB {
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-
-
-
     }
 }

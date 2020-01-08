@@ -17,7 +17,7 @@
 </head>
 <body>
 <p>Добро пожаловать ${name}</p>
-<form method="post">
+<form method="GET">
     <p><b>   ${question}</b></p>
     <p><input type= "checkbox" name="0" value=${answer_id_0} >${answer0} ${answer_id_0} <Br>
         <input type="checkbox" name="0" value=${answer_id_1}>${answer1}    ${answer_id_1}<Br>
