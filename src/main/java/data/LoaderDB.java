@@ -12,7 +12,7 @@ public class LoaderDB {
 
     public void createQuestionsFromDB()  {
         try {
-            String sql="select * from questions";
+            String sql="SELECT * FROM questions";
             Class.forName("org.postgresql.Driver");
             Connection connection = DriverManager.getConnection(url, name, password);
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -27,7 +27,7 @@ public class LoaderDB {
               question.setQuestion(questionText);
               question.setId(id);
 
-              String sqlTrueAnswer="select id_answer from trueAnswers where id_question=?";
+              String sqlTrueAnswer="SELECT id_answer FROM trueAnswers WHERE id_question=?";
               PreparedStatement preparedStatement3=connection.prepareStatement(sqlTrueAnswer);
               preparedStatement3.setLong(1,question.getId());
               ResultSet rs=preparedStatement3.executeQuery();
@@ -36,11 +36,11 @@ public class LoaderDB {
                   question.setTrueNumber(idTrueAnswer);
               }
 
-              String sqlAnswers = "select * from question_answers where question_id=?";
+              String sqlAnswers = "SELECT * FROM question_answers WHERE question_id=?";
               PreparedStatement preparedStatement1 = connection.prepareStatement(sqlAnswers);
               preparedStatement1.setLong(1, question.getId());
               ResultSet answers= preparedStatement1.executeQuery();
-              String sqlAnswerText="select * from answers where id=?";
+              String sqlAnswerText="SELECT * FROM answers WHERE id=?";
               PreparedStatement preparedStatement2=connection.prepareStatement(sqlAnswerText);
              while(answers.next()){
                 long idAnswer = Long.parseLong(answers.getString("answer_id"));

@@ -1,7 +1,9 @@
-package data;
+package DAO;
+
 
 import question.Question;
 import java.sql.*;
+import java.util.List;
 
 public class QuestionDAO implements DAO {
 
@@ -27,16 +29,22 @@ public class QuestionDAO implements DAO {
         String insertQuestion="INSERT INTO question_answers  (question_id,answer_id) Values (?,?)";
         PreparedStatement preparedStatement = new QuestionDAO().getPreparedStatement(insertQuestion);
         preparedStatement.setLong(1,question_id );
-        preparedStatement.setDouble(2, answer_id);
+        preparedStatement.setLong(2, answer_id);
         preparedStatement.execute();
         preparedStatement.getConnection().close();
     }
 
 
     public static ResultSet getQuestions() throws SQLException, ClassNotFoundException {
-        String insertQuestion="select * from questions";
+        String insertQuestion="SELECT * FROM questions";
         PreparedStatement preparedStatement = new QuestionDAO().getPreparedStatement(insertQuestion);
         ResultSet resultSet=preparedStatement.executeQuery();
         return resultSet;
+    }
+
+    public static void addAnswersToQuestion(Question question,List<String> answers){
+        for (String answer: answers){
+            question.getAnswers().add(answer);
+        }
     }
 }

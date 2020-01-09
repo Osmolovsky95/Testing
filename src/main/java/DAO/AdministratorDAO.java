@@ -1,12 +1,10 @@
-package data;
+package DAO;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 
 public class AdministratorDAO implements DAO {
-
-    public static void insertStudent(String name,String password) throws SQLException, ClassNotFoundException {
+// TODO: 09.01.2020
+   /* public static void insertStudent(String name,String password) throws SQLException, ClassNotFoundException {
         String insertSQL="INSERT INTO administrators (name, password) Values (?,?) RETURNING id";
         PreparedStatement preparedStatement = new StudentDAO().getPreparedStatement(insertSQL);
         preparedStatement.setString(1, name);
@@ -19,5 +17,5 @@ public class AdministratorDAO implements DAO {
         preparedStatement.getConnection().close();
         Administrator administrator=new Administrator(name,password,id);
         GroupStudents.getInstance().getAdministrators().add(administrator);
-    }
+    }*/
 }

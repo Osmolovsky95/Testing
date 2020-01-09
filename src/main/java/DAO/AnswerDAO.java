@@ -1,4 +1,6 @@
-package data;
+package DAO;
+
+
 import java.sql.*;
 
 public class AnswerDAO implements DAO {

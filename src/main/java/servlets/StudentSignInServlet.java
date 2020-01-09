@@ -8,19 +8,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Iterator;
-import data.GroupStudents;
-import data.LoaderDB;
-import data.Student;
+import data.*;
+import registration.Registrator;
+import registration.SignInEnum;
 
 
 public class StudentSignInServlet extends HttpServlet {
 
 static {
     // TODO: 09.01.2020 убрать
-
-    Student student = new Student("1", "1", 1000);
-    GroupStudents.getInstance().getStudents().add(student);
     LoaderDB loaderDB=new LoaderDB();
     loaderDB.createQuestionsFromDB();
 }
@@ -36,20 +32,16 @@ static {
         resp.setCharacterEncoding("UTF-8");
         String name = req.getParameter("name");
         String password = req.getParameter("pass");
-        GroupStudents groupStudents = GroupStudents.getInstance();
-        Iterator<Student> iterator = groupStudents.getStudents().iterator();
-        Student student;
         PrintWriter pw = resp.getWriter();
-
-        while (iterator.hasNext()) {
-            student = iterator.next();
-            if (student.getName().equals(name) & student.getPassword().equals(password)) {
-               resp.sendRedirect("TestServlet");
-                HttpSession session=req.getSession();
-                session.setAttribute("currentStudent",student);
-            } else {
-                pw.println("Invalid input");
-            }
+        Registrator registrator=new Registrator();
+        Student student =(Student)registrator.registration(name,password, SignInEnum.STUDENT);
+        if(!(student==null)){
+            resp.sendRedirect("TestServlet");
+            HttpSession session=req.getSession();
+            session.setAttribute("currentStudent",student);
+        }
+        else {
+            pw.println("Invalid input");
         }
     }
 }

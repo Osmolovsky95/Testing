@@ -2,7 +2,7 @@ package servlets;
 
 import data.GroupStudents;
 import data.Student;
-import data.StudentDAO;
+import DAO.StudentDAO;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Set;
 
 public class DeleteServlet extends HttpServlet {
 
@@ -26,7 +27,7 @@ public class DeleteServlet extends HttpServlet {
             e.printStackTrace();
         }
         String studentName;
-        List<Student> students=groupStudents.getStudents();
+        Set<Student> students=groupStudents.getStudents();
         for (Student student : students) {
             studentName = student.getName();
             if (studentName.equals(name)) {

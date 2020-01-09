@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Student {
+public class Student implements IPerson {
     private String name;
     private long id;
     private  List<Double> assessments=new ArrayList<>();
@@ -33,10 +33,20 @@ public class Student {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return id == student.id &&
+                Objects.equals(name, student.name) &&
+                Objects.equals(assessments, student.assessments) &&
+                Objects.equals(password, student.password);
+    }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, id);
+        return Objects.hash(name, id, assessments, password);
     }
 
     public String getName() {
@@ -47,10 +57,16 @@ public class Student {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                ", password='" + password + '\'' +
+                '}';
+    }
+
     public long getId() {
         return id;
-    }
-    public void setId(int id) {
-        this.id = id;
     }
 }

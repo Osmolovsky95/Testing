@@ -1,6 +1,6 @@
 package data;
 
-public class Administrator {
+public class Administrator implements IPerson {
     private String name;
     private String password;
     private final long id;

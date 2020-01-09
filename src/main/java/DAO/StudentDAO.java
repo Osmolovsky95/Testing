@@ -1,6 +1,9 @@
-package data;
+package DAO;
+import data.GroupStudents;
+import data.Student;
+
 import java.sql.*;
-import java.util.List;
+import java.util.Set;
 
 public class StudentDAO implements DAO {
 
@@ -27,7 +30,7 @@ public class StudentDAO implements DAO {
         preparedStatement.getConnection().close();
 
         String studentName;
-        List<Student> students=GroupStudents.getInstance().getStudents();
+        Set<Student> students=GroupStudents.getInstance().getStudents();
         for (Student student : students) {
             studentName = student.getName();
             if (studentName.equals(name)) {
