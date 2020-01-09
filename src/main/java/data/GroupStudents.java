@@ -1,4 +1,4 @@
-package Data;
+package data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,10 +10,6 @@ public class GroupStudents {
 
     public List<Administrator> getAdministrators() {
         return administrators;
-    }
-
-    public void setAdministrators(List<Administrator> administrators) {
-        this.administrators = administrators;
     }
 
     private static volatile GroupStudents instance;

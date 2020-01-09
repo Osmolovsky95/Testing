@@ -1,14 +1,14 @@
-package Data;
+package data;
 
-import Question.Question;
-import Question.BankQuestions;
+import question.Question;
+import question.BankQuestions;
 import java.sql.*;
 
 
 public class LoaderDB {
-    String url = "jdbc:postgresql://localhost:5432/Testing";
-    String name = "postgres";
-    String password = "postgres";
+   private String url = "jdbc:postgresql://localhost:5432/Testing";
+   private String name = "postgres";
+   private String password = "postgres";
 
     public void createQuestionsFromDB()  {
         try {

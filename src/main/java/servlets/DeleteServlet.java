@@ -1,9 +1,8 @@
 package servlets;
 
-import Data.GroupStudents;
-import Data.Student;
-import Data.StudentDAO;
-
+import data.GroupStudents;
+import data.Student;
+import data.StudentDAO;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

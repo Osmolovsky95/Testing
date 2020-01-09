@@ -1,7 +1,6 @@
-package Data;
+package data;
 
-import Question.Question;
-import Question.BankQuestions;
+import question.Question;
 import java.sql.*;
 
 public class QuestionDAO implements DAO {
@@ -21,7 +20,6 @@ public class QuestionDAO implements DAO {
         preparedStatement.getConnection().close();
         Question question1=new Question(question,id);
         question1.setAssessment(assessment);
-      //  BankQuestions.getInstance().getQuestions().add(question1);
         return question1;
     }
 
@@ -41,10 +39,4 @@ public class QuestionDAO implements DAO {
         ResultSet resultSet=preparedStatement.executeQuery();
         return resultSet;
     }
-
-    public static  void createQuestion(){
-
-    }
-
-
 }

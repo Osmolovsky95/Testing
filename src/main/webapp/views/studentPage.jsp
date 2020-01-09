@@ -11,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <html>
 <head>
-    <title>Data.Student</title>
+    <title>data.Student</title>
 </head>
 <body>
 <form method="post">

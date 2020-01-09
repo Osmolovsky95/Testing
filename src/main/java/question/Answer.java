@@ -1,4 +1,4 @@
-package Question;
+package question;
 
 public class Answer {
     // TODO: 02.01.2020

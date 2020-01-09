@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import Data.AnswerDAO;
-import Data.QuestionDAO;
-import Question.BankQuestions;
-import Question.Question;
+import data.AnswerDAO;
+import data.QuestionDAO;
+import question.BankQuestions;
+import question.Question;
 
 
 public class QuestionServlet extends HttpServlet {
@@ -25,7 +25,7 @@ public class QuestionServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
         resp.setCharacterEncoding("UTF-8");
         req.setCharacterEncoding("UTF-8");
         BankQuestions bankQuestions= BankQuestions.getInstance();
@@ -84,7 +84,6 @@ public class QuestionServlet extends HttpServlet {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
         PrintWriter pw=resp.getWriter();
         pw.println("Question is added");
 

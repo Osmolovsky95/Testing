@@ -9,29 +9,30 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Iterator;
-import Data.GroupStudents;
-import Data.LoaderDB;
-import Data.Student;
+import data.GroupStudents;
+import data.LoaderDB;
+import data.Student;
 
 
 public class StudentSignInServlet extends HttpServlet {
 
 static {
+    // TODO: 09.01.2020 убрать
+
     Student student = new Student("1", "1", 1000);
     GroupStudents.getInstance().getStudents().add(student);
-
     LoaderDB loaderDB=new LoaderDB();
     loaderDB.createQuestionsFromDB();
 }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
-    RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/studentPage.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/studentPage.jsp");
         requestDispatcher.forward(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
         resp.setCharacterEncoding("UTF-8");
         String name = req.getParameter("name");
         String password = req.getParameter("pass");

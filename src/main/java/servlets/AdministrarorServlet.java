@@ -1,7 +1,5 @@
 package servlets;
-import Data.Administrator;
-import Data.AdministratorDAO;
-import Data.GroupStudents;
+import data.AdministratorDAO;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +10,7 @@ import java.io.PrintWriter;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Iterator;
+
 
 
 public class AdministrarorServlet extends HttpServlet {
@@ -29,18 +27,17 @@ public class AdministrarorServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         String name = req.getParameter("name");
         String password = req.getParameter("pass");
-        String querry= "select * from administrators where name=?";
+        String querry = "select * from administrators where name=?";
         try {
-            PreparedStatement preparedStatement=new AdministratorDAO().getPreparedStatement(querry);
-            preparedStatement.setString(1,name);
-            ResultSet resultSet=preparedStatement.executeQuery();
+            PreparedStatement preparedStatement = new AdministratorDAO().getPreparedStatement(querry);
+            preparedStatement.setString(1, name);
+            ResultSet resultSet = preparedStatement.executeQuery();
             preparedStatement.getConnection().close();
-            while (resultSet.next()){
-                if(password.equals(resultSet.getString("password"))){
+            while (resultSet.next()) {
+                if (password.equals(resultSet.getString("password"))) {
                     RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/updateDB.jsp");
                     requestDispatcher.forward(req, resp);
-                }
-                else {
+                } else {
                     PrintWriter pw = resp.getWriter();
                     pw.println("Invalid input");
                 }
@@ -50,11 +47,5 @@ public class AdministrarorServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        GroupStudents groupStudents = GroupStudents.getInstance();
-        Iterator<Administrator> iterator = groupStudents.getAdministrators().iterator();
-        Administrator administrator;
-        PrintWriter pw = resp.getWriter();
-
     }
 }

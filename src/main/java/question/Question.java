@@ -1,12 +1,10 @@
-package Question;
+package question;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Question {
 
-
-    public static int count=0;
     private long id;
     private   String question;
     private List <String> answers=new ArrayList<>();

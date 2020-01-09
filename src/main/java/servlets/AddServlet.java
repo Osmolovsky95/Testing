@@ -1,9 +1,7 @@
 package servlets;
 
-import Data.GroupStudents;
-import Data.StudentDAO;
-import org.json.JSONObject;
-
+import data.GroupStudents;
+import data.StudentDAO;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -26,8 +24,6 @@ public class AddServlet extends HttpServlet {
             resp.setContentType("text/html;charset=UTF-8");
             String name = req.getParameter("name");
             String password= req.getParameter("pass");
-
-
 
             //Получаем json
           /* InputStreamReader inputStreamReader=new InputStreamReader(req.getInputStream());

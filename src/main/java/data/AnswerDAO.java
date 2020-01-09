@@ -1,4 +1,4 @@
-package Data;
+package data;
 import java.sql.*;
 
 public class AnswerDAO implements DAO {
@@ -38,6 +38,4 @@ public class AnswerDAO implements DAO {
         preparedStatement.getConnection().close();
         return resultSet;
     }
-
-
 }

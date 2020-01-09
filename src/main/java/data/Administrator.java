@@ -1,12 +1,9 @@
-package Data;
+package data;
 
 public class Administrator {
-    ;
     private String name;
     private String password;
     private long id;
-
-
 
     public Administrator(String name, String password, long id) {
         this.name = name;
