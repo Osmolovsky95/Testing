@@ -27,9 +27,9 @@ public class AdministrarorServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         String name = req.getParameter("name");
         String password = req.getParameter("pass");
-        String querry = "select * from administrators where name=?";
+        String sql = "select * from administrators where name=?";
         try {
-            PreparedStatement preparedStatement = new AdministratorDAO().getPreparedStatement(querry);
+            PreparedStatement preparedStatement = new AdministratorDAO().getPreparedStatement(sql);
             preparedStatement.setString(1, name);
             ResultSet resultSet = preparedStatement.executeQuery();
             preparedStatement.getConnection().close();
@@ -42,9 +42,7 @@ public class AdministrarorServlet extends HttpServlet {
                     pw.println("Invalid input");
                 }
             }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
     }

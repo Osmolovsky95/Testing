@@ -4,8 +4,8 @@ import java.sql.*;
 public class AnswerDAO implements DAO {
 
     public static long addAnswer(String answer) throws SQLException, ClassNotFoundException {
-        String insertQuerry = "INSERT INTO answers (answer) Values (?) RETURNING id";
-        PreparedStatement preparedStatement =new AnswerDAO().getPreparedStatement(insertQuerry) ;
+        String insertSQL = "INSERT INTO answers (answer) Values (?) RETURNING id";
+        PreparedStatement preparedStatement =new AnswerDAO().getPreparedStatement(insertSQL) ;
         preparedStatement.setString(1, answer);
         ResultSet rs = preparedStatement.executeQuery();
         long id = 0;
@@ -16,23 +16,18 @@ public class AnswerDAO implements DAO {
         return id;
     }
 
-    public static long addTrueAnswer(long answer_id,long question_id) throws SQLException, ClassNotFoundException {
-        String insertQuerry = "INSERT INTO trueAnswers (id_answer,id_question) Values (?,?) RETURNING id";
-        PreparedStatement preparedStatement =new AnswerDAO().getPreparedStatement(insertQuerry) ;
+    public static void addTrueAnswer(long answer_id,long question_id) throws SQLException, ClassNotFoundException {
+        String insertSQL = "INSERT INTO trueAnswers (id_answer,id_question) Values (?,?) RETURNING id";
+        PreparedStatement preparedStatement =new AnswerDAO().getPreparedStatement(insertSQL) ;
         preparedStatement.setLong(1, answer_id);
         preparedStatement.setLong(2, question_id);
         ResultSet rs = preparedStatement.executeQuery();
-        long id = 0;
-        while (rs.next()) {
-            id = rs.getInt(1);
-        }
         preparedStatement.getConnection().close();
-        return id;
     }
 
     public static ResultSet getAnswers(long id) throws SQLException, ClassNotFoundException {
-        String insertQuerry = "select question_answers.id,answer from question_Answers left join answers on answer_id=answers.id where question_id=?";
-        PreparedStatement preparedStatement =new AnswerDAO().getPreparedStatement(insertQuerry);
+        String selectSQL = "select question_answers.id,answer from question_Answers left join answers on answer_id=answers.id where question_id=?";
+        PreparedStatement preparedStatement =new AnswerDAO().getPreparedStatement(selectSQL);
         preparedStatement.setLong(1,id);
         ResultSet resultSet=preparedStatement.executeQuery();
         preparedStatement.getConnection().close();

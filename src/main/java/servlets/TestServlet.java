@@ -1,4 +1,5 @@
 package servlets;
+import data.AssessmentSetter;
 import data.Student;
 import question.Question;
 import javax.servlet.RequestDispatcher;
@@ -6,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -14,20 +16,21 @@ import question.BankQuestions;
 
 public class TestServlet extends HttpServlet {
 
-    int countQuestion = 1;
-    private Student student;
-    private double currentAssesment = 0;
-    int session = 0;
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // TODO: 09.01.2020 Оценка закрепить за сессией
-        /*
 
-            HttpSession session = req.getSession();
-            student = (Student) session.getAttribute("currentStudent");
-            session.setAttribute("count",session);*/
-        System.out.println("GET");
+        int countSession=1;
+        double assessmentCurrent=0;
+        HttpSession session=req.getSession();
+        Student student=(Student) session.getAttribute("currentStudent");
+
+        if(session.getAttribute("count")==null){
+            session.setAttribute("count",countSession);
+            session.setAttribute("assessment",assessmentCurrent);
+        }
+
+        int countQuestion=(int)session.getAttribute("count");
+
         if (countQuestion< BankQuestions.getInstance().getQuestions().size()) {
             Question question = BankQuestions.getInstance().getQuestions().get(countQuestion);
             req.setAttribute("question", question.getQuestion());
@@ -41,30 +44,32 @@ public class TestServlet extends HttpServlet {
             req.setAttribute("answer_id_2", question.getIdAnswers().get(2));
             req.setAttribute("answer_id_3", question.getIdAnswers().get(3));
             req.setAttribute("nameButton", "Ответить");
-            long trueNumber = question.getTrueNumber();
-
-            System.out.println(req.getParameter("0") + " выбранный");
             Question currentQuestion = BankQuestions.getInstance().getQuestions().get(countQuestion - 1);
-            System.out.println(currentQuestion.getTrueNumber() + " правильный");
-            System.out.println(currentQuestion.getTrueNumber());
+
             if (countQuestion > 1) {
                 if (Long.parseLong(req.getParameter("0")) == currentQuestion.getTrueNumber()) {
-                    currentAssesment += currentQuestion.getAssessment();
+                    double assessment=(double)session.getAttribute("assessment");
+                    assessment+=currentQuestion.getAssessment();
+                    session.setAttribute("assessment",assessment);
                 }
         }
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/Test.jsp");
         requestDispatcher.forward(req, resp);
-        countQuestion++;
+        countSession=(int)session.getAttribute("count");
+        session.setAttribute("count",countSession+1);
         }
         else {
             Question lastQuestion = BankQuestions.getInstance().getQuestions().get(BankQuestions.getInstance().getQuestions().size() - 1);
-            currentAssesment = currentAssesment + lastQuestion.getAssessment();
+            if (Long.parseLong(req.getParameter("0")) == lastQuestion.getTrueNumber()) {
+                 double assessment=(double)session.getAttribute("assessment");
+                 assessment+=lastQuestion.getAssessment();
+                 session.setAttribute("assessment",assessment);
+                 new AssessmentSetter(student,assessment);
+            }
             PrintWriter pw = resp.getWriter();
-            pw.println("Your assessment is  " + currentAssesment);
+            pw.println("Your assessment is  " + session.getAttribute("assessment"));
+
         }
-
-        System.out.println(currentAssesment+"текущая оценка");
-
     }
     }
 

@@ -14,8 +14,7 @@ public class LoaderDB {
         try {
             String sql="select * from questions";
             Class.forName("org.postgresql.Driver");
-            Connection connection = null;
-            connection = DriverManager.getConnection(url, name, password);
+            Connection connection = DriverManager.getConnection(url, name, password);
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet questions = preparedStatement.executeQuery();
 

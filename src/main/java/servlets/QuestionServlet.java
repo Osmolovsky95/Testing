@@ -65,7 +65,7 @@ public class QuestionServlet extends HttpServlet {
                     break;
                 case 3:
                      AnswerDAO.addTrueAnswer(id_3_answer, id_question);
-                    question.setTrueNumber(id_3_answer);
+                     question.setTrueNumber(id_3_answer);
                     break;
                 case 4:
                      AnswerDAO.addTrueAnswer(id_4_answer, id_question);
@@ -79,9 +79,7 @@ public class QuestionServlet extends HttpServlet {
             QuestionDAO.addQuestionAnswers(id_question, id_2_answer);
             QuestionDAO.addQuestionAnswers(id_question, id_3_answer);
             QuestionDAO.addQuestionAnswers(id_question, id_4_answer);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         PrintWriter pw=resp.getWriter();

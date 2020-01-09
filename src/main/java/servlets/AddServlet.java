@@ -44,9 +44,7 @@ public class AddServlet extends HttpServlet {
 
            try {
                 StudentDAO.insertStudent(name,password);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
+            } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
             req.setAttribute("userName", name);

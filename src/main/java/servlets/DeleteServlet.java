@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Iterator;
 import java.util.List;
 
 public class DeleteServlet extends HttpServlet {
@@ -23,16 +22,12 @@ public class DeleteServlet extends HttpServlet {
         GroupStudents groupStudents = GroupStudents.getInstance();
         try {
             StudentDAO.deleteStudent(name);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         String studentName;
         List<Student> students=groupStudents.getStudents();
-        Iterator<Student> iterator=students.iterator();
-        while (iterator.hasNext()) {
-            Student student=iterator.next();
+        for (Student student : students) {
             studentName = student.getName();
             if (studentName.equals(name)) {
                 students.remove(student);

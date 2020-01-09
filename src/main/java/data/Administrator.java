@@ -3,7 +3,7 @@ package data;
 public class Administrator {
     private String name;
     private String password;
-    private long id;
+    private final long id;
 
     public Administrator(String name, String password, long id) {
         this.name = name;

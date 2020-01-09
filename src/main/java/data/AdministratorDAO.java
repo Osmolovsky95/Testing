@@ -7,8 +7,8 @@ import java.sql.SQLException;
 public class AdministratorDAO implements DAO {
 
     public static void insertStudent(String name,String password) throws SQLException, ClassNotFoundException {
-        String insertQuerry="INSERT INTO administrators (name, password) Values (?,?) RETURNING id";
-        PreparedStatement preparedStatement = new StudentDAO().getPreparedStatement(insertQuerry);
+        String insertSQL="INSERT INTO administrators (name, password) Values (?,?) RETURNING id";
+        PreparedStatement preparedStatement = new StudentDAO().getPreparedStatement(insertSQL);
         preparedStatement.setString(1, name);
         preparedStatement.setString(2, password);
         ResultSet rs= preparedStatement.executeQuery();

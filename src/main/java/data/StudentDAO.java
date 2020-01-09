@@ -1,13 +1,12 @@
 package data;
 import java.sql.*;
-import java.util.Iterator;
 import java.util.List;
 
 public class StudentDAO implements DAO {
 
     public static void insertStudent(String name,String password) throws SQLException, ClassNotFoundException {
-        String insertQuerry="INSERT INTO students (name, password) Values (?,?) RETURNING id";
-        PreparedStatement preparedStatement = new StudentDAO().getPreparedStatement(insertQuerry);
+        String insertSQL="INSERT INTO students (name, password) Values (?,?) RETURNING id";
+        PreparedStatement preparedStatement = new StudentDAO().getPreparedStatement(insertSQL);
         preparedStatement.setString(1, name);
         preparedStatement.setString(2, password);
         ResultSet rs= preparedStatement.executeQuery();
@@ -21,17 +20,15 @@ public class StudentDAO implements DAO {
     }
 
     public static void deleteStudent(String name) throws SQLException, ClassNotFoundException {
-        String deleteQuerry="DELETE FROM students where name=?";
-        PreparedStatement preparedStatement = new StudentDAO().getPreparedStatement(deleteQuerry);
+        String deleteSQL="DELETE FROM students where name=?";
+        PreparedStatement preparedStatement = new StudentDAO().getPreparedStatement(deleteSQL);
         preparedStatement.setString(1, name);
         preparedStatement.executeUpdate();
         preparedStatement.getConnection().close();
 
         String studentName;
         List<Student> students=GroupStudents.getInstance().getStudents();
-        Iterator<Student> iterator=students.iterator();
-        while (iterator.hasNext()) {
-            Student student=iterator.next();
+        for (Student student : students) {
             studentName = student.getName();
             if (studentName.equals(name)) {
                 students.remove(student);
