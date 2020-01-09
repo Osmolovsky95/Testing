@@ -1,5 +1,6 @@
 package servlets;
 
+import DAO.StudentDAO;
 import data.Administrator;
 import registration.Registrator;
 import registration.SignInEnum;
@@ -14,6 +15,9 @@ import java.io.PrintWriter;
 
 
 public class AdministratorServlet extends HttpServlet {
+    static {
+        StudentDAO.loadStudents();
+    }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");

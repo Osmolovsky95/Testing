@@ -19,11 +19,11 @@ public class Registrator implements DAO {
         else if (signInEnum==SignInEnum.ADMINISTRATOR) {
             sql = "SELECT * FROM  administrators WHERE name=?";
         }
-        DAO regitrator=new Registrator();
+        DAO registrator=new Registrator();
         IPerson person=null;
         ResultSet resultSet;
         try {
-            PreparedStatement preparedStatement = regitrator.getPreparedStatement(sql);
+            PreparedStatement preparedStatement = registrator.getPreparedStatement(sql);
             preparedStatement.setString(1, name);
             resultSet = preparedStatement.executeQuery();
             if (signInEnum == SignInEnum.STUDENT) {

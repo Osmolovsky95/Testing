@@ -3,6 +3,7 @@ import data.GroupStudents;
 import data.Student;
 
 import java.sql.*;
+import java.util.HashSet;
 import java.util.Set;
 
 public class StudentDAO implements DAO {
@@ -39,4 +40,30 @@ public class StudentDAO implements DAO {
             }
         }
     }
+
+    public static void loadStudents(){
+        String selectSQL="SELECT * FROM students";
+        try{
+        PreparedStatement preparedStatement = new StudentDAO().getPreparedStatement(selectSQL);
+        ResultSet resultSet=preparedStatement.executeQuery();
+        preparedStatement.getConnection().close();
+
+        while (resultSet.next()){
+            long id=resultSet.getLong("id");
+            String name=resultSet.getString("name");
+            String password=resultSet.getString("password");
+            Student student=new Student(name,password,id);
+            GroupStudents.getInstance().getStudents().add(student);
+        }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void selectStudentAssessment(){
+
+    }
+
 }

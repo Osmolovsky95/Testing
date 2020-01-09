@@ -28,7 +28,7 @@ public class AnswerDAO implements DAO {
     }
 
     public static ResultSet getAnswers(long id) throws SQLException, ClassNotFoundException {
-        String selectSQL = "select question_answers.id,answer from question_Answers left join answers on answer_id=answers.id where question_id=?";
+        String selectSQL = "SELECT question_answers.id,answer FROM question_Answers LEFT JOIN answers on answer_id=answers.id where question_id=?";
         PreparedStatement preparedStatement =new AnswerDAO().getPreparedStatement(selectSQL);
         preparedStatement.setLong(1,id);
         ResultSet resultSet=preparedStatement.executeQuery();

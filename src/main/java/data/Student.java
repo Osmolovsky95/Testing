@@ -28,11 +28,6 @@ public class Student implements IPerson {
         return assessments;
     }
 
-    public void setAssessments(List<Double> assessments) {
-        this.assessments = assessments;
-    }
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

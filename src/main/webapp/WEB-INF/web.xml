@@ -74,4 +74,13 @@
         <servlet-name>ListQuestions</servlet-name>
         <url-pattern>/listQuestions</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ReportServlet</servlet-name>
+        <servlet-class>servlets.ReportServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReportServlet</servlet-name>
+        <url-pattern>/generateReport</url-pattern>
+    </servlet-mapping>
 </web-app>

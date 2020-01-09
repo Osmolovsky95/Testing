@@ -67,7 +67,7 @@ public class TestServlet extends HttpServlet {
             }
             PrintWriter pw = resp.getWriter();
             pw.println("Your assessment is  " + session.getAttribute("assessment"));
-
+            session.invalidate();
         }
     }
     }
