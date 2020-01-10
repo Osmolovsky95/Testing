@@ -1,16 +1,17 @@
-package data;
+package loaders;
 
 import question.Question;
 import question.BankQuestions;
 import java.sql.*;
 
 
-public class LoaderDB {
+
+public class LoaderQuestions implements ILoader {
    private String url = "jdbc:postgresql://localhost:5432/Testing";
    private String name = "postgres";
    private String password = "postgres";
 
-    public void createQuestionsFromDB()  {
+    public void load()  {
         try {
             String sql="SELECT * FROM questions";
             Class.forName("org.postgresql.Driver");
@@ -59,4 +60,6 @@ public class LoaderDB {
             e.printStackTrace();
         }
     }
+
+
 }

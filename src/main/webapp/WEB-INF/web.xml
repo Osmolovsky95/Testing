@@ -83,4 +83,13 @@
         <servlet-name>ReportServlet</servlet-name>
         <url-pattern>/generateReport</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LoaderServlet</servlet-name>
+        <servlet-class>servlets.LoaderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoaderServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
 </web-app>

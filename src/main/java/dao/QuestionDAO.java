@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 
 import question.Question;
@@ -32,14 +32,6 @@ public class QuestionDAO implements DAO {
         preparedStatement.setLong(2, answer_id);
         preparedStatement.execute();
         preparedStatement.getConnection().close();
-    }
-
-
-    public static ResultSet getQuestions() throws SQLException, ClassNotFoundException {
-        String insertQuestion="SELECT * FROM questions";
-        PreparedStatement preparedStatement = new QuestionDAO().getPreparedStatement(insertQuestion);
-        ResultSet resultSet=preparedStatement.executeQuery();
-        return resultSet;
     }
 
     public static void addAnswersToQuestion(Question question,List<String> answers){

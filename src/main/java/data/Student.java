@@ -1,5 +1,6 @@
 package data;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -10,10 +11,29 @@ public class Student implements IPerson {
     private  List<Double> assessments=new ArrayList<>();
     private String password;
 
+
     public Student(String name, String password, long id) {
         this.name = name;
         this.id = id;
         this.password = password;
+    }
+
+    public double getResultAssessment() {
+        double resultAssessment=0;
+
+        for (double assessment:assessments){
+            resultAssessment+=assessment;
+        }
+        if(resultAssessment==0){
+            return 0.0;
+        }
+        else {
+            return (resultAssessment / assessments.size());
+        }
+    }
+
+    public void setAssessments(List<Double> assessments) {
+        this.assessments = assessments;
     }
 
     public String getPassword() {

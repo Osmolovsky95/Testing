@@ -11,8 +11,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import DAO.AnswerDAO;
-import DAO.QuestionDAO;
+import dao.AnswerDAO;
+import dao.QuestionDAO;
 import question.BankQuestions;
 import question.Question;
 

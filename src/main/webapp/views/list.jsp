@@ -22,7 +22,6 @@
    pw.println("<table border=\"1\">");
    for (Student s:names){
     pw.println( "<td> " +s.getName() + "</td>");
-    pw.println(s.getAssessments().get(0));
    }
    pw.println("</table>");%>
  </div>

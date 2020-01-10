@@ -1,6 +1,7 @@
 package servlets;
 import data.AssessmentSetter;
 import data.Student;
+import loaders.LoaderStudents;
 import question.Question;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,7 +18,6 @@ public class TestServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         int countSession=1;
         double assessmentCurrent=0;
         HttpSession session=req.getSession();
@@ -67,6 +67,7 @@ public class TestServlet extends HttpServlet {
             }
             PrintWriter pw = resp.getWriter();
             pw.println("Your assessment is  " + session.getAttribute("assessment"));
+            new LoaderStudents();
             session.invalidate();
         }
     }

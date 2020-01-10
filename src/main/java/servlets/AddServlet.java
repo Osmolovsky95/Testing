@@ -1,14 +1,14 @@
 package servlets;
 
-import data.GroupStudents;
-import DAO.StudentDAO;
+
+import dao.StudentDAO;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.sql.SQLException;
+
 
 
 public class AddServlet extends HttpServlet {
@@ -20,17 +20,16 @@ public class AddServlet extends HttpServlet {
         }
 
         protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-            GroupStudents myGroup=GroupStudents.getInstance();
             resp.setContentType("text/html;charset=UTF-8");
             String name = req.getParameter("name");
             String password= req.getParameter("pass");
-
+            StudentDAO.insertStudent(name,password);
+            req.setAttribute("userName", name);
+            doGet(req, resp);
             //Получаем json
           /* InputStreamReader inputStreamReader=new InputStreamReader(req.getInputStream());
             BufferedReader bufferedReader=new BufferedReader(inputStreamReader);
-
         //Чтение ткста     BufferedReader bufferedReader = req.getReader();
-
             StringBuffer stringBuffer=new StringBuffer();
             String str;
             while ((str=bufferedReader.readLine())!=null){
@@ -41,14 +40,6 @@ public class AddServlet extends HttpServlet {
            //  String bodyName=jsonObject.getString("name");
            //  String bodyPass=jsonObject.getString("pass");
             System.out.println(resp.getStatus());*/
-
-           try {
-                StudentDAO.insertStudent(name,password);
-            } catch (SQLException | ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-            req.setAttribute("userName", name);
-            doGet(req, resp);
         }
     }
 

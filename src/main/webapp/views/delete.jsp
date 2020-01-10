@@ -21,10 +21,15 @@
     <button onclick="Location.href='/Testing_war/delete'">Удалить</button>
 </form>
 <div>
-    <%
-        if (request.getAttribute("name") != null) {
-            out.println("<p>User '" + request.getAttribute("name") + "' removed!</p>");
+    <% if((request.getAttribute("result")!=null)) {
+        if ((Boolean) request.getAttribute("result")) {
+            if (request.getAttribute("name") != null) {
+                out.println("<p>User '" + request.getAttribute("name") + "' removed!</p>");
+            } else {
+                out.print("<p> Студент: " + request.getAttribute("name") + " не найден </p>");
+            }
         }
+    }
     %>
 </div>
 </body>

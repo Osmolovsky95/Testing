@@ -1,10 +1,9 @@
 package registration;
 
 import data.Administrator;
-import DAO.DAO;
+import dao.DAO;
 import data.IPerson;
 import data.Student;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -15,11 +15,6 @@ import registration.SignInEnum;
 
 public class StudentSignInServlet extends HttpServlet {
 
-static {
-    // TODO: 09.01.2020 убрать
-    LoaderDB loaderDB=new LoaderDB();
-    loaderDB.createQuestionsFromDB();
-}
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
@@ -30,6 +25,7 @@ static {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
         resp.setCharacterEncoding("UTF-8");
+
         String name = req.getParameter("name");
         String password = req.getParameter("pass");
         PrintWriter pw = resp.getWriter();
