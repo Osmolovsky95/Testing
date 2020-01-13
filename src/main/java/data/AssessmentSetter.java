@@ -17,7 +17,7 @@ public class AssessmentSetter implements DAO {
         this.setToDB(student,assessment);
     }
 
-    public void setToDB(Student student,double assessment){
+    private void setToDB(Student student,double assessment){
         String testName="TestName";
         long id=student.getId();
        try {
@@ -25,12 +25,9 @@ public class AssessmentSetter implements DAO {
            preparedStatement.setString(1, testName);
            preparedStatement.setLong(2, id);
            preparedStatement.setDouble(3, assessment);
-           System.out.println(preparedStatement.execute());
-       } catch (SQLException e) {
-           e.printStackTrace();
-       } catch (ClassNotFoundException e) {
+           preparedStatement.execute();
+       } catch (SQLException | ClassNotFoundException e) {
            e.printStackTrace();
        }
-
     }
 }

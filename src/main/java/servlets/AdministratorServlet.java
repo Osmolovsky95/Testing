@@ -2,8 +2,9 @@ package servlets;
 
 
 import data.Administrator;
-import registration.Registrator;
-import registration.SignInEnum;
+import data.IPerson;
+import service.registration.Registrator;
+import service.registration.SignInEnum;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -27,7 +28,8 @@ public class AdministratorServlet extends HttpServlet {
         String password = req.getParameter("pass");
 
         Registrator registrator=new Registrator();
-        Administrator administrator =(Administrator)registrator.registration(name,password, SignInEnum.ADMINISTRATOR);
+        IPerson administrator=new Administrator(name,password);
+        administrator =(Administrator)registrator.registration(administrator, SignInEnum.ADMINISTRATOR);
         if(!(administrator==null)){
                     RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/updateDB.jsp");
                     requestDispatcher.forward(req, resp);

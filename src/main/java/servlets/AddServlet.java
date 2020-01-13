@@ -1,7 +1,9 @@
 package servlets;
 
 
-import dao.StudentDAO;
+import data.Student;
+import service.StudentService;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,23 +25,11 @@ public class AddServlet extends HttpServlet {
             resp.setContentType("text/html;charset=UTF-8");
             String name = req.getParameter("name");
             String password= req.getParameter("pass");
-            StudentDAO.insertStudent(name,password);
+            Student student=new Student(name,password);
+            new StudentService().addStudent(student);
             req.setAttribute("userName", name);
             doGet(req, resp);
-            //Получаем json
-          /* InputStreamReader inputStreamReader=new InputStreamReader(req.getInputStream());
-            BufferedReader bufferedReader=new BufferedReader(inputStreamReader);
-        //Чтение ткста     BufferedReader bufferedReader = req.getReader();
-            StringBuffer stringBuffer=new StringBuffer();
-            String str;
-            while ((str=bufferedReader.readLine())!=null){
-               stringBuffer.append(str);
-           }
-             System.out.println(stringBuffer.toString());
-            // JSONObject jsonObject=new JSONObject(stringBuffer.toString());
-           //  String bodyName=jsonObject.getString("name");
-           //  String bodyPass=jsonObject.getString("pass");
-            System.out.println(resp.getStatus());*/
+
         }
     }
 

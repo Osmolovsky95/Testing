@@ -38,7 +38,7 @@
 </div>
 
 <div>
-    <button onclick="location.href='/'">На главную</button>
+    <button onclick="location.href='/Testing_war/administratorPage/'">На главную</button>
 </div>
 </body>
 </html>

@@ -9,8 +9,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import data.*;
-import registration.Registrator;
-import registration.SignInEnum;
+import service.StudentService;
+import service.registration.Registrator;
+import service.registration.SignInEnum;
 
 
 public class StudentSignInServlet extends HttpServlet {
@@ -23,14 +24,14 @@ public class StudentSignInServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException{
         resp.setCharacterEncoding("UTF-8");
-
         String name = req.getParameter("name");
         String password = req.getParameter("pass");
         PrintWriter pw = resp.getWriter();
         Registrator registrator=new Registrator();
-        Student student =(Student)registrator.registration(name,password, SignInEnum.STUDENT);
+        IPerson student=new Student(name,password);
+        student=registrator.registration(student,SignInEnum.STUDENT);
         if(!(student==null)){
             resp.sendRedirect("TestServlet");
             HttpSession session=req.getSession();

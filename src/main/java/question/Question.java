@@ -10,9 +10,13 @@ public class Question {
     private List <String> answers=new ArrayList<>();
     private long trueNumber;
     private double assessment;
-    private List <Long> idAnswers=new ArrayList<>();
+    private List <Integer> idAnswers=new ArrayList<>();
 
-    public List<Long> getIdAnswers() {
+    public void setIdAnswers(List<Integer> idAnswers) {
+        this.idAnswers = idAnswers;
+    }
+
+    public List<Integer> getIdAnswers() {
         return idAnswers;
     }
 
@@ -30,6 +34,12 @@ public class Question {
     }
 
     public Question() {
+    }
+
+    public Question(String question, List<String> answers, double assessment) {
+        this.question = question;
+        this.answers = answers;
+        this.assessment = assessment;
     }
 
     public double getAssessment() {
@@ -50,10 +60,6 @@ public class Question {
 
     public List<String> getAnswers() {
         return answers;
-    }
-
-    public void setAnswers(List<String> answers) {
-        this.answers = answers;
     }
 
     public long getTrueNumber() {

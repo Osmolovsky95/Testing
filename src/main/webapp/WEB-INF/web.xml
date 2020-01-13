@@ -16,6 +16,16 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>AddServletJSON</servlet-name>
+        <servlet-class>servlets.json.AddServletJSON</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddServletJSON</servlet-name>
+        <url-pattern>/add/api</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
     <servlet-name>ListServlet</servlet-name>
     <servlet-class>servlets.ListServlet</servlet-class>
 </servlet>
@@ -48,6 +58,15 @@
     <servlet-mapping>
         <servlet-name>CreateQuestion</servlet-name>
         <url-pattern>/createQuestion</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CreateQuestionJSON</servlet-name>
+        <servlet-class>servlets.json.QuestionServletJSON</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateQuestionJSON</servlet-name>
+        <url-pattern>/createQuestion/api</url-pattern>
     </servlet-mapping>
 
     <servlet>

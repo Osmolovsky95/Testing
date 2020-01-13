@@ -3,7 +3,6 @@ package generateReport;
 import data.Student;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
-
 import java.io.*;
 import java.text.DecimalFormat;
 import java.util.Set;
@@ -14,7 +13,7 @@ public class ExcelCreator implements IReportCreator {
     public void createReport(Set<Student> students) {
         System.out.println("Создание EXCEL");
         Workbook workbook=new HSSFWorkbook();
-        File file=new File("C:\\Users\\A.Asmalouski\\IdeaProjects\\Testing","Report.xls");
+        File file=new File("C:\\Users\\A.Asmalouski\\IdeaProjects\\Testing\\reports","Report.xls");
         try (OutputStream fileOut =  new FileOutputStream(file)) {
             Sheet sheet1 = workbook.createSheet ( "NameGroup" );
             int numberColumnName=0;

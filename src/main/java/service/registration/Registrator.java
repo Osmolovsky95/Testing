@@ -1,4 +1,4 @@
-package registration;
+package service.registration;
 
 import data.Administrator;
 import dao.DAO;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class Registrator implements DAO {
 
-    public IPerson registration(String name, String password, SignInEnum signInEnum){
+    public IPerson registration(IPerson iPerson, SignInEnum signInEnum){
         String sql=null;
         if(signInEnum==SignInEnum.STUDENT){
             sql="SELECT * FROM students WHERE name=?";
@@ -23,24 +23,22 @@ public class Registrator implements DAO {
         ResultSet resultSet;
         try {
             PreparedStatement preparedStatement = registrator.getPreparedStatement(sql);
-            preparedStatement.setString(1, name);
+            preparedStatement.setString(1, iPerson.getName());
             resultSet = preparedStatement.executeQuery();
             if (signInEnum == SignInEnum.STUDENT) {
                 while (resultSet.next()) {
-                    if (name.equals(resultSet.getString("name")) & password.equals(resultSet.getString("password"))) {
-                        person = new Student(name, password, resultSet.getLong("id"));
+                    if (iPerson.getName().equals(resultSet.getString("name")) & iPerson.getPassword().equals(resultSet.getString("password"))) {
+                        person = new Student(iPerson.getName(),iPerson.getPassword(), resultSet.getLong("id"));
                     } else person = null;
                 }
             } else if (signInEnum == SignInEnum.ADMINISTRATOR) {
                 while (resultSet.next()) {
-                    if (name.equals(resultSet.getString("name")) & password.equals(resultSet.getString("password"))) {
-                        person = new Administrator(name, password, resultSet.getLong("id"));
+                    if (iPerson.getName().equals(resultSet.getString("name")) & iPerson.getPassword().equals(resultSet.getString("password"))) {
+                        person = new Administrator(iPerson.getName(), iPerson.getPassword(), resultSet.getLong("id"));
                     } else person = null;
                 }
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return person;

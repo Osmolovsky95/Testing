@@ -1,4 +1,4 @@
-package registration;
+package service.registration;
 
 public enum SignInEnum {
     ADMINISTRATOR,

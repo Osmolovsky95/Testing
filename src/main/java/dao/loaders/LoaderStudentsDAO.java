@@ -1,17 +1,16 @@
-package loaders;
+package dao.loaders;
 
 import dao.DAO;
 import dao.StudentDAO;
 import data.GroupStudents;
 import data.Student;
-import loaders.ILoader;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class LoaderStudents implements ILoader, DAO {
+public class LoaderStudentsDAO implements ILoader, DAO {
 
     @Override
     public void load() {
@@ -29,9 +28,7 @@ public class LoaderStudents implements ILoader, DAO {
                 student.setAssessments(assessments);
                 GroupStudents.getInstance().getStudents().add(student);
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

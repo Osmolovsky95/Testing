@@ -1,6 +1,9 @@
 package servlets;
 
 import dao.StudentDAO;
+import data.Student;
+import service.StudentService;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +18,10 @@ public class DeleteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
         String name = req.getParameter("name");
-        StudentDAO.deleteStudent(name);
+        Student student=new Student();
+        student.setName(name);
+        boolean result= new StudentService().deleteStudent(student);
+        req.setAttribute("result",result);
         req.setAttribute("name",name);
         doGet(req,resp);
     }

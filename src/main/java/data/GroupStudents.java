@@ -27,9 +27,6 @@ public class GroupStudents {
         return students;
     }
 
-    public Set<Administrator> getAdministrators() {
-        return administrators;
-    }
 }
 
 

@@ -18,6 +18,18 @@ public class Student implements IPerson {
         this.password = password;
     }
 
+    public Student(String name, String password) {
+        this.name = name;
+        this.password = password;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Student() {
+    }
+
     public double getResultAssessment() {
         double resultAssessment=0;
 
@@ -53,15 +65,12 @@ public class Student implements IPerson {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return id == student.id &&
-                Objects.equals(name, student.name) &&
-                Objects.equals(assessments, student.assessments) &&
-                Objects.equals(password, student.password);
+        return id == student.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, id, assessments, password);
+        return Objects.hash(id);
     }
 
     public String getName() {
@@ -80,7 +89,6 @@ public class Student implements IPerson {
                 ", password='" + password + '\'' +
                 '}';
     }
-
     public long getId() {
         return id;
     }
