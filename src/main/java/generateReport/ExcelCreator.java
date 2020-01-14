@@ -1,6 +1,6 @@
 package generateReport;
 
-import data.Student;
+import data.student.Student;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import java.io.*;

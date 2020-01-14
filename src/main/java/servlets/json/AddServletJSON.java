@@ -1,10 +1,8 @@
 package servlets.json;
 
-import data.Student;
+import data.student.Student;
 import org.json.JSONObject;
-import org.json.JSONWriter;
 import service.StudentService;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,8 +10,8 @@ import java.io.*;
 
 public class AddServletJSON extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-// TODO: 13.01.2020
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
+
         InputStreamReader inputStreamReader = new InputStreamReader(req.getInputStream());
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         StringBuffer stringBuffer = new StringBuffer();
@@ -26,8 +24,7 @@ public class AddServletJSON extends HttpServlet {
              String studentPass=jsonObject.getString("pass");
 
              Student student=new Student(studentName,studentPass);
-             StudentService studentService=new StudentService();
-             studentService.addStudent(student);
+             new StudentService().addStudent(student);
     }
 }
 

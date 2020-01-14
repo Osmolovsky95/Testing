@@ -1,9 +1,7 @@
 package service.json;
 
-import data.IJSON;
-import data.Student;
+import data.student.Student;
 import org.json.JSONObject;
-import service.json.IParserJSON;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -23,7 +21,6 @@ public class StudentJSON implements IParserJSON {
         }
         return file;
     }
-
 
     public Student fromJSON(File file) {
         Student student=null;

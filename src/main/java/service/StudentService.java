@@ -2,8 +2,8 @@ package service;
 
 import dao.StudentDAO;
 import dao.loaders.LoaderStudentsDAO;
-import data.GroupStudents;
-import data.Student;
+import data.student.GroupStudents;
+import data.student.Student;
 import service.json.StudentJSON;
 
 import java.io.File;

@@ -1,9 +1,7 @@
-package servlets;
+package servlets.parametrs;
 
-import dao.StudentDAO;
-import data.Student;
+import data.student.Student;
 import service.StudentService;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

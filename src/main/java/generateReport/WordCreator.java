@@ -1,12 +1,7 @@
 package generateReport;
-import data.Student;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
-import java.util.Set;
+import data.student.Student;
 
-import org.apache.poi.xwpf.usermodel.XWPFDocument;
-import org.apache.poi.xwpf.usermodel.XWPFParagraph;
-import org.apache.poi.xwpf.usermodel.XWPFRun;
+import java.util.Set;
 
 public class WordCreator implements IReportCreator {
 

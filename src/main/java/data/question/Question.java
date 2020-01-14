@@ -1,11 +1,12 @@
-package question;
+package data.question;
 
-import data.IJSON;
+import service.json.IJSON;
+import service.xml.IXML;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Question implements IJSON {
+public class Question implements IJSON, IXML {
 
     private long id;
     private   String question;

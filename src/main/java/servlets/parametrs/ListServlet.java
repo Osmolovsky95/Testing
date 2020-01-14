@@ -1,7 +1,7 @@
-package servlets;
+package servlets.parametrs;
 
-import data.GroupStudents;
-import data.Student;
+import data.student.GroupStudents;
+import data.student.Student;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

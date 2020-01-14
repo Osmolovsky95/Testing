@@ -1,6 +1,7 @@
 package data;
 
 import dao.DAO;
+import data.student.Student;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

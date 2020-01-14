@@ -1,10 +1,7 @@
 package service.json;
 
-import data.IJSON;
 import org.json.JSONObject;
-import question.Question;
-import service.json.IParserJSON;
-
+import data.question.Question;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -29,7 +26,6 @@ public class QuestionJSON implements IParserJSON {
         System.out.println(question);
         return file;
     }
-
 
     @Override
     public IJSON fromJSON(File file) {

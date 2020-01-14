@@ -1,7 +1,7 @@
 package dao;
 import dao.loaders.LoaderStudentsDAO;
-import data.GroupStudents;
-import data.Student;
+import data.student.GroupStudents;
+import data.student.Student;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -65,10 +65,10 @@ public class StudentDAO implements DAO {
                 double assessment=rs.getDouble("assessment");
                 listAssessment.add(assessment);
             }
+            preparedStatement.getConnection().close();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return listAssessment;
     }
-
 }

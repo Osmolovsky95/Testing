@@ -1,4 +1,4 @@
-package data;
+package service.json;
 
 public interface IJSON {
 }

@@ -1,8 +1,8 @@
-package servlets;
+package servlets.parametrs;
 
 
-import question.BankQuestions;
-import question.Question;
+import data.question.BankQuestions;
+import data.question.Question;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -1,7 +1,7 @@
 package dao;
 
 
-import question.Question;
+import data.question.Question;
 
 import java.sql.*;
 import java.util.ArrayList;

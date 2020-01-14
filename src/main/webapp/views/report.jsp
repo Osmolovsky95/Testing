@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.io.PrintWriter" %>
-<%@ page import="data.Student" %>
+<%@ page import="data.student.Student" %>
 <%@ page import="java.util.Set" %>
 <%@ page import="java.text.DecimalFormat" %>
 <%@ page import="generateReport.TypeReport" %>

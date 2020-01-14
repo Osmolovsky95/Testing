@@ -1,11 +1,15 @@
-package data;
+package data.student;
 
+
+import data.IPerson;
+import service.json.IJSON;
+import service.xml.IXML;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Student implements IPerson,IJSON {
+public class Student implements IPerson, IJSON, IXML {
     private String name;
     private long id;
     private  List<Double> assessments=new ArrayList<>();

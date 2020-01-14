@@ -1,7 +1,5 @@
 package service.json;
 
-import data.IJSON;
-
 import java.io.File;
 
 public interface IParserJSON {

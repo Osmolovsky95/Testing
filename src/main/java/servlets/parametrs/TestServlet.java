@@ -1,8 +1,8 @@
-package servlets;
+package servlets.parametrs;
 import data.AssessmentSetter;
-import data.Student;
+import data.student.Student;
 import dao.loaders.LoaderStudentsDAO;
-import question.Question;
+import data.question.Question;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +14,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 
-import question.BankQuestions;
+import data.question.BankQuestions;
 import test.Test;
 
 

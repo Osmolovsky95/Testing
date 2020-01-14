@@ -1,6 +1,6 @@
 package generateReport;
 
-import data.Student;
+import data.student.Student;
 
 
 import java.util.Set;

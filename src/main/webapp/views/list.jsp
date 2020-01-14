@@ -1,5 +1,5 @@
 <%@ page import="java.io.PrintWriter" %>
-<%@ page import="data.Student" %>
+<%@ page import="data.student.Student" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Set" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>

@@ -1,8 +1,8 @@
 package dao.loaders;
 
 import dao.DAO;
-import question.Question;
-import question.BankQuestions;
+import data.question.Question;
+import data.question.BankQuestions;
 import java.sql.*;
 
 
@@ -33,11 +33,12 @@ public class LoaderQuestionsDAO implements ILoader, DAO {
                   long idTrueAnswer= rs.getInt("id_answer");
                   question.setTrueNumber(idTrueAnswer);
               }
-
+                preparedStatement1.getConnection().close();
               String sqlAnswers = "SELECT * FROM question_answers WHERE question_id=?";
               PreparedStatement preparedStatement2 = this.getPreparedStatement(sqlAnswers);
               preparedStatement2.setLong(1, question.getId());
               ResultSet answers= preparedStatement2.executeQuery();
+              preparedStatement2.getConnection().close();
               String sqlAnswerText="SELECT * FROM answers WHERE id=?";
               PreparedStatement preparedStatement3=this.getPreparedStatement(sqlAnswerText);
              while(answers.next()){
@@ -50,8 +51,6 @@ public class LoaderQuestionsDAO implements ILoader, DAO {
                   question.getAnswers().add(answerContent);
                }
              }
-             preparedStatement3.getConnection().close();
-             preparedStatement3.getConnection().close();
              preparedStatement3.getConnection().close();
               BankQuestions.getInstance().getQuestions().add(question);
           }

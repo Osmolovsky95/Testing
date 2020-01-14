@@ -3,7 +3,7 @@ package service.registration;
 import data.Administrator;
 import dao.DAO;
 import data.IPerson;
-import data.Student;
+import data.student.Student;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,6 +25,7 @@ public class Registrator implements DAO {
             PreparedStatement preparedStatement = registrator.getPreparedStatement(sql);
             preparedStatement.setString(1, iPerson.getName());
             resultSet = preparedStatement.executeQuery();
+            preparedStatement.getConnection().close();
             if (signInEnum == SignInEnum.STUDENT) {
                 while (resultSet.next()) {
                     if (iPerson.getName().equals(resultSet.getString("name")) & iPerson.getPassword().equals(resultSet.getString("password"))) {

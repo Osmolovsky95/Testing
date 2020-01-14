@@ -1,10 +1,12 @@
-package servlets;
+package servlets.parametrs;
 
+import data.student.GroupStudents;
+import data.student.Student;
 import generateReport.ExcelCreator;
 import generateReport.IReportCreator;
 import generateReport.PDFCreator;
 import generateReport.WordCreator;
-import data.*;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

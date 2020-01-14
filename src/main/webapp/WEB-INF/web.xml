@@ -5,9 +5,10 @@
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+              <!--Add Student -->
     <servlet>
         <servlet-name>AddServlet</servlet-name>
-        <servlet-class>servlets.AddServlet</servlet-class>
+        <servlet-class>servlets.parametrs.AddServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -22,12 +23,24 @@
 
     <servlet-mapping>
         <servlet-name>AddServletJSON</servlet-name>
-        <url-pattern>/add/api</url-pattern>
+        <url-pattern>/add/api/json</url-pattern>
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>AddServletXML</servlet-name>
+        <servlet-class>servlets.xml.AddServletXML</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddServletXML</servlet-name>
+        <url-pattern>/add/api/xml</url-pattern>
+    </servlet-mapping>
+
+
+    <!--List Student -->
+    <servlet>
     <servlet-name>ListServlet</servlet-name>
-    <servlet-class>servlets.ListServlet</servlet-class>
+    <servlet-class>servlets.parametrs.ListServlet</servlet-class>
 </servlet>
 
     <servlet-mapping>
@@ -35,25 +48,29 @@
         <url-pattern>/list</url-pattern>
     </servlet-mapping>
     <servlet>
+
+                  <!--Delete Student -->
     <servlet-name>DeleteStudent</servlet-name>
-    <servlet-class>servlets.DeleteServlet</servlet-class>
+    <servlet-class>servlets.parametrs.DeleteServlet</servlet-class>
 </servlet>
     <servlet-mapping>
         <servlet-name>DeleteStudent</servlet-name>
         <url-pattern>/delete</url-pattern>
     </servlet-mapping>
     <servlet>
+                    <!--Administrator -->
         <servlet-name>Administrator</servlet-name>
-        <servlet-class>servlets.AdministratorServlet</servlet-class>
+        <servlet-class>servlets.parametrs.AdministratorServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Administrator</servlet-name>
         <url-pattern>/administratorPage</url-pattern>
     </servlet-mapping>
 
+                  <!--Create Question -->
     <servlet>
         <servlet-name>CreateQuestion</servlet-name>
-        <servlet-class>servlets.QuestionServlet</servlet-class>
+        <servlet-class>servlets.parametrs.QuestionServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CreateQuestion</servlet-name>
@@ -66,12 +83,22 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>CreateQuestionJSON</servlet-name>
-        <url-pattern>/createQuestion/api</url-pattern>
+        <url-pattern>/createQuestion/api/json</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CreateQuestionXML</servlet-name>
+        <servlet-class>servlets.xml.QuestionServletXML</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CreateQuestionXML</servlet-name>
+        <url-pattern>/createQuestion/api/xml</url-pattern>
     </servlet-mapping>
 
     <servlet>
         <servlet-name>StudentSignIn</servlet-name>
-        <servlet-class>servlets.StudentSignInServlet</servlet-class>
+        <servlet-class>servlets.parametrs.StudentSignInServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>StudentSignIn</servlet-name>
@@ -79,7 +106,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>Test</servlet-name>
-        <servlet-class>servlets.TestServlet</servlet-class>
+        <servlet-class>servlets.parametrs.TestServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Test</servlet-name>
@@ -87,7 +114,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>ListQuestions</servlet-name>
-        <servlet-class>servlets.ListQuestionsServlet</servlet-class>
+        <servlet-class>servlets.parametrs.ListQuestionsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ListQuestions</servlet-name>
@@ -96,7 +123,7 @@
 
     <servlet>
         <servlet-name>ReportServlet</servlet-name>
-        <servlet-class>servlets.ReportServlet</servlet-class>
+        <servlet-class>servlets.parametrs.ReportServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ReportServlet</servlet-name>

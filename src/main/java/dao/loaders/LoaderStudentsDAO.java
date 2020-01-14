@@ -2,8 +2,8 @@ package dao.loaders;
 
 import dao.DAO;
 import dao.StudentDAO;
-import data.GroupStudents;
-import data.Student;
+import data.student.GroupStudents;
+import data.student.Student;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

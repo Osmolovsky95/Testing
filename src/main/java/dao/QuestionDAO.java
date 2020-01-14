@@ -1,8 +1,8 @@
 package dao;
 
 
-import question.BankQuestions;
-import question.Question;
+import data.question.BankQuestions;
+import data.question.Question;
 import java.sql.*;
 import java.util.List;
 

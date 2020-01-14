@@ -1,4 +1,4 @@
-package servlets;
+package servlets.parametrs;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import data.*;
-import service.StudentService;
+import data.student.Student;
 import service.registration.Registrator;
 import service.registration.SignInEnum;
 
