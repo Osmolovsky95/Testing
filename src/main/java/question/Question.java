@@ -1,9 +1,11 @@
 package question;
 
+import data.IJSON;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Question {
+public class Question implements IJSON {
 
     private long id;
     private   String question;
@@ -31,6 +33,10 @@ public class Question {
     public Question(String question, long id) {
         this.id = id;
         this.question = question;
+    }
+
+    public void setAnswers(List<String> answers) {
+        this.answers = answers;
     }
 
     public Question() {

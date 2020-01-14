@@ -26,7 +26,7 @@ public class StudentDAO implements DAO {
            e.printStackTrace();
        }
         student.setId(id);
-
+        GroupStudents.getInstance().getStudents().add(student);
     }
 
     public static boolean deleteStudent(String name) {

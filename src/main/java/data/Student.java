@@ -5,12 +5,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Student implements IPerson {
+public class Student implements IPerson,IJSON {
     private String name;
     private long id;
     private  List<Double> assessments=new ArrayList<>();
     private String password;
+    private double resultAssessment=this.getResultAssessment();
 
+    public void setResultAssessment(double resultAssessment) {
+        this.resultAssessment = resultAssessment;
+    }
 
     public Student(String name, String password, long id) {
         this.name = name;
@@ -86,9 +90,12 @@ public class Student implements IPerson {
         return "Student{" +
                 "name='" + name + '\'' +
                 ", id=" + id +
+                ", assessments=" + assessments +
                 ", password='" + password + '\'' +
+                ", resultAssessment=" + resultAssessment +
                 '}';
     }
+
     public long getId() {
         return id;
     }
