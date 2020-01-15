@@ -24,7 +24,7 @@ public class QuestionXML implements IParserXML {
         return null;
     }
 
-    public File toXML( List<Question> questions) throws  ParserConfigurationException {
+    public File toXML(List<Question> questions) throws ParserConfigurationException {
         try {
             DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             Document document = documentBuilder.newDocument();
@@ -44,7 +44,7 @@ public class QuestionXML implements IParserXML {
                 Element answer4 = document.createElement("answer4");
                 answer4.setTextContent(myQuestion.getAnswers().get(3));
                 Element assessment = document.createElement("assessment");
-                assessment.setTextContent(myQuestion.getAssessment()+"");
+                assessment.setTextContent(myQuestion.getAssessment() + "");
                 question.appendChild(questionText);
                 question.appendChild(trueNumber);
                 question.appendChild(answer1);
@@ -61,11 +61,11 @@ public class QuestionXML implements IParserXML {
             DOMSource source = new DOMSource(document);
             Writer fstream = null;
             BufferedWriter out = null;
-            File file=new File("C:\\Users\\A.Asmalouski\\IdeaProjects\\Testing\\json","questionXML.xml");
-            fstream = new OutputStreamWriter(new FileOutputStream(file),"UTF-8");
+            File file = new File("C:\\Users\\A.Asmalouski\\IdeaProjects\\Testing\\json", "questionXML.xml");
+            fstream = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
             StreamResult result = new StreamResult(fstream);
             //transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-         //   transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "5");
+            //   transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "5");
             transformer.transform(source, result);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -75,8 +75,7 @@ public class QuestionXML implements IParserXML {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        catch (NullPointerException e) {
+        } catch (NullPointerException e) {
 
         }
         return null;
@@ -84,51 +83,46 @@ public class QuestionXML implements IParserXML {
 
     @Override
     public List<IXML> fromXML(File file) {
-     List<IXML> listQuestions=new ArrayList<>();
-     QuestionService questionService=new QuestionService();
+        List<IXML> listQuestions = new ArrayList<>();
+        QuestionService questionService = new QuestionService();
         try {
-            DocumentBuilder documentBuilder= DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            Document document=documentBuilder.parse(file);
-            Node root=document.getDocumentElement();
-            NodeList questions=root.getChildNodes();
-            for(int i=0;i<questions.getLength();i++){
-                Node question=questions.item(i);
+            DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+            Document document = documentBuilder.parse(file);
+            Node root = document.getDocumentElement();
+            NodeList questions = root.getChildNodes();
+            for (int i = 0; i < questions.getLength(); i++) {
+                Node question = questions.item(i);
                 NodeList questionProps = question.getChildNodes();
-                Question myQuestion=new Question();
-                int trueNumber=0;
-                for(int j=0;j<questionProps.getLength();j++){
-                    Node node=questionProps.item(j);
-                    if(node.getNodeName().equals("questionText")){
+                Question myQuestion = new Question();
+                int trueNumber = 0;
+                for (int j = 0; j < questionProps.getLength(); j++) {
+                    Node node = questionProps.item(j);
+                    if (node.getNodeName().equals("questionText")) {
                         myQuestion.setQuestion(node.getTextContent());
                     }
-                    if(node.getNodeName().equals("answer1")){
-                        myQuestion.getAnswers().add(node.getTextContent());
+                    if (node.getNodeName().equals("trueNumber")) {
+                        trueNumber = Integer.parseInt(node.getTextContent());
                     }
-                    if(node.getNodeName().equals("answer2")){
-                        myQuestion.getAnswers().add(node.getTextContent());
-                    }
-                    if(node.getNodeName().equals("answer3")){
-                        myQuestion.getAnswers().add(node.getTextContent());
-                    }
-                    if(node.getNodeName().equals("answer4")){
-                        myQuestion.getAnswers().add(node.getTextContent());
-                    }
-                    if(node.getNodeName().equals("trueNumber")){
-                        trueNumber=Integer.parseInt(node.getTextContent());
-                    }
-                    if(node.getNodeName().equals("assessment")){
+                    if (node.getNodeName().equals("assessment")) {
                         myQuestion.setAssessment(Double.parseDouble(node.getTextContent()));
                     }
+                    if(node.getNodeName().equals("answer")){
+                       myQuestion.getAnswers().add(node.getTextContent());
+                    }
+                    System.out.println(node.getNodeName());
                 }
-
-              questionService.addQuestion(myQuestion,trueNumber);
-              listQuestions.add(myQuestion);
-            }
-        } catch (ParserConfigurationException | SAXException | IOException e) {
+                    questionService.addQuestion(myQuestion, trueNumber);
+                    listQuestions.add(myQuestion);
+                }
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
             e.printStackTrace();
         }
         return listQuestions;
     }
-    }
+}
 
 

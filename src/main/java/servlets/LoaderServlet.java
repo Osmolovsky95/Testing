@@ -27,12 +27,9 @@ public class LoaderServlet extends HttpServlet {
             ILoader loaderQuestions = new LoaderQuestionsDAO();
             loaderQuestions.load();
             count++;
-            try {
-                new QuestionXML().toXML(BankQuestions.getInstance().getQuestions());
-                new QuestionXML().fromXML(new File("C:\\Users\\A.Asmalouski\\IdeaProjects\\Testing\\json\\questionXML.xml"));
-            } catch (ParserConfigurationException e) {
-                e.printStackTrace();
-            }
+                //new QuestionXML().toXML(BankQuestions.getInstance().getQuestions());
+            new QuestionXML().fromXML(new File("C:\\Users\\A.Asmalouski\\IdeaProjects\\Testing\\json\\questionXML.xml"));
+
 
         }
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/index.jsp");
