@@ -2,7 +2,6 @@ package service.xml.parsers;
 
 import data.question.Question;
 import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 import service.QuestionService;
 
@@ -11,9 +10,9 @@ import java.util.List;
 
 public class SaxHandler extends DefaultHandler {
 
-    String currentElement;
-    List<Question> list = new ArrayList<>();
-    Question question;
+    private  String currentElement;
+    private List<Question> list = new ArrayList<>();
+    private Question question;
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) {
@@ -24,7 +23,7 @@ public class SaxHandler extends DefaultHandler {
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
+    public void endElement(String uri, String localName, String qName) {
         if (qName.equals("question")){
             new QuestionService().addQuestion(question,(int)question.getTrueNumber());
             list.add(question);

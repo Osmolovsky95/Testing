@@ -47,7 +47,6 @@ public class QuestionServlet extends HttpServlet {
         QuestionService questionService=new QuestionService();
         questionService.addQuestion(myQuestion,trueNumber);
 
-
         PrintWriter pw=resp.getWriter();
         pw.println("Question is added");
 

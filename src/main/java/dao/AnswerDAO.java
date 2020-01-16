@@ -11,7 +11,6 @@ public class AnswerDAO implements DAO {
 
     public static void addAnswer(Question question,int trueNumber)  {
         String insertSQL = "INSERT INTO answers (answer) Values (?) RETURNING id";
-
        try {
            PreparedStatement preparedStatement = new AnswerDAO().getPreparedStatement(insertSQL);
            List<Integer> idAnswers = new ArrayList<>();
@@ -25,7 +24,6 @@ public class AnswerDAO implements DAO {
                }
            }
            question.setIdAnswers(idAnswers);
-
            question.setTrueNumber(question.getIdAnswers().get(trueNumber-1));
            AnswerDAO.addTrueAnswer((question.getIdAnswers().get(trueNumber-1)),question.getId());
            preparedStatement.getConnection().close();
@@ -44,7 +42,6 @@ public class AnswerDAO implements DAO {
         preparedStatement.setLong(2, question_id);
         preparedStatement.execute();
         preparedStatement.getConnection().close();
-       // preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

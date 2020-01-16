@@ -9,7 +9,7 @@ import java.util.List;
 
 public class StudentJSON implements IParserJSON {
     public File toJSON(IJSON ijson) {
-        File file = new File("C:\\Users\\A.Asmalouski\\IdeaProjects\\Testing\\json", "studentJSON.json");
+        File file = new File("studentJSON.json");
         try {
             Student student=(Student) ijson;
             JSONObject jsonObject = new JSONObject(student);
@@ -36,7 +36,7 @@ public class StudentJSON implements IParserJSON {
         String name = jsonObject.getString("name");
         String pass = jsonObject.getString("password");
         long id = jsonObject.getLong("id");
-        List<Double> assessments = new ArrayList<>();
+        ArrayList assessments = new ArrayList<>();
         assessments = (ArrayList) jsonObject.getJSONArray("assessments").toList();
         Double resultAssessment = jsonObject.getDouble("resultAssessment");
 

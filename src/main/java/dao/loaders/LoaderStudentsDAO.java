@@ -27,11 +27,8 @@ public class LoaderStudentsDAO implements ILoader, DAO {
                 GroupStudents.getInstance().getStudents().add(student);
             }
             preparedStatement.getConnection().close();
-           // preparedStatement.close();
-           // resultSet.close();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
-
 }

@@ -2,6 +2,7 @@ package servlets.xml;
 
 
 import service.xml.parsers.ParseHelper;
+import service.xml.parsers.ParserDOM;
 import service.xml.parsers.ParserSTAX;
 
 import javax.servlet.ServletException;
@@ -31,9 +32,8 @@ public class QuestionServletXML extends HttpServlet {
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             fileOutputStream.write(stringBuffer.toString().getBytes("cp1251"));
             //List<Question> list = (ArrayList)new QuestionXML().fromXML(file);
-            // TODO: 16.01.2020 передаем в парсер
             fileOutputStream.close();
-           new  ParseHelper(new ParserSTAX(),file);
+           new  ParseHelper(new ParserDOM(),file);
 
         } catch (IOException ex) {
             ex.printStackTrace();

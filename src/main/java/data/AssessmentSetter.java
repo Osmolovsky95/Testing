@@ -7,13 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class AssessmentSetter implements DAO {
-    private Student student;
-    private double assessment;
-    private String sql="INSERT INTO studentsResult(testName,id_student,assessment) values (?,?,?)";
 
     public AssessmentSetter(Student student, double assessment) {
-        this.student=student;
-        this.assessment=assessment;
         student.getAssessments().add(assessment);
         this.setToDB(student,assessment);
     }
@@ -22,6 +17,7 @@ public class AssessmentSetter implements DAO {
         String testName="TestName";
         long id=student.getId();
        try {
+           String sql = "INSERT INTO studentsResult(testName,id_student,assessment) values (?,?,?)";
            PreparedStatement preparedStatement = this.getPreparedStatement(sql);
            preparedStatement.setString(1, testName);
            preparedStatement.setLong(2, id);

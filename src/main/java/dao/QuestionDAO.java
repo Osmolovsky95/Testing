@@ -22,8 +22,6 @@ public class QuestionDAO implements DAO {
           //Добавляем ответы
           question.setId(id);
           preparedStatement.getConnection().close();
-         // preparedStatement.close();
-         // rs.close();
       } catch (ClassNotFoundException | SQLException e) {
           e.printStackTrace();
       }
@@ -38,7 +36,6 @@ public class QuestionDAO implements DAO {
           preparedStatement.setLong(2, answer_id);
           preparedStatement.execute();
           preparedStatement.getConnection().close();
-         // preparedStatement.close();
       } catch (ClassNotFoundException | SQLException e) {
           e.printStackTrace();
       }

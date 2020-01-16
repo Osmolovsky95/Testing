@@ -4,14 +4,15 @@ import org.json.JSONObject;
 import data.question.Question;
 import java.io.*;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class QuestionJSON implements IParserJSON {
-    Charset utf8 = Charset.forName("UTF-8");
+    private Charset utf8 = Charset.forName("UTF-8");
     @Override
     public File toJSON(IJSON ijson) {
-        File file = new File("C:\\Users\\A.Asmalouski\\IdeaProjects\\Testing\\json", "questionJSON.json");
+        File file = new File("questionJSON.json");
 
         try {
             Question question=(Question) ijson;
@@ -32,7 +33,7 @@ public class QuestionJSON implements IParserJSON {
         Question question=new Question();
         try {
             FileInputStream fileInputStream = new FileInputStream(file);
-            BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(fileInputStream,"UTF-8"));
+            BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(fileInputStream, StandardCharsets.UTF_8));
             StringBuffer stringBuffer = new StringBuffer();
             int i;
             while ((i = bufferedReader.read()) != -1) {
@@ -42,9 +43,9 @@ public class QuestionJSON implements IParserJSON {
             String questionText = jsonObject.getString("question");
             int assessment = jsonObject.getInt("assessment");
             long id = jsonObject.getLong("id");
-            List<Integer> idAnswers = new ArrayList<>();
+            ArrayList idAnswers = new ArrayList<>();
             idAnswers = (ArrayList) jsonObject.getJSONArray("idAnswers").toList();
-            List <String> answers=new ArrayList<>();
+            ArrayList answers=new ArrayList<>();
             answers=(ArrayList)jsonObject.getJSONArray("answers").toList();
             long trueNumber = jsonObject.getLong("trueNumber");
 
@@ -55,8 +56,6 @@ public class QuestionJSON implements IParserJSON {
             question.setAnswers(answers);
             question.setIdAnswers(idAnswers);
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

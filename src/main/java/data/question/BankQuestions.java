@@ -23,5 +23,4 @@ public class BankQuestions {
     public List<Question> getQuestions() {
         return questions;
     }
-
 }

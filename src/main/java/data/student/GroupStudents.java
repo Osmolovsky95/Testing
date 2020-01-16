@@ -28,7 +28,6 @@ public class GroupStudents {
     public Set<Student> getStudents() {
         return students;
     }
-
 }
 
 

@@ -61,11 +61,9 @@ public class QuestionXML implements IParserXML {
             DOMSource source = new DOMSource(document);
             Writer fstream = null;
             BufferedWriter out = null;
-            File file = new File("C:\\Users\\A.Asmalouski\\IdeaProjects\\Testing\\json", "questionXML.xml");
+            File file = new File( "questionXML.xml");
             fstream = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
             StreamResult result = new StreamResult(fstream);
-            //transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-            //   transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "5");
             transformer.transform(source, result);
             fstream.close();
             out.close();
@@ -95,8 +93,6 @@ public class QuestionXML implements IParserXML {
             for (int i = 1; i < questions.getLength(); i++) {
                 Node question = questions.item(i);
                 NodeList questionProps = question.getChildNodes();
-                System.out.println(question.getFirstChild());
-                // TODO: 16.01.2020
                 Question myQuestion = new Question();
                 int trueNumber = 0;
                 for (int j = 0; j < questionProps.getLength(); j++) {
@@ -117,7 +113,6 @@ public class QuestionXML implements IParserXML {
                 }
                 questionService.addQuestion(myQuestion, trueNumber);
                 listQuestions.add(myQuestion);
-                System.out.println(myQuestion);
             }
         } catch (ParserConfigurationException e) {
             e.printStackTrace();

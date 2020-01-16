@@ -9,7 +9,7 @@ import java.sql.*;
 
 public class LoaderQuestionsDAO implements ILoader, DAO {
 
-// TODO: 16.01.2020
+
 
     public void load() {
         try {
@@ -35,16 +35,12 @@ public class LoaderQuestionsDAO implements ILoader, DAO {
                     question.setTrueNumber(idTrueAnswer);
                 }
                 preparedStatement1.getConnection().close();
-               // preparedStatement1.close();
-                //rs.close();
 
                 String sqlAnswers = "SELECT * FROM question_answers WHERE question_id=?";
                 PreparedStatement preparedStatement2 = this.getPreparedStatement(sqlAnswers);
                 preparedStatement2.setLong(1, question.getId());
                 ResultSet answers = preparedStatement2.executeQuery();
                 preparedStatement2.getConnection().close();
-               // preparedStatement2.close();
-              //  answers.close();
 
                 String sqlAnswerText = "SELECT * FROM answers WHERE id=?";
                 PreparedStatement preparedStatement3 = this.getPreparedStatement(sqlAnswerText);

@@ -39,7 +39,6 @@ public class StudentDAO implements DAO {
             preparedStatement.setString(1, name);
             preparedStatement.execute();
             preparedStatement.getConnection().close();
-           // preparedStatement.close();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -69,8 +68,6 @@ public class StudentDAO implements DAO {
                 listAssessment.add(assessment);
             }
             preparedStatement.getConnection().close();
-            //preparedStatement.close();
-           // rs.close();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }

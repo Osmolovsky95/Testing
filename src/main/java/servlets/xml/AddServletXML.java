@@ -7,10 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 
 public class AddServletXML extends HttpServlet {
-    Charset utf8 = Charset.forName("UTF-8");
+    private Charset utf8 = StandardCharsets.UTF_8;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {

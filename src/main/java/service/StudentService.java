@@ -5,7 +5,6 @@ import dao.loaders.LoaderStudentsDAO;
 import data.student.GroupStudents;
 import data.student.Student;
 import service.json.StudentJSON;
-
 import java.io.File;
 import java.util.Set;
 
@@ -16,8 +15,7 @@ public class StudentService {
     }
 
     public boolean deleteStudent(Student student){
-        boolean result= StudentDAO.deleteStudent(student.getName());
-        return result;
+        return StudentDAO.deleteStudent(student.getName());
     }
 
     public Set<Student> getStudents(){
@@ -26,12 +24,10 @@ public class StudentService {
     }
 
    public File studentToJSON(Student student){
-        File file=new StudentJSON().toJSON(student);
-        return file;
+       return new StudentJSON().toJSON(student);
    }
 
     public Student studentFromJSON(File file){
-        Student student=new StudentJSON().fromJSON(file);
-        return student;
+        return new StudentJSON().fromJSON(file);
     }
 }
