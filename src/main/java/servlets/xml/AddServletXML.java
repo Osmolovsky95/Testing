@@ -21,6 +21,8 @@ public class AddServletXML extends HttpServlet {
         while ((str = bufferedReader.readLine()) != null) {
             stringBuffer.append(str);
         }
+        inputStreamReader.close();
+        bufferedReader.close();
         try {
             File file = new File("C:\\Users\\A.Asmalouski\\IdeaProjects\\Testing\\json\\studentsXML.xml");
             FileOutputStream fileOutputStream = new FileOutputStream(file);

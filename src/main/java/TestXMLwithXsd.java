@@ -43,7 +43,6 @@ public class TestXMLwithXsd {
     public static void main(String[] args) throws Exception {
         boolean b = TestXMLwithXsd.checkXMLforXSD("C:\\Users\\A.Asmalouski\\IdeaProjects\\Testing\\json\\questionXML.xml", "C:\\Users\\A.Asmalouski\\IdeaProjects\\Testing\\xsd\\questions.xsd");
         System.out.println("XML соответствует XSD : " + b);
-
     }
 }
 

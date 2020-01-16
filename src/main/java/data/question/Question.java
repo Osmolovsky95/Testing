@@ -23,6 +23,7 @@ public class Question implements IJSON, IXML {
         return idAnswers;
     }
 
+
     public long getId() {
         return id;
     }
@@ -85,7 +86,7 @@ public class Question implements IJSON, IXML {
                 ", answers=" + answers +
                 ", trueNumber=" + trueNumber +
                 ", assessment=" + assessment +
-                ", idAnswers=" + idAnswers.get(0)+"  " +idAnswers.get(1)+"  " +idAnswers.get(2)+"  " +idAnswers.get(3)+
+                ", idAnswers=" + idAnswers +
                 '}';
     }
 }

@@ -46,6 +46,7 @@ public class StudentXML implements IParserXML {
            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "5");
            transformer.transform(source, result);
+           writer.close();
        } catch (ParserConfigurationException | IOException | TransformerException e) {
            e.printStackTrace();
        }
@@ -77,6 +78,7 @@ public class StudentXML implements IParserXML {
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "5");
             transformer.transform(source, result);
+            writer.close();
         } catch (ParserConfigurationException | IOException | TransformerException e) {
             e.printStackTrace();
         }

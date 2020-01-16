@@ -67,6 +67,8 @@ public class QuestionXML implements IParserXML {
             //transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             //   transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "5");
             transformer.transform(source, result);
+            fstream.close();
+            out.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (TransformerException e) {
@@ -90,9 +92,11 @@ public class QuestionXML implements IParserXML {
             Document document = documentBuilder.parse(file);
             Node root = document.getDocumentElement();
             NodeList questions = root.getChildNodes();
-            for (int i = 0; i < questions.getLength(); i++) {
+            for (int i = 1; i < questions.getLength(); i++) {
                 Node question = questions.item(i);
                 NodeList questionProps = question.getChildNodes();
+                System.out.println(question.getFirstChild());
+                // TODO: 16.01.2020
                 Question myQuestion = new Question();
                 int trueNumber = 0;
                 for (int j = 0; j < questionProps.getLength(); j++) {
@@ -102,18 +106,19 @@ public class QuestionXML implements IParserXML {
                     }
                     if (node.getNodeName().equals("trueNumber")) {
                         trueNumber = Integer.parseInt(node.getTextContent());
+                        System.out.println(trueNumber+" if ");
                     }
                     if (node.getNodeName().equals("assessment")) {
                         myQuestion.setAssessment(Double.parseDouble(node.getTextContent()));
                     }
-                    if(node.getNodeName().equals("answer")){
-                       myQuestion.getAnswers().add(node.getTextContent());
+                    if (node.getNodeName().equals("answer")) {
+                        myQuestion.getAnswers().add(node.getTextContent());
                     }
-                    System.out.println(node.getNodeName());
                 }
-                    questionService.addQuestion(myQuestion, trueNumber);
-                    listQuestions.add(myQuestion);
-                }
+                questionService.addQuestion(myQuestion, trueNumber);
+                listQuestions.add(myQuestion);
+                System.out.println(myQuestion);
+            }
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         } catch (IOException e) {

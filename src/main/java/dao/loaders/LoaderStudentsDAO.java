@@ -17,7 +17,6 @@ public class LoaderStudentsDAO implements ILoader, DAO {
         try {
             PreparedStatement preparedStatement = this.getPreparedStatement(selectSQL);
             ResultSet resultSet = preparedStatement.executeQuery();
-            preparedStatement.getConnection().close();
             while (resultSet.next()) {
                 long id = resultSet.getLong("id");
                 String name = resultSet.getString("name");
@@ -27,6 +26,9 @@ public class LoaderStudentsDAO implements ILoader, DAO {
                 student.setAssessments(assessments);
                 GroupStudents.getInstance().getStudents().add(student);
             }
+            preparedStatement.getConnection().close();
+           // preparedStatement.close();
+           // resultSet.close();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }

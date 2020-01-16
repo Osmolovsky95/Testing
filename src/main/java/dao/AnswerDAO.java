@@ -25,24 +25,9 @@ public class AnswerDAO implements DAO {
                }
            }
            question.setIdAnswers(idAnswers);
-           switch (trueNumber) {
-               case 1:
-                   question.setTrueNumber(question.getIdAnswers().get(0));
-                   AnswerDAO.addTrueAnswer((question.getIdAnswers().get(0)),question.getId());
-                   break;
-               case 2:
-                   question.setTrueNumber(question.getIdAnswers().get(1));
-                   AnswerDAO.addTrueAnswer((question.getIdAnswers().get(1)),question.getId());
-                   break;
-               case 3:
-                   question.setTrueNumber(question.getIdAnswers().get(2));
-                   AnswerDAO.addTrueAnswer((question.getIdAnswers().get(2)),question.getId());
-                   break;
-               case 4:
-                   question.setTrueNumber(question.getIdAnswers().get(3));
-                   AnswerDAO.addTrueAnswer((question.getIdAnswers().get(3)),question.getId());
-                   break;
-           }
+
+           question.setTrueNumber(question.getIdAnswers().get(trueNumber-1));
+           AnswerDAO.addTrueAnswer((question.getIdAnswers().get(trueNumber-1)),question.getId());
            preparedStatement.getConnection().close();
        } catch (ClassNotFoundException e) {
            e.printStackTrace();
@@ -59,6 +44,7 @@ public class AnswerDAO implements DAO {
         preparedStatement.setLong(2, question_id);
         preparedStatement.execute();
         preparedStatement.getConnection().close();
+       // preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
