@@ -2,6 +2,8 @@ package servlets.xml;
 
 
 
+import servlets.json.Utils;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,15 +17,8 @@ public class AddServletXML extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        InputStreamReader inputStreamReader = new InputStreamReader(req.getInputStream());
-        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-        StringBuffer stringBuffer = new StringBuffer();
-        String str;
-        while ((str = bufferedReader.readLine()) != null) {
-            stringBuffer.append(str);
-        }
-        inputStreamReader.close();
-        bufferedReader.close();
+
+        StringBuffer stringBuffer= Utils.streamToString(req.getInputStream());
         try {
             File file = new File("C:\\Users\\A.Asmalouski\\IdeaProjects\\Testing\\json\\studentsXML.xml");
             FileOutputStream fileOutputStream = new FileOutputStream(file);

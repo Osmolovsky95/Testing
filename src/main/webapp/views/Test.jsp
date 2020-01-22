@@ -1,5 +1,6 @@
 <%@ page import="java.io.PrintWriter" %>
-<%@ page import="sun.invoke.util.BytecodeName" %><%--
+<%@ page import="sun.invoke.util.BytecodeName" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: Alexander
   Date: 18.12.2019
@@ -19,7 +20,7 @@
 <p>Добро пожаловать ${name}</p>
 <form method="GET">
     <p><b>   ${question}</b></p>
-    <p><input type= "radio" name="0" value=${answer_id_0} >${answer0} <Br>
+    <p><input type= "radio" name="0" value=${answer_id_0}>${answer0}<Br>
         <input type="radio" name="0" value=${answer_id_1}>${answer1}<Br>
         <input type="radio" name="0" value= ${answer_id_2}>${answer2}<Br>
         <input type="radio" name="0" value=${answer_id_3}>${answer3}<Br>

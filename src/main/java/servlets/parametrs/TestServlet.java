@@ -1,4 +1,6 @@
 package servlets.parametrs;
+import dao.AnswerDAO;
+import dao.loaders.LoaderQuestionsDAO;
 import data.AssessmentSetter;
 import data.student.Student;
 import dao.loaders.LoaderStudentsDAO;
@@ -45,7 +47,6 @@ public class TestServlet extends HttpServlet {
             req.setAttribute("answer1", question.getAnswers().get(1));
             req.setAttribute("answer2", question.getAnswers().get(2));
             req.setAttribute("answer3", question.getAnswers().get(3));
-
             req.setAttribute("answer_id_0", question.getIdAnswers().get(0));
             req.setAttribute("answer_id_1", question.getIdAnswers().get(1));
             req.setAttribute("answer_id_2", question.getIdAnswers().get(2));
@@ -54,13 +55,17 @@ public class TestServlet extends HttpServlet {
             Question currentQuestion = list.get(countQuestion - 1); //countQuestion
 
             if (countQuestion > 1) {
-                if (Long.parseLong(req.getParameter("0")) == currentQuestion.getTrueNumber()) {
+                long currentAnswerId=Long.parseLong(req.getParameter("0"));
+                System.out.println("id_ques "+question.getId()+"  "+student.getId()+ "  answer" +currentAnswerId);
+                AnswerDAO.addStudentAnswers(question,student,currentAnswerId);
+                if (currentAnswerId == currentQuestion.getTrueNumber()) {
                     double assessment=(double)session.getAttribute("assessment");
-                    System.out.println(req.getParameter("0")+" ответ");
                     assessment+=currentQuestion.getAssessment();
                     session.setAttribute("assessment",assessment);
+
                 }
         }
+
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/Test.jsp");
         requestDispatcher.forward(req, resp);
         countSession=(int)session.getAttribute("count");
@@ -68,7 +73,9 @@ public class TestServlet extends HttpServlet {
         }
         else {
             Question lastQuestion = list.get(list.size() - 1);
-            if (Long.parseLong(req.getParameter("0")) == lastQuestion.getTrueNumber()) {
+            long currentAnswerId=Long.parseLong(req.getParameter("0"));
+            AnswerDAO.addStudentAnswers(lastQuestion,student,currentAnswerId);
+            if (currentAnswerId == lastQuestion.getTrueNumber()) {
                  double assessment=(double)session.getAttribute("assessment");
                  assessment+=lastQuestion.getAssessment();
                  session.setAttribute("assessment",assessment);
@@ -78,6 +85,9 @@ public class TestServlet extends HttpServlet {
             pw.println("Your assessment is  " + session.getAttribute("assessment"));
             new LoaderStudentsDAO().load();
             session.invalidate();
+            for (Question question:list){
+                System.out.println(question);
+            }
         }
     }
     }

@@ -14,6 +14,7 @@ import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,24 +60,14 @@ public class QuestionXML implements IParserXML {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(document);
-            Writer fstream = null;
-            BufferedWriter out = null;
+            Writer fstream;
             File file = new File( "questionXML.xml");
-            fstream = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
+            fstream = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8);
             StreamResult result = new StreamResult(fstream);
             transformer.transform(source, result);
             fstream.close();
-            out.close();
-        } catch (FileNotFoundException e) {
+        } catch (TransformerException | IOException e) {
             e.printStackTrace();
-        } catch (TransformerException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (NullPointerException e) {
-
         }
         return null;
     }
@@ -114,11 +105,7 @@ public class QuestionXML implements IParserXML {
                 questionService.addQuestion(myQuestion, trueNumber);
                 listQuestions.add(myQuestion);
             }
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
+        } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
         return listQuestions;

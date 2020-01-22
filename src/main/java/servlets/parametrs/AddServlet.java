@@ -1,6 +1,5 @@
 package servlets.parametrs;
 
-
 import data.student.Student;
 import service.StudentService;
 import javax.servlet.RequestDispatcher;

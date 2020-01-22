@@ -1,6 +1,7 @@
 package servlets.parametrs;
 
 
+import dao.loaders.LoaderQuestionsDAO;
 import data.question.BankQuestions;
 import data.question.Question;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +17,8 @@ public class ListQuestionsServlet extends HttpServlet {
 
         resp.setContentType("text/html;charset=UTF-8");
         PrintWriter pw = resp.getWriter();
+        BankQuestions.getInstance().getQuestions().clear();
+        new LoaderQuestionsDAO().load();
         BankQuestions bankQuestions = BankQuestions.getInstance();
         if (bankQuestions.getQuestions().isEmpty()) {
             pw.println("Not questions");

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 
 public class QuestionJSON implements IParserJSON {
-    private Charset utf8 = Charset.forName("UTF-8");
+    private Charset utf8 = StandardCharsets.UTF_8;
     @Override
     public File toJSON(IJSON ijson) {
         File file = new File("questionJSON.json");
@@ -43,9 +43,9 @@ public class QuestionJSON implements IParserJSON {
             String questionText = jsonObject.getString("question");
             int assessment = jsonObject.getInt("assessment");
             long id = jsonObject.getLong("id");
-            ArrayList idAnswers = new ArrayList<>();
+            ArrayList idAnswers;
             idAnswers = (ArrayList) jsonObject.getJSONArray("idAnswers").toList();
-            ArrayList answers=new ArrayList<>();
+            ArrayList answers;
             answers=(ArrayList)jsonObject.getJSONArray("answers").toList();
             long trueNumber = jsonObject.getLong("trueNumber");
 

@@ -14,30 +14,31 @@ public class ParserSAX implements IParser {
     @Override
     public void parse(File file) {
         try {
-            SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
-            SAXParser saxParser = saxParserFactory.newSAXParser();
+            SAXParser saxParser = this.getSAXParser();
             saxParser.parse(file, new SaxHandler());
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (SAXException | IOException e) {
             e.printStackTrace();
         }
     }
 
     public void parse(InputStream inputStream) {
         try {
-            SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
-            SAXParser saxParser = saxParserFactory.newSAXParser();
+            SAXParser saxParser = this.getSAXParser();
             saxParser.parse(inputStream, new SaxHandler());
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (SAXException | IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private SAXParser getSAXParser(){
+        SAXParser saxParser=null;
+        try {
+            SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+            saxParser = saxParserFactory.newSAXParser();
+        } catch (ParserConfigurationException | SAXException e) {
+            e.printStackTrace();
+        }
+        return saxParser;
     }
     }
 

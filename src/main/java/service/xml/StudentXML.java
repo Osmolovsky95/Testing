@@ -41,7 +41,7 @@ public class StudentXML implements IParserXML {
            TransformerFactory transformerFactory = TransformerFactory.newInstance();
            Transformer transformer = transformerFactory.newTransformer();
            DOMSource source = new DOMSource(document);
-           FileWriter writer = new FileWriter(new File("C:\\Users\\A.Asmalouski\\IdeaProjects\\Testing\\xml","student.xml"));
+           FileWriter writer = new FileWriter(new File("student.xml"));
            StreamResult result = new StreamResult(writer);
            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "5");

@@ -6,22 +6,15 @@ import service.QuestionService;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
 public class QuestionServletJSON extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws  IOException {
-        InputStreamReader inputStreamReader=new InputStreamReader(req.getInputStream());
-        BufferedReader bufferedReader=new BufferedReader(inputStreamReader);
-        StringBuffer stringBuffer=new StringBuffer();
-        String str;
-        while ((str=bufferedReader.readLine())!=null){
-            stringBuffer.append(str);
-        }
+
+        StringBuffer stringBuffer=Utils.streamToString(req.getInputStream());
         JSONObject jsonObject=new JSONObject(stringBuffer.toString());
         String question=jsonObject.getString("question");
         String answer1=jsonObject.getString("answer1");

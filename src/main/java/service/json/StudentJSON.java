@@ -2,10 +2,9 @@ package service.json;
 
 import data.student.Student;
 import org.json.JSONObject;
-
 import java.io.*;
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class StudentJSON implements IParserJSON {
     public File toJSON(IJSON ijson) {
@@ -36,7 +35,7 @@ public class StudentJSON implements IParserJSON {
         String name = jsonObject.getString("name");
         String pass = jsonObject.getString("password");
         long id = jsonObject.getLong("id");
-        ArrayList assessments = new ArrayList<>();
+        ArrayList assessments;
         assessments = (ArrayList) jsonObject.getJSONArray("assessments").toList();
         Double resultAssessment = jsonObject.getDouble("resultAssessment");
 
@@ -44,8 +43,6 @@ public class StudentJSON implements IParserJSON {
         student.setId(id);
         student.setAssessments(assessments);
         student.setResultAssessment(resultAssessment);
-    } catch (FileNotFoundException e) {
-        e.printStackTrace();
     } catch (IOException e) {
         e.printStackTrace();
     }
