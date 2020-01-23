@@ -1,6 +1,7 @@
-package generateReport.jasperReports;
+package generateReport;
 
 import dao.AnswerDAO;
+import generateReport.jasperReports.ReportBeanQuestion;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

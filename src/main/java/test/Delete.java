@@ -2,6 +2,7 @@ package test;
 
 import dao.AnswerDAO;
 import dao.loaders.LoaderQuestionsDAO;
+import generateReport.ExcelCreator;
 import generateReport.jasperReports.PDFCreator;
 import net.sf.jasperreports.engine.JRException;
 import java.io.*;
@@ -12,7 +13,9 @@ public class Delete {
 
       new LoaderQuestionsDAO().load();
              String s=360+"";
-       new PDFCreator().createReport(s);
+      // new ExcelCreator().createReport(s);
+        new PDFCreator().createReport(s);
+      //  new PDFCreator().createReport(AnswerDAO.selectStudentAnswers(s));
 
 
         //new PDFCreator().createReport(s);
