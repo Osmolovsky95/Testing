@@ -4,13 +4,12 @@ import dao.AnswerDAO;
 import generateReport.jasperReports.ReportBeanQuestion;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class JsonParser {
+public class ReportBeanCreator {
     public ReportBeanQuestion parse(String s){
         ReportBeanQuestion reportBeanQuestion=new ReportBeanQuestion();
         JSONObject jsonObject= AnswerDAO.selectStudentAnswers(s);
@@ -48,5 +47,4 @@ public class JsonParser {
         reportBeanQuestion.setStudents(students);
         return reportBeanQuestion;
     }
-
 }

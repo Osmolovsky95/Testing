@@ -1,8 +1,5 @@
 package servlets.json;
 
-import data.student.Student;
-import org.json.JSONObject;
-import service.StudentService;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,6 +15,9 @@ public class Utils {
         while ((str = bufferedReader.readLine()) != null) {
             stringBuffer.append(str);
         }
+        bufferedReader.close();
+        inputStreamReader.close();
+        inputStream.close();
         return stringBuffer;
     }
 }

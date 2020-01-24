@@ -1,108 +1,194 @@
 package generateReport;
 
-import dao.AnswerDAO;
-import data.student.Student;
 import generateReport.jasperReports.ReportBeanQuestion;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import generateReport.jasperReports.UtilReport;
+import org.apache.poi.hssf.usermodel.HSSFPrintSetup;
 import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.ss.util.CellRangeAddress;
-import org.json.JSONObject;
-
+import org.apache.poi.ss.util.*;
+import org.apache.poi.xssf.usermodel.*;
 import java.io.*;
-import java.text.DecimalFormat;
 import java.util.Map;
-import java.util.Set;
+
 
 public class ExcelCreator implements IReportCreator {
 
-    @Override
-    public void createReport(Set<Student> students) {
-        Workbook workbook = new HSSFWorkbook();
-        File file = new File("C:\\Users\\A.Asmalouski\\IdeaProjects\\Testing\\reports", "Report.xls");
+    public void createReport(String s)  {
+        System.out.println("createReport");
+        ReportBeanQuestion reportBeanQuestion = new ReportBeanCreator().parse(s);
+        XSSFWorkbook workbook=new XSSFWorkbook();
+        File file = new File("C:\\Users\\A.Asmalouski\\IdeaProjects\\Testing\\reports\\"+"question.xlsx");
+
         try (OutputStream fileOut = new FileOutputStream(file)) {
-            Sheet sheet1 = workbook.createSheet("NameGroup");
-            int numberColumnName = 1;
-            int resultAssessment = 7;
+            XSSFSheet sheet1= workbook.createSheet("Question № " + reportBeanQuestion.getId());
 
-            Row head = sheet1.createRow(0);
+            Row question=sheet1.createRow(1);
+            Cell qst=question.createCell(0);
+            sheet1.addMergedRegion(new CellRangeAddress(1,1,0,2));
+            CellUtil.setAlignment(qst,HorizontalAlignment.CENTER);
+            qst.setCellValue("Вопрос");
 
-            Row row = sheet1.createRow(1);
-            Cell name = row.createCell(0);
-            name.setCellValue("Имя");
-            Cell assessment = row.createCell(1);
-            assessment.setCellValue("Оценка");
-            Cell cell3 = row.createCell(resultAssessment);
-            cell3.setCellValue("Средний балл");
-            sheet1.setColumnWidth(7, 5000);
-            Header header = sheet1.getHeader();
-            header.setCenter("Отчет  группа № ......");
-            DecimalFormat df = new DecimalFormat("##.##");
-            int count = 1;
-            for (Student student : students) {
-                int numberColumnAssessment = 1;
-                Row row1 = sheet1.createRow(count);
-                Cell cell = row1.createCell(numberColumnName);
-                cell.setCellValue(student.getName());
-                if (student.getAssessments() != null) {
-                    for (int i = 0; i < student.getAssessments().size(); i++) {
-                        Cell cell2 = row1.createCell(numberColumnAssessment++);
-                        cell2.setCellValue(student.getAssessments().get(i));
-                    }
+            sheet1.getPrintSetup().setPaperSize(HSSFPrintSetup.A4_PAPERSIZE);
+
+            Row headTableQuestion=sheet1.createRow(2);
+            Cell idQuestion=headTableQuestion.createCell(0);
+            idQuestion.setCellValue("id");
+            CellUtil.setAlignment(idQuestion,HorizontalAlignment.CENTER);
+            Cell text=headTableQuestion.createCell(1);
+            text.setCellValue("text");
+            sheet1.setColumnWidth(1,15000);
+            CellUtil.setAlignment(text,HorizontalAlignment.CENTER);
+            text.getCellStyle().setWrapText(true);
+
+                              ////////Question
+
+            XSSFCellStyle xssfCellStyle=(XSSFCellStyle) workbook.createCellStyle();
+            sheet1.setColumnWidth(2,5000);
+            Cell goodAnswer=headTableQuestion.createCell(2);
+            goodAnswer.setCellValue("goodAnswer");
+            CellUtil.setAlignment(goodAnswer,HorizontalAlignment.CENTER);
+            goodAnswer.getCellStyle().setWrapText(true);
+
+            Row rowData=sheet1.createRow(3);
+            Cell idQstt=rowData.createCell(0);
+            CellUtil.setAlignment(idQstt,HorizontalAlignment.CENTER);
+            idQstt.setCellValue(reportBeanQuestion.getId());
+            Cell textQst=rowData.createCell(1);
+            CellUtil.setAlignment(textQst,HorizontalAlignment.CENTER);
+            textQst.setCellValue(reportBeanQuestion.getText());
+            Cell goodAnswerQst=rowData.createCell(2);
+            goodAnswerQst.setCellValue(reportBeanQuestion.getGoodAnswer());
+            CellUtil.setAlignment(goodAnswerQst,HorizontalAlignment.CENTER);
+
+            PropertyTemplate pt =  new  PropertyTemplate ();
+            pt.drawBorders ( new  CellRangeAddress ( 1,  3,  0 ,  2 ),BorderStyle.MEDIUM, BorderExtent.OUTSIDE);
+            pt.applyBorders(sheet1);
+
+            /////////////////Answers//////////////////////////////////////////
+            Row stringAnswer=sheet1.createRow(4);
+            Cell cell= stringAnswer.createCell(0);
+            sheet1.addMergedRegion(new CellRangeAddress(4,4,0,2));
+            CellUtil.setAlignment(cell,HorizontalAlignment.CENTER);
+            cell.setCellValue("Ответы");
+
+
+           Row headAnswer=sheet1.createRow(5);
+           Cell idAnswer=headAnswer.createCell(0);
+           idAnswer.setCellValue("id");
+           CellUtil.setAlignment(idAnswer,HorizontalAlignment.CENTER);
+           Cell textAnswer=headAnswer.createCell(1);
+           CellUtil.setAlignment(textAnswer,HorizontalAlignment.CENTER);
+           textAnswer.setCellValue("text");
+           Cell quantity=headAnswer.createCell(2);
+           CellUtil.setAlignment(textAnswer,HorizontalAlignment.CENTER);
+           quantity.setCellValue("Количество");
+
+
+             int lastRow=headAnswer.getRowNum();
+             int currentRow=0;
+               for (Map<String,Object> answer:reportBeanQuestion.getAnswers()){
+                   Map<Long,Integer> studentAnswer= UtilReport.quantityStudentAnswer(reportBeanQuestion.getStudents(),reportBeanQuestion.getAnswers());
+
+                  if(currentRow==0) {
+                      Row row = sheet1.createRow(lastRow+1);
+                      Cell id = row.createCell(0);
+                      Cell textAns = row.createCell(1);
+                      Cell quantityAns = row.createCell(2);
+                      long idAnswers=Long.parseLong((String) answer.get("id"));
+                      id.setCellValue(idAnswers);
+                      textAns.setCellValue((String) answer.get("text"));
+                      textAns.getCellStyle().setWrapText(true);
+                      quantityAns.setCellValue(studentAnswer.get(idAnswers));
+                      CellUtil.setAlignment(id,HorizontalAlignment.CENTER);
+                      CellUtil.setAlignment(textAns,HorizontalAlignment.CENTER);
+                      currentRow=row.getRowNum();
+                  }
+                  else
+                  {
+                      Row row = sheet1.createRow(currentRow+1);
+                      Cell id = row.createCell(0);
+                      Cell textAns = row.createCell(1);
+                      Cell quantityAns = row.createCell(2);
+                      long idAnswers=Long.parseLong((String) answer.get("id"));
+                      id.setCellValue(idAnswers);
+                      id.setCellValue(Long.parseLong((String) answer.get("id")));
+                      textAns.setCellValue((String) answer.get("text"));
+                      textAns.getCellStyle().setWrapText(true);
+                      quantityAns.setCellValue(studentAnswer.get(idAnswers));
+                      CellUtil.setAlignment(id,HorizontalAlignment.CENTER);
+                      CellUtil.setAlignment(textAns,HorizontalAlignment.CENTER);
+                      currentRow=row.getRowNum();
+                  }
+           }
+            pt.drawBorders ( new  CellRangeAddress ( stringAnswer.getRowNum(),  currentRow,  0 ,  2 ),BorderStyle.MEDIUM, BorderExtent.ALL);
+            pt.applyBorders(sheet1);
+
+            /////////////////////Students/////////////////////////////////////////////////
+            Row stringStudents=sheet1.createRow(currentRow+1);
+            Cell students= stringStudents.createCell(0);
+            sheet1.addMergedRegion(new CellRangeAddress(currentRow+1,currentRow+1,0,2));
+            CellUtil.setAlignment(students,HorizontalAlignment.CENTER);
+            students.setCellValue("Студенты");
+
+
+            Row headStudents=sheet1.createRow(stringStudents.getRowNum()+1);
+            Cell idStudent=headStudents.createCell(0);
+            Cell nameStudent=headStudents.createCell(1);
+            Cell answerStudents=headStudents.createCell(2);
+            idStudent.setCellValue("id");
+            CellUtil.setAlignment(idStudent,HorizontalAlignment.CENTER);
+            nameStudent.setCellValue("name");
+            CellUtil.setAlignment(nameStudent,HorizontalAlignment.CENTER);
+            answerStudents.setCellValue("answer");
+            CellUtil.setAlignment(answerStudents,HorizontalAlignment.CENTER);
+
+
+            int lastRowStudent=headStudents.getRowNum();
+            int currentRowStudent=0;
+            for (Map<String,Object> student:reportBeanQuestion.getStudents()){
+                if(currentRowStudent==0) {
+                    Row row = sheet1.createRow(lastRowStudent+1);
+                    Cell id = row.createCell(0);
+                    Cell name = row.createCell(1);
+                    Cell answer = row.createCell(2);
+                    long idStudents=Long.parseLong((String) student.get("id"));
+                    id.setCellValue(idStudents);
+                    name.setCellValue((String) student.get("name"));
+                    name.getCellStyle().setWrapText(true);
+                    answer.setCellValue(Long.parseLong((String) student.get("answer")));
+                    CellUtil.setAlignment(id,HorizontalAlignment.CENTER);
+                    CellUtil.setAlignment(name,HorizontalAlignment.CENTER);
+                    CellUtil.setAlignment(answer,HorizontalAlignment.CENTER);
+                    currentRowStudent=row.getRowNum();
                 }
-
-                Cell result = row1.createCell(resultAssessment);
-                result.setCellValue(df.format(student.getResultAssessment()));
-                count++;
+                else
+                {
+                    Row row = sheet1.createRow(currentRowStudent+1);
+                    Cell id = row.createCell(0);
+                    Cell name = row.createCell(1);
+                    Cell answer = row.createCell(2);
+                    long idStudents=Long.parseLong((String) student.get("id"));
+                    id.setCellValue(idStudents);
+                    name.setCellValue((String) student.get("name"));
+                    name.getCellStyle().setWrapText(true);
+                    answer.setCellValue(Long.parseLong((String) student.get("answer")));
+                    CellUtil.setAlignment(id,HorizontalAlignment.CENTER);
+                    CellUtil.setAlignment(name,HorizontalAlignment.CENTER);
+                    CellUtil.setAlignment(answer,HorizontalAlignment.CENTER);
+                    currentRowStudent=row.getRowNum();
+                }
             }
-            workbook.write(fileOut);
-        } catch (FileNotFoundException f) {
-            System.out.println(f.getMessage());
-        } catch (IOException e) {
+
+            pt.drawBorders ( new  CellRangeAddress ( stringStudents.getRowNum(),  currentRowStudent,  0 ,  2 ),BorderStyle.MEDIUM, BorderExtent.ALL);
+            pt.applyBorders(sheet1);
+
+            Header header = sheet1.getHeader();
+            header.setCenter("Отчет по вопросу №  " + reportBeanQuestion.getId());
+            workbook.write (fileOut);
+        }catch (IOException e) {
             e.printStackTrace();
         }
     }
 }
-
-    /*public void createReport(String s){
-        System.out.println("excel");
-        ReportBeanQuestion reportBeanQuestion=new JsonParser().parse(s);
-        Workbook workbook=new HSSFWorkbook();
-        File file=new File("C:\\Users\\A.Asmalouski\\IdeaProjects\\Testing\\reports","Report.xls");
-
-        try (OutputStream fileOut =  new FileOutputStream(file)) {
-            Sheet sheet1 = workbook.createSheet ( "Question № "+reportBeanQuestion.getId());
-
-            int resultAssessment=7;
-
-            Row head=sheet1.createRow(0);
-            Cell headCell=head.createCell(0);
-            headCell.setCellValue(reportBeanQuestion.getText());
-            //sheet1.addMergedRegion(new CellRangeAddress(0,0,0,5));
-            sheet1.autoSizeColumn(0);
-            Row row = sheet1.createRow (1);
-            Cell id = row.createCell (0);
-            id.setCellValue("id");
-            Cell name = row.createCell (1);
-            name.setCellValue("name");
-            Cell answerFromStudent=row.createCell(2);
-            answerFromStudent.setCellValue("answer");
-
-            Header header=sheet1.getHeader();
-            header.setCenter("Отчет по вопросу №  "+reportBeanQuestion.getId());
-          //  int count=2;
-          //  for(Map<String,Object> students:reportBeanQuestion.getStudents()){
-           //     Row myRow=sheet1.createRow(count);
-            //    myRow.createCell(0).setCellValue(Long.parseLong((String) students.get("id")));
-            //    myRow.createCell(1).setCellValue((String) students.get("name"));
-             //   myRow.createCell(2).setCellValue(Long.parseLong((String)students.get("answer")));
-             //   count++;
-           // }
-           //     workbook.write (fileOut);
-           // } catch (FileNotFoundException ex) {
-          //  ex.printStackTrace();
-      //  } catch (IOException ex) {
-       //     ex.printStackTrace();
-      //  }*/
 
 
 

@@ -1,7 +1,6 @@
 package generateReport.jasperReports;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -51,10 +50,6 @@ public class ReportBeanQuestion {
 
     public void setStudents(List<Map<String, Object>> students) {
         this.students = students;
-    }
-
-    public Map<String, Integer> getCountAnswer() {
-        return countAnswer;
     }
 
     public void setCountAnswer(Map<String, Integer> countAnswer) {

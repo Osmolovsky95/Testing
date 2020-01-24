@@ -184,15 +184,17 @@
 				</reportElement>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="question" uuid="5c57525d-e0c0-4637-b61c-9300c17b7685">
-						<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JsonDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("question") ]]></dataSourceExpression>
+						<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JsonDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("question")]]></dataSourceExpression>
 					</datasetRun>
 					<jr:columnGroup width="594" uuid="415fba75-9757-4353-86fd-3edd04bcd99d">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Columns [3]"/>
 						<jr:tableHeader style="Table 2_TH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="594" height="30" uuid="5a85e15b-ba07-4f34-a73c-6138c9a62475"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<text><![CDATA[Question]]></text>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<text><![CDATA[Вопрос]]></text>
 							</staticText>
 						</jr:tableHeader>
 						<jr:column width="198" uuid="88e2873f-03c1-4a97-baaf-20cdeda7e387">
@@ -209,7 +211,9 @@
 							<jr:detailCell style="Table 2_TD" height="30">
 								<textField>
 									<reportElement x="0" y="0" width="198" height="30" uuid="460f4a3b-d078-48a7-ae96-6c2ba5dad8b6"/>
-									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="DejaVu Sans"/>
+									</textElement>
 									<textFieldExpression><![CDATA[$F{goodAnswer}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
@@ -227,8 +231,10 @@
 							<jr:columnFooter style="Table 2_CH" height="30" rowSpan="1"/>
 							<jr:detailCell style="Table 2_TD" height="30">
 								<textField>
-									<reportElement x="0" y="0" width="198" height="30" uuid="365a5c69-1558-42ca-a2fd-a3aa318a433c"/>
-									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="198" height="30" uuid="365a5c69-1558-42ca-a2fd-a3aa318a433c"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="DejaVu Sans"/>
+									</textElement>
 									<textFieldExpression><![CDATA[$F{text}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
@@ -239,15 +245,19 @@
 							<jr:columnHeader style="Table 2_CH" height="30" rowSpan="1">
 								<staticText>
 									<reportElement x="0" y="0" width="198" height="30" uuid="b60333c4-2251-4961-be01-95d56921169f"/>
-									<textElement textAlignment="Center" verticalAlignment="Middle"/>
-									<text><![CDATA[goodAnswer]]></text>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="DejaVu Sans"/>
+									</textElement>
+									<text><![CDATA[Правильный ответ]]></text>
 								</staticText>
 							</jr:columnHeader>
 							<jr:columnFooter style="Table 2_CH" height="30" rowSpan="1"/>
 							<jr:detailCell style="Table 2_TD" height="30">
 								<textField>
 									<reportElement x="0" y="0" width="198" height="30" uuid="52b4e7fa-9ac5-474d-be77-0aa3dc41bc33"/>
-									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="DejaVu Sans"/>
+									</textElement>
 									<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
@@ -268,7 +278,7 @@
 				</reportElement>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="students" uuid="90df6fe7-6bfa-41f5-b709-b4e27ef5d237">
-						<dataSourceExpression><![CDATA[ ((net.sf.jasperreports.engine.data.JsonDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("students")]]></dataSourceExpression>
+						<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JsonDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("students")]]></dataSourceExpression>
 					</datasetRun>
 					<jr:columnGroup width="324" uuid="1e3a393c-daec-42d7-9a1b-3d4389a23f93">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Columns [3]"/>
@@ -277,8 +287,10 @@
 							<jr:tableHeader style="Table 1_TH" height="30" rowSpan="1">
 								<staticText>
 									<reportElement x="0" y="0" width="324" height="30" uuid="e7de4189-b510-497d-9c15-8ecb35b59a6b"/>
-									<textElement textAlignment="Center" verticalAlignment="Middle"/>
-									<text><![CDATA[Students]]></text>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="DejaVu Sans"/>
+									</textElement>
+									<text><![CDATA[Студенты]]></text>
 								</staticText>
 							</jr:tableHeader>
 							<jr:column width="61" uuid="d250aafe-205a-47e8-8119-245721534994">
@@ -293,7 +305,9 @@
 								<jr:detailCell style="Table 1_TD" height="30">
 									<textField>
 										<reportElement x="0" y="0" width="61" height="30" uuid="f0d1e14e-0fcd-44c6-a92c-c1b10c889107"/>
-										<textElement textAlignment="Center"/>
+										<textElement textAlignment="Center">
+											<font fontName="DejaVu Sans"/>
+										</textElement>
 										<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 									</textField>
 								</jr:detailCell>
@@ -303,14 +317,18 @@
 								<jr:tableHeader style="Table 1_TH" height="30" rowSpan="1">
 									<staticText>
 										<reportElement x="0" y="0" width="124" height="30" uuid="838bafb2-36a6-4f14-8ff6-772737c0a5eb"/>
-										<textElement textAlignment="Center"/>
-										<text><![CDATA[name]]></text>
+										<textElement textAlignment="Center">
+											<font fontName="DejaVu Sans"/>
+										</textElement>
+										<text><![CDATA[Имя]]></text>
 									</staticText>
 								</jr:tableHeader>
 								<jr:detailCell style="Table 1_TD" height="30">
 									<textField>
 										<reportElement x="0" y="0" width="124" height="30" uuid="d825be82-0c4a-4ebb-8971-9467b5505328"/>
-										<textElement textAlignment="Center"/>
+										<textElement textAlignment="Center">
+											<font fontName="DejaVu Sans"/>
+										</textElement>
 										<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
 									</textField>
 								</jr:detailCell>
@@ -320,14 +338,18 @@
 								<jr:tableHeader style="Table 1_TH" height="30" rowSpan="1">
 									<staticText>
 										<reportElement x="0" y="0" width="139" height="30" uuid="48c44af0-6c14-41c5-9da2-4552a4c01e18"/>
-										<textElement textAlignment="Center"/>
-										<text><![CDATA[answer]]></text>
+										<textElement textAlignment="Center">
+											<font fontName="DejaVu Sans"/>
+										</textElement>
+										<text><![CDATA[Ответ]]></text>
 									</staticText>
 								</jr:tableHeader>
 								<jr:detailCell style="Table 1_TD" height="30">
 									<textField>
 										<reportElement x="0" y="0" width="139" height="30" uuid="d6e0d84e-5b3d-4ec7-b7b4-968d97b65860"/>
-										<textElement textAlignment="Center"/>
+										<textElement textAlignment="Center">
+											<font fontName="DejaVu Sans"/>
+										</textElement>
 										<textFieldExpression><![CDATA[$F{answer}]]></textFieldExpression>
 									</textField>
 								</jr:detailCell>
@@ -337,7 +359,7 @@
 				</jr:table>
 			</componentElement>
 			<componentElement>
-				<reportElement x="-20" y="0" width="270" height="90" uuid="6dc331ad-3149-4b04-bcf1-e66260db9284">
+				<reportElement stretchType="RelativeToTallestObject" x="-20" y="0" width="270" height="90" uuid="6dc331ad-3149-4b04-bcf1-e66260db9284">
 					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 3_TH"/>
 					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 3_CH"/>
@@ -352,13 +374,14 @@
 						<jr:tableHeader style="Table 3_TH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="270" height="30" uuid="9f27aff2-2f95-46df-aee3-c362550fdfba"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<text><![CDATA[Answers]]></text>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<text><![CDATA[Ответ]]></text>
 							</staticText>
 						</jr:tableHeader>
 						<jr:column width="130" uuid="7c16e233-4589-47cd-9712-926552f50d16">
 							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
-							<jr:tableHeader style="Table 3_TH" height="30" rowSpan="1"/>
 							<jr:columnHeader style="Table 3_CH" height="30" rowSpan="1">
 								<staticText>
 									<reportElement x="0" y="0" width="130" height="30" uuid="115ef2b2-157e-47bb-a29a-6f49941db2d6"/>
@@ -369,25 +392,30 @@
 							<jr:detailCell style="Table 3_TD" height="30">
 								<textField>
 									<reportElement x="0" y="0" width="130" height="30" uuid="7dfec7de-14c6-4831-82d9-34bda5192e9c"/>
-									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="DejaVu Sans"/>
+									</textElement>
 									<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>
 						</jr:column>
 						<jr:column width="140" uuid="3858001d-4d1a-42af-b714-cfa649cb0d66">
 							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
-							<jr:tableHeader style="Table 3_TH" height="30" rowSpan="1"/>
 							<jr:columnHeader style="Table 3_CH" height="30" rowSpan="1">
 								<staticText>
 									<reportElement x="0" y="0" width="140" height="30" uuid="a71f6f8f-3cf4-4bc7-b53c-294f23d42769"/>
-									<textElement textAlignment="Center" verticalAlignment="Middle"/>
-									<text><![CDATA[text]]></text>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="DejaVu Sans"/>
+									</textElement>
+									<text><![CDATA[Текст]]></text>
 								</staticText>
 							</jr:columnHeader>
 							<jr:detailCell style="Table 3_TD" height="30">
-								<textField>
-									<reportElement x="0" y="0" width="140" height="30" uuid="eae1cbae-5d5a-4f39-85f6-c29da251a00a"/>
-									<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textField textAdjust="StretchHeight">
+									<reportElement key="" positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="140" height="30" isPrintWhenDetailOverflows="true" uuid="eae1cbae-5d5a-4f39-85f6-c29da251a00a"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="DejaVu Sans"/>
+									</textElement>
 									<textFieldExpression><![CDATA[$F{text}]]></textFieldExpression>
 								</textField>
 							</jr:detailCell>

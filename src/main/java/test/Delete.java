@@ -3,8 +3,11 @@ package test;
 import dao.AnswerDAO;
 import dao.loaders.LoaderQuestionsDAO;
 import generateReport.ExcelCreator;
+import generateReport.WordCreator;
 import generateReport.jasperReports.PDFCreator;
 import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+
 import java.io.*;
 import java.util.*;
 
@@ -14,6 +17,7 @@ public class Delete {
       new LoaderQuestionsDAO().load();
              String s=360+"";
       // new ExcelCreator().createReport(s);
+
         new PDFCreator().createReport(s);
       //  new PDFCreator().createReport(AnswerDAO.selectStudentAnswers(s));
 
@@ -24,12 +28,6 @@ public class Delete {
     //    jsonObject1.get("goodAnswer");
      //   List answers=new ArrayList();
    //    JSONArray jsonArray = jsonObject1.getJSONArray("answers");
-    //    System.out.println(jsonArray.toList().toString());
-
-
-
-
-
-
+    //    System.out.println(jsonArray.toList().toString())
     }
 }

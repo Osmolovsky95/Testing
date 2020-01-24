@@ -1,6 +1,5 @@
 package servlets.parametrs;
 import dao.AnswerDAO;
-import dao.loaders.LoaderQuestionsDAO;
 import data.AssessmentSetter;
 import data.student.Student;
 import dao.loaders.LoaderStudentsDAO;
