@@ -19,7 +19,6 @@ public class BankQuestions {
         }
         return localInstance;
     }
-
     public List<Question> getQuestions() {
         return questions;
     }

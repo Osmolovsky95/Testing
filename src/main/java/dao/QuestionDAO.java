@@ -19,7 +19,7 @@ public class QuestionDAO implements DAO {
           while (rs.next()) {
               id = rs.getInt(1);
           }
-          //Добавляем ответы
+
           question.setId(id);
           preparedStatement.getConnection().close();
       } catch (ClassNotFoundException | SQLException e) {

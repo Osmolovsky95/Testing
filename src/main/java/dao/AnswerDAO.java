@@ -36,7 +36,7 @@ public class AnswerDAO implements DAO {
        }
     }
 
-    private static void addTrueAnswer(long answer_id, long question_id)  {
+    public static void addTrueAnswer(long answer_id, long question_id)  {
         String insertSQL = "INSERT INTO trueAnswers (id_answer,id_question) Values (?,?)";
         try{
         PreparedStatement preparedStatement =new AnswerDAO().getPreparedStatement(insertSQL);

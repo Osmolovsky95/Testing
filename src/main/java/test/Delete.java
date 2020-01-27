@@ -1,12 +1,11 @@
 package test;
 
-import dao.AnswerDAO;
-import dao.loaders.LoaderQuestionsDAO;
-import generateReport.ExcelCreator;
-import generateReport.WordCreator;
-import generateReport.jasperReports.PDFCreator;
+import dao.spring.AnswerSpringDAO;
+import dao.spring.QuestionSpringDAO;
+import data.question.Question;
 import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperCompileManager;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import java.io.*;
 import java.util.*;
@@ -14,11 +13,28 @@ import java.util.*;
 public class Delete {
     public static void main(String[] args) throws IOException, JRException {
 
-      new LoaderQuestionsDAO().load();
-             String s=360+"";
+    //  new LoaderQuestionsDAO().load();
+             //String s=360+"";
+        Question question=new Question();
+        question.setQuestion("asdasdas");
+        question.setTrueNumber(1);
+        question.setAssessment(1);
+        ArrayList arrayList=new ArrayList();
+        arrayList.add("вставлен");
+        arrayList.add("вставлен");
+        question.setAnswers(arrayList);
+
+        ApplicationContext applicationContext=new FileSystemXmlApplicationContext("src/main/resources/spring/context.xml");
+       // JdbcTemplate jdbcTemplate=(JdbcTemplate) applicationContext.getBean("jdbcTemplate");
+
+
+        QuestionSpringDAO questionSpringDAO=applicationContext.getBean("questionSpringDAO",QuestionSpringDAO.class);
+        questionSpringDAO.addQuestion(question);
+
+
       // new ExcelCreator().createReport(s);
 
-        new PDFCreator().createReport(s);
+      ///  new PDFCreator().createReport(s);
       //  new PDFCreator().createReport(AnswerDAO.selectStudentAnswers(s));
 
 
