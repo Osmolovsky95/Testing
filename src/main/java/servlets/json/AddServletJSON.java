@@ -3,6 +3,7 @@ package servlets.json;
 import data.student.Student;
 import org.json.JSONObject;
 import service.StudentService;
+import test.Context;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +20,7 @@ public class AddServletJSON extends HttpServlet {
              String studentPass=jsonObject.getString("pass");
 
              Student student=new Student(studentName,studentPass);
-             new StudentService().addStudent(student);
+             Context.getInstance().getBean("studentService",StudentService.class).addStudent(student);
     }
 }
 

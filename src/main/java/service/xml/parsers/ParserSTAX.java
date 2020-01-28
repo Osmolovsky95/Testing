@@ -2,6 +2,7 @@ package service.xml.parsers;
 
 import data.question.Question;
 import service.QuestionService;
+import test.Context;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
@@ -42,7 +43,7 @@ public class ParserSTAX implements IParser {
         while (xmlStreamReader.hasNext()){
             int event = xmlStreamReader.next();
             if (event == XMLEvent.START_ELEMENT && xmlStreamReader.getLocalName().equals("question")) {
-                question=new Question();
+                question = Context.getInstance().getBean("question",Question.class);
             }
             if (event == XMLEvent.START_ELEMENT && xmlStreamReader.getLocalName().equals("questionText")) {
                 question.setQuestion(xmlStreamReader.getElementText());

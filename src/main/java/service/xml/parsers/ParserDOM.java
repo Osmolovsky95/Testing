@@ -7,6 +7,8 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import service.QuestionService;
 import service.xml.IXML;
+import test.Context;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -20,7 +22,7 @@ public class ParserDOM implements IParser {
     @Override
     public void parse(File file) {
         List<IXML> listQuestions = new ArrayList<>();
-        QuestionService questionService = new QuestionService();
+        QuestionService questionService = Context.getInstance().getBean("questionService",QuestionService.class);
         try {
             DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             Document document = documentBuilder.parse(file);
@@ -29,7 +31,7 @@ public class ParserDOM implements IParser {
             for (int i = 1; i < questions.getLength(); i++) {
                 Node question = questions.item(i);
                 NodeList questionProps = question.getChildNodes();
-                Question myQuestion = new Question();
+                Question myQuestion = Context.getInstance().getBean("question",Question.class);
                 int trueNumber = 0;
                 for (int j = 0; j < questionProps.getLength(); j++) {
                     Node node = questionProps.item(j);
@@ -56,7 +58,7 @@ public class ParserDOM implements IParser {
 
     public void parse(InputStream inputStream){
         List<IXML> listQuestions = new ArrayList<>();
-        QuestionService questionService = new QuestionService();
+        QuestionService questionService =  Context.getInstance().getBean("questionService",QuestionService.class);
         try {
             DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             Document document = documentBuilder.parse(inputStream);
@@ -65,8 +67,7 @@ public class ParserDOM implements IParser {
             for (int i = 1; i < questions.getLength(); i++) {
                 Node question = questions.item(i);
                 NodeList questionProps = question.getChildNodes();
-                System.out.println(question.getFirstChild());
-                Question myQuestion = new Question();
+                Question myQuestion = Context.getInstance().getBean("question",Question.class);
                 int trueNumber = 0;
                 for (int j = 0; j < questionProps.getLength(); j++) {
                     Node node = questionProps.item(j);
@@ -91,7 +92,6 @@ public class ParserDOM implements IParser {
             e.printStackTrace();
         }
     }
-
 }
 
 

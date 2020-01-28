@@ -13,7 +13,6 @@ import java.util.Map;
 public class ExcelCreator implements IReportCreator {
 
     public void createReport(String s)  {
-        System.out.println("createReport");
         ReportBeanQuestion reportBeanQuestion = new ReportBeanCreator().parse(s);
         XSSFWorkbook workbook=new XSSFWorkbook();
         File file = new File("C:\\Users\\A.Asmalouski\\IdeaProjects\\Testing\\reports\\"+"question.xlsx");
@@ -41,7 +40,6 @@ public class ExcelCreator implements IReportCreator {
 
                               ////////Question
 
-            XSSFCellStyle xssfCellStyle=(XSSFCellStyle) workbook.createCellStyle();
             sheet1.setColumnWidth(2,5000);
             Cell goodAnswer=headTableQuestion.createCell(2);
             goodAnswer.setCellValue("goodAnswer");

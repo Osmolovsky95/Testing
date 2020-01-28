@@ -1,8 +1,11 @@
 package servlets;
 
 import dao.loaders.ILoader;
-import dao.loaders.LoaderQuestionsDAO;
+import dao.loaders.LoaderQuestionsSpringDAO;
 import dao.loaders.LoaderStudentsDAO;
+import dao.loaders.LoaderStudentsSpringDAO;
+import test.Context;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,9 +20,9 @@ public class LoaderServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         req.setCharacterEncoding("UTF-8");
         if(count==0) {
-            ILoader loaderStudents = new LoaderStudentsDAO();
+            LoaderStudentsSpringDAO loaderStudents = Context.getInstance().getBean("loaderStudentsSpringDAO", LoaderStudentsSpringDAO.class);
             loaderStudents.load();
-            ILoader loaderQuestions = new LoaderQuestionsDAO();
+            LoaderQuestionsSpringDAO loaderQuestions = Context.getInstance().getBean("loaderQuestionsSpringDAO", LoaderQuestionsSpringDAO.class);
             loaderQuestions.load();
             count++;
         }

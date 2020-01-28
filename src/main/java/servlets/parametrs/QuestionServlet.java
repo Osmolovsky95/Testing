@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import data.question.Question;
 import service.QuestionService;
+import test.Context;
 
 
 public class QuestionServlet extends HttpServlet {
@@ -44,7 +45,7 @@ public class QuestionServlet extends HttpServlet {
 
         double assessment=(Double.parseDouble(req.getParameter("assessment")));
         Question myQuestion = new Question(qst,answers,assessment);
-        QuestionService questionService=new QuestionService();
+        QuestionService questionService= Context.getInstance().getBean("questionService",QuestionService.class);
         questionService.addQuestion(myQuestion,trueNumber);
 
         PrintWriter pw=resp.getWriter();

@@ -1,4 +1,4 @@
-package dao;
+package dao.jdbc;
 import dao.loaders.LoaderStudentsDAO;
 import data.student.GroupStudents;
 import data.student.Student;

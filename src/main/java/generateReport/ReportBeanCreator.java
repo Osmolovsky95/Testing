@@ -1,6 +1,6 @@
 package generateReport;
 
-import dao.AnswerDAO;
+import dao.jdbc.AnswerDAO;
 import generateReport.jasperReports.ReportBeanQuestion;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ReportBeanCreator {
+
     public ReportBeanQuestion parse(String s){
         ReportBeanQuestion reportBeanQuestion=new ReportBeanQuestion();
         JSONObject jsonObject= AnswerDAO.selectStudentAnswers(s);

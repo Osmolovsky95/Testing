@@ -4,7 +4,6 @@ import data.question.Question;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 import service.QuestionService;
-
 import java.util.ArrayList;
 import java.util.List;
 

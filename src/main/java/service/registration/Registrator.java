@@ -1,7 +1,7 @@
 package service.registration;
 
 import data.Administrator;
-import dao.DAO;
+import dao.jdbc.DAO;
 import data.IPerson;
 import data.student.Student;
 import java.sql.PreparedStatement;

@@ -1,6 +1,7 @@
-package data;
+package dao;
 
-import dao.DAO;
+
+import dao.jdbc.DAO;
 import data.student.Student;
 
 import java.sql.PreparedStatement;

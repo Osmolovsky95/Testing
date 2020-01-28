@@ -1,6 +1,6 @@
 package dao.spring;
 
-import dao.AnswerDAO;
+import dao.jdbc.AnswerDAO;
 import data.question.Question;
 import data.student.Student;
 import org.json.JSONObject;

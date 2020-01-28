@@ -2,6 +2,8 @@ package servlets.parametrs;
 
 import data.student.Student;
 import service.StudentService;
+import test.Context;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,9 +18,10 @@ public class DeleteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
         String name = req.getParameter("name");
-        Student student=new Student();
+        Student student= Context.getInstance().getBean("student",Student.class);
         student.setName(name);
-        boolean result= new StudentService().deleteStudent(student);
+        StudentService studentService=Context.getInstance().getBean("studentService",StudentService.class);
+        boolean result= studentService.deleteStudent(student);
         req.setAttribute("result",result);
         req.setAttribute("name",name);
         doGet(req,resp);

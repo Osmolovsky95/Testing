@@ -1,6 +1,6 @@
 package servlets.parametrs;
-import dao.AnswerDAO;
-import data.AssessmentSetter;
+import dao.jdbc.AnswerDAO;
+import dao.AssessmentSetter;
 import data.student.Student;
 import dao.loaders.LoaderStudentsDAO;
 import data.question.Question;
@@ -55,13 +55,11 @@ public class TestServlet extends HttpServlet {
 
             if (countQuestion > 1) {
                 long currentAnswerId=Long.parseLong(req.getParameter("0"));
-                System.out.println("id_ques "+question.getId()+"  "+student.getId()+ "  answer" +currentAnswerId);
                 AnswerDAO.addStudentAnswers(question,student,currentAnswerId);
                 if (currentAnswerId == currentQuestion.getTrueNumber()) {
                     double assessment=(double)session.getAttribute("assessment");
                     assessment+=currentQuestion.getAssessment();
                     session.setAttribute("assessment",assessment);
-
                 }
         }
 
@@ -84,9 +82,6 @@ public class TestServlet extends HttpServlet {
             pw.println("Your assessment is  " + session.getAttribute("assessment"));
             new LoaderStudentsDAO().load();
             session.invalidate();
-            for (Question question:list){
-                System.out.println(question);
-            }
         }
     }
     }

@@ -12,6 +12,7 @@ import data.*;
 import data.student.Student;
 import service.registration.Registrator;
 import service.registration.SignInEnum;
+import test.Context;
 
 
 public class StudentSignInServlet extends HttpServlet {
@@ -29,7 +30,7 @@ public class StudentSignInServlet extends HttpServlet {
         String name = req.getParameter("name");
         String password = req.getParameter("pass");
         PrintWriter pw = resp.getWriter();
-        Registrator registrator=new Registrator();
+        Registrator registrator=Context.getInstance().getBean("registrator",Registrator.class);
         IPerson student=new Student(name,password);
         student=registrator.registration(student,SignInEnum.STUDENT);
         if(!(student==null)){

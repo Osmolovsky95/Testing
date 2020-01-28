@@ -22,21 +22,10 @@
     <bean class="dao.spring.StudentSpringDAO" id="studentSpringDAO">
         <constructor-arg ref="jdbcTemplate"/>
     </bean>
-    <bean class="dao.loaders.LoaderQuestionsSpringDAO" id="loaderQuestionsSpringDAO">
-        <constructor-arg ref="jdbcTemplate"/>
-    </bean>
-    <bean class="dao.loaders.LoaderStudentsSpringDAO" id="loaderStudentsSpringDAO">
-        <constructor-arg ref="jdbcTemplate"/>
-    </bean>
 
     <bean class="data.student.Student" id="student" scope="prototype"/>
-    <bean class="data.question.Question" id="question" scope="prototype"/>
     <bean class="service.registration.Registrator" id="registrator"/>
     <bean class="service.QuestionService" id="questionService"/>
-    <bean class="service.StudentService" id="studentService"/>
-    <bean class="service.GenerateReportService" id="generateReportService"/>
-    <bean class="generateReport.WordCreator" id="wordCreator"/>
-
 
 
 </beans>

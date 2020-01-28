@@ -3,6 +3,8 @@ package servlets.json;
 import org.json.JSONObject;
 import data.question.Question;
 import service.QuestionService;
+import test.Context;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,7 +31,7 @@ public class QuestionServletJSON extends HttpServlet {
         answers.add(answer3);
         answers.add(answer4);
 
-        QuestionService questionService=new QuestionService();
+        QuestionService questionService= Context.getInstance().getBean("questionService",QuestionService.class);
         questionService.addQuestion(new Question(question,answers,assessment),trueNumber);
     }
 

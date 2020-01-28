@@ -24,7 +24,6 @@ public class QuestionJSON implements IParserJSON {
             ex.printStackTrace();
         }
         Question question=(Question) this.fromJSON(file);
-        System.out.println(question);
         return file;
     }
 

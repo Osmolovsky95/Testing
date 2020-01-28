@@ -1,17 +1,19 @@
 package service;
 
-import dao.StudentDAO;
+import dao.jdbc.StudentDAO;
 import dao.loaders.LoaderStudentsDAO;
+import dao.spring.StudentSpringDAO;
 import data.student.GroupStudents;
 import data.student.Student;
 import service.json.StudentJSON;
+import test.Context;
 import java.io.File;
 import java.util.Set;
 
 public class StudentService {
 
     public void addStudent(Student student){
-        StudentDAO.insertStudent(student);
+        Context.getInstance().getBean("studentSpringDAO", StudentSpringDAO.class).insertStudent(student);
     }
 
     public boolean deleteStudent(Student student){

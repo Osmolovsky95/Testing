@@ -2,6 +2,8 @@ package servlets.parametrs;
 
 import data.student.Student;
 import service.StudentService;
+import test.Context;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,7 +26,7 @@ public class AddServlet extends HttpServlet {
             String name = req.getParameter("name");
             String password= req.getParameter("pass");
             Student student=new Student(name,password);
-            new StudentService().addStudent(student);
+            Context.getInstance().getBean("studentService",StudentService.class).addStudent(student);
             req.setAttribute("userName", name);
             doGet(req, resp);
 

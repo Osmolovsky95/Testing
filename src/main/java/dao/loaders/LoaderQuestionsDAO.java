@@ -1,6 +1,6 @@
 package dao.loaders;
 
-import dao.DAO;
+import dao.jdbc.DAO;
 import data.question.Question;
 import data.question.BankQuestions;
 import java.sql.*;

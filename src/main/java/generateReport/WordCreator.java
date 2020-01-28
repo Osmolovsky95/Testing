@@ -1,5 +1,5 @@
 package generateReport;
-import dao.AnswerDAO;
+import dao.jdbc.AnswerDAO;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -36,7 +36,6 @@ public class WordCreator implements IReportCreator {
                 File exporterReport=new File("C:\\Users\\A.Asmalouski\\IdeaProjects\\Testing\\reports\\question360.docx");
                 exporter.setExporterOutput(new SimpleOutputStreamExporterOutput(exporterReport));
                 exporter.exportReport();
-
             }
         } catch (JRException ex) {
             ex.printStackTrace();

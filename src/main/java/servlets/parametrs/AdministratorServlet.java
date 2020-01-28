@@ -5,6 +5,8 @@ import data.Administrator;
 import data.IPerson;
 import service.registration.Registrator;
 import service.registration.SignInEnum;
+import test.Context;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -27,7 +29,7 @@ public class AdministratorServlet extends HttpServlet {
         String name = req.getParameter("name");
         String password = req.getParameter("pass");
 
-        Registrator registrator=new Registrator();
+        Registrator registrator= Context.getInstance().getBean("registrator",Registrator.class);
         IPerson administrator=new Administrator(name,password);
         administrator =(Administrator)registrator.registration(administrator, SignInEnum.ADMINISTRATOR);
         if(!(administrator==null)){
